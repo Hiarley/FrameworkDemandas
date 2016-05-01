@@ -9,6 +9,6 @@ package control;
  *
  * @author hiarl
  */
-public class GerenciadorHistorico {
+public class GerenciadorDemandas {
     
 }

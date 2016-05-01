@@ -5,10 +5,18 @@
  */
 package dao;
 
+import domain.Demanda;
+import domain.Historico;
+import java.util.ArrayList;
+
 /**
  *
  * @author hiarl
  */
 public interface IDaoHistorico {
-    
+    public void adicionarHistorico(Historico historico);
+    public void removerHistorico(Historico historico);
+    public void atualizarHistorico(Historico historico);
+    public Historico pegarHistorico(long idHistorico);
+    public Demanda listarHistoricos(long idDemanda);
 }

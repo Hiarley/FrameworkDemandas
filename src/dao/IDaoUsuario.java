@@ -5,6 +5,7 @@
  */
 package dao;
 
+import domain.Usuario;
 import java.util.ArrayList;
 
 /**
