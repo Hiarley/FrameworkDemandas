@@ -9,6 +9,6 @@ package dao;
  *
  * @author hiarl
  */
-public interface DaoUsuario {
+public interface IDaoCliente {
     
 }
