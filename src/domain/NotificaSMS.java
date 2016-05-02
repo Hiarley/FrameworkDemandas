@@ -9,6 +9,6 @@ package domain;
  *
  * @author hiarl
  */
-public class NotificaSMS {
+public class NotificaSMS extends Notificao{
     
 }

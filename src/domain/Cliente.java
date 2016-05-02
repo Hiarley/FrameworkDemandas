@@ -10,6 +10,7 @@ package domain;
  * @author hiarl
  */
 public class Cliente {
-
+    private int idCliente;
+    private String nome;
     
 }

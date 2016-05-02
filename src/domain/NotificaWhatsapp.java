@@ -9,6 +9,6 @@ package domain;
  *
  * @author hiarl
  */
-public class NotificaWhatsapp {
+public class NotificaWhatsapp extends Notificao{
     
 }

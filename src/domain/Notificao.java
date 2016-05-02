@@ -9,6 +9,6 @@ package domain;
  *
  * @author hiarl
  */
-public class Notificao {
+public abstract class Notificao {
     
 }
