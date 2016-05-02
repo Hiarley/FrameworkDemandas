@@ -5,10 +5,18 @@
  */
 package dao;
 
+import domain.Cliente;
+import domain.Setor;
+import java.util.ArrayList;
+
 /**
  *
  * @author hiarl
  */
 public interface IDaoSetor {
-    
+    public void adicionarSetor(Setor setor);
+    public void removerSetor(Setor setor);
+    public void atualizarSetor(Setor setor);
+    public Setor pegarSetor(long id);
+    public ArrayList<Setor> listarSetores();
 }
