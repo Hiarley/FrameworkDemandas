@@ -9,7 +9,6 @@ package domain;
  *
  * @author hiarl
  */
-public class Cliente {
-
+public class Setor {
     
 }

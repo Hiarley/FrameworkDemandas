@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/control/GerenciadorHistoricos.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/DaoCliente.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/DaoUsuario.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/Cliente.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/NotificaEmail.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/IDaoHistorico.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/NotificaWhatsapp.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/IDaoDemanda.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/DaoDemanda.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/Historico.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/control/GerenciadorNotificacao.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/Notificao.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/control/GerenciadorPagamento.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/IDaoUsuario.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/DaoHistorico.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/control/GerenciadorDemandas.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/dao/IDaoCliente.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/Usuario.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/NotificaSMS.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/Relatorio.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/control/GerenciadorUsuarios.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/control/GerenciadorClientes.java</file>
+            <file>file:/C:/Users/hiarl/Desktop/Teste%20de%20Software/FrameworkDemandas/FrameworkDemandas/src/domain/Demanda.java</file>
+        </group>
+    </open-files>
+</project-private>
