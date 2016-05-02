@@ -16,20 +16,22 @@ public class Demanda {
     private long idDemanda;
     private Date dataAbertura;
     private Usuario usuarioSolicitante;
-    private ArrayList<Historico> listHistoricoDemanda;
+    private ArrayList<Historico> listaHistoricoDemanda;
     private String descricao;
     private char status;
+    private ArrayList<Produto> listaProdutos;
 
     public Demanda() {
     }
 
-    public Demanda(long idDemanda, Date dataAbertura, Usuario usuarioSolicitante, ArrayList<Historico> listHistoricoDemanda, String descricao, char status) {
+    public Demanda(long idDemanda, Date dataAbertura, Usuario usuarioSolicitante, ArrayList<Historico> listaHistoricoDemanda, String descricao, char status, ArrayList<Produto> listaProdutos) {
         this.idDemanda = idDemanda;
         this.dataAbertura = dataAbertura;
         this.usuarioSolicitante = usuarioSolicitante;
-        this.listHistoricoDemanda = listHistoricoDemanda;
+        this.listaHistoricoDemanda = listaHistoricoDemanda;
         this.descricao = descricao;
         this.status = status;
+        this.listaProdutos = listaProdutos;
     }
 
     /**
@@ -75,17 +77,17 @@ public class Demanda {
     }
 
     /**
-     * @return the listHistoricoDemanda
+     * @return the listaHistoricoDemanda
      */
-    public ArrayList<Historico> getListHistoricoDemanda() {
-        return listHistoricoDemanda;
+    public ArrayList<Historico> getListaHistoricoDemanda() {
+        return listaHistoricoDemanda;
     }
 
     /**
-     * @param listHistoricoDemanda the listHistoricoDemanda to set
+     * @param listaHistoricoDemanda the listaHistoricoDemanda to set
      */
-    public void setListHistoricoDemanda(ArrayList<Historico> listHistoricoDemanda) {
-        this.listHistoricoDemanda = listHistoricoDemanda;
+    public void setListaHistoricoDemanda(ArrayList<Historico> listaHistoricoDemanda) {
+        this.listaHistoricoDemanda = listaHistoricoDemanda;
     }
 
     /**
@@ -116,6 +118,21 @@ public class Demanda {
         this.status = status;
     }
 
+    /**
+     * @return the listaProdutos
+     */
+    public ArrayList<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    /**
+     * @param listaProdutos the listaProdutos to set
+     */
+    public void setListaProdutos(ArrayList<Produto> listaProdutos) {
+        this.listaProdutos = listaProdutos;
+    }
+
+    
     
     
 }
