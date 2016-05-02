@@ -11,4 +11,6 @@ package domain;
  */
 public class NotificaWhatsapp extends Notificao{
     
+    
+    
 }
