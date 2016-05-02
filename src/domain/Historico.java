@@ -5,10 +5,14 @@
  */
 package domain;
 
+import java.util.Date;
+
 /**
  *
  * @author hiarl
  */
 public class Historico {
+    private long idHistorico;
+    private Date dataUltimaModificaco;
     
 }
