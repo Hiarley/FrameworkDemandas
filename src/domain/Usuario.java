@@ -12,9 +12,7 @@ package domain;
 public class Usuario {
     private long id;
     private String nome;
-    private int cpf;
     private String telefone;
-    private Setor setor;
     private String email;
     private String login;
     private String senha;
@@ -23,20 +21,14 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long id, String nome, int cpf, String telefone, Setor setor, String email, String login, String senha, boolean administrador) {
+    public Usuario(long id, String nome, String telefone, String email, String login, String senha, boolean administrador) {
         this.id = id;
         this.nome = nome;
-        this.cpf = cpf;
         this.telefone = telefone;
-        this.setor = setor;
         this.email = email;
         this.login = login;
         this.senha = senha;
         this.administrador = administrador;
-    }
-
-    public int getCpf() {
-        return cpf;
     }
 
     /**
@@ -68,13 +60,6 @@ public class Usuario {
     }
 
     /**
-     * @param cpf the cpf to set
-     */
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
-
-    /**
      * @return the telefone
      */
     public String getTelefone() {
@@ -86,20 +71,6 @@ public class Usuario {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    /**
-     * @return the setor
-     */
-    public Setor getSetor() {
-        return setor;
-    }
-
-    /**
-     * @param setor the setor to set
-     */
-    public void setSetor(Setor setor) {
-        this.setor = setor;
     }
 
     /**
@@ -157,6 +128,5 @@ public class Usuario {
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
     }
-    
 
 }
