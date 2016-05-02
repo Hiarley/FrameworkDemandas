@@ -17,6 +17,5 @@ public interface IDaoHistorico {
     public void adicionarHistorico(Historico historico);
     public void removerHistorico(Historico historico);
     public void atualizarHistorico(Historico historico);
-    public Historico pegarHistorico(long idHistorico);
-    public Demanda listarHistoricos(long idDemanda);
+    public ArrayList<Historico> pegarHistorico(long idDemanda);
 }
