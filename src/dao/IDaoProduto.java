@@ -19,4 +19,5 @@ public interface IDaoProduto {
     public void atualizarProduto(Produto produto);
     public Cliente pegarProduto(long id);
     public ArrayList<Produto> listarProdutos();
+    
 }
