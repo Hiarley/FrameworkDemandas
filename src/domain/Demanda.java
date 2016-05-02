@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -14,27 +15,23 @@ import java.util.Date;
 public class Demanda {
     private long idDemanda;
     private Date dataAbertura;
-    private Date ultimaModificacao;
     private Usuario usuarioSolicitante;
-    private Setor setorDemandado;
-    private Historico historicoDemanda;
+    private ArrayList<Historico> listHistoricoDemanda;
     private String descricao;
     private char status;
 
     public Demanda() {
     }
 
-    public Demanda(long idDemanda, Date dataAbertura, Date ultimaModificacao, Usuario usuarioSolicitante, Setor setorDemandado, Historico historicoDemanda, String descricao, char status) {
+    public Demanda(long idDemanda, Date dataAbertura, Usuario usuarioSolicitante, ArrayList<Historico> listHistoricoDemanda, String descricao, char status) {
         this.idDemanda = idDemanda;
         this.dataAbertura = dataAbertura;
-        this.ultimaModificacao = ultimaModificacao;
         this.usuarioSolicitante = usuarioSolicitante;
-        this.setorDemandado = setorDemandado;
-        this.historicoDemanda = historicoDemanda;
+        this.listHistoricoDemanda = listHistoricoDemanda;
         this.descricao = descricao;
         this.status = status;
     }
-    
+
     /**
      * @return the idDemanda
      */
@@ -64,20 +61,6 @@ public class Demanda {
     }
 
     /**
-     * @return the ultimaModificacao
-     */
-    public Date getUltimaModificacao() {
-        return ultimaModificacao;
-    }
-
-    /**
-     * @param ultimaModificacao the ultimaModificacao to set
-     */
-    public void setUltimaModificacao(Date ultimaModificacao) {
-        this.ultimaModificacao = ultimaModificacao;
-    }
-
-    /**
      * @return the usuarioSolicitante
      */
     public Usuario getUsuarioSolicitante() {
@@ -92,31 +75,17 @@ public class Demanda {
     }
 
     /**
-     * @return the setorDemandado
+     * @return the listHistoricoDemanda
      */
-    public Setor getSetorDemandado() {
-        return setorDemandado;
+    public ArrayList<Historico> getListHistoricoDemanda() {
+        return listHistoricoDemanda;
     }
 
     /**
-     * @param setorDemandado the setorDemandado to set
+     * @param listHistoricoDemanda the listHistoricoDemanda to set
      */
-    public void setSetorDemandado(Setor setorDemandado) {
-        this.setorDemandado = setorDemandado;
-    }
-
-    /**
-     * @return the historicoDemanda
-     */
-    public Historico getHistoricoDemanda() {
-        return historicoDemanda;
-    }
-
-    /**
-     * @param historicoDemanda the historicoDemanda to set
-     */
-    public void setHistoricoDemanda(Historico historicoDemanda) {
-        this.historicoDemanda = historicoDemanda;
+    public void setListHistoricoDemanda(ArrayList<Historico> listHistoricoDemanda) {
+        this.listHistoricoDemanda = listHistoricoDemanda;
     }
 
     /**
@@ -146,6 +115,7 @@ public class Demanda {
     public void setStatus(char status) {
         this.status = status;
     }
+
     
     
 }
