@@ -13,6 +13,76 @@ import java.util.Date;
  */
 public class Historico {
     private long idHistorico;
-    private Date dataUltimaModificaco;
+    private Date dataModificaco;
+    private String descricao;
+    private Usuario usuarioSolicitante;
+
+    public Historico() {
+    }
+
+    public Historico(long idHistorico, Date dataModificaco, String descricao, Usuario usuarioSolicitante) {
+        this.idHistorico = idHistorico;
+        this.dataModificaco = dataModificaco;
+        this.descricao = descricao;
+        this.usuarioSolicitante = usuarioSolicitante;
+    }
+    
+    
+
+    /**
+     * @return the idHistorico
+     */
+    public long getIdHistorico() {
+        return idHistorico;
+    }
+
+    /**
+     * @param idHistorico the idHistorico to set
+     */
+    public void setIdHistorico(long idHistorico) {
+        this.idHistorico = idHistorico;
+    }
+
+    /**
+     * @return the dataModificaco
+     */
+    public Date getDataModificaco() {
+        return dataModificaco;
+    }
+
+    /**
+     * @param dataModificaco the dataModificaco to set
+     */
+    public void setDataModificaco(Date dataModificaco) {
+        this.dataModificaco = dataModificaco;
+    }
+
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * @param descricao the descricao to set
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    /**
+     * @return the usuarioSolicitante
+     */
+    public Usuario getUsuarioSolicitante() {
+        return usuarioSolicitante;
+    }
+
+    /**
+     * @param usuarioSolicitante the usuarioSolicitante to set
+     */
+    public void setUsuarioSolicitante(Usuario usuarioSolicitante) {
+        this.usuarioSolicitante = usuarioSolicitante;
+    }
     
 }
