@@ -14,6 +14,16 @@ import java.util.ArrayList;
  */
 public class DaoUsuario implements IDaoUsuario{
 
+    static DaoUsuario daoUsuario = null;
+
+    public static DaoUsuario getInstance() {
+        if(daoUsuario == null){
+            daoUsuario = new DaoUsuario();
+        }
+        return daoUsuario;
+    }
+        
+    
     @Override
     public void adicionarUsuario(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

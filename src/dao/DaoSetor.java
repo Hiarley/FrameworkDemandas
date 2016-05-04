@@ -14,6 +14,16 @@ import java.util.ArrayList;
  */
 public class DaoSetor implements IDaoSetor{
 
+    static DaoSetor daoSetor = null;
+
+    public static DaoSetor getInstance() {
+        if(daoSetor == null){
+            daoSetor = new DaoSetor();
+        }
+        return daoSetor;
+    }
+        
+    
     @Override
     public void adicionarSetor(Setor setor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

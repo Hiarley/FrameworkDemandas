@@ -13,7 +13,15 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class DaoDemanda implements IDaoDemanda{
+    
+    static DaoDemanda daoDemanda = null;
 
+    public static DaoDemanda getInstance() {
+        if(daoDemanda == null){
+            daoDemanda = new DaoDemanda();
+        }
+        return daoDemanda;
+    }
     @Override
     public void adicionarDemanda(Demanda demanda) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

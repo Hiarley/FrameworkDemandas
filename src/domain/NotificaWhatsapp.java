@@ -11,13 +11,12 @@ package domain;
  */
 public class NotificaWhatsapp extends Notificao{
     
-    
-	public NotificaWhatsapp(String mensagem) {
-		super(mensagem);
-	}
-	
-	public void enviar() {
-		System.out.println("Enviando notificacao por whatsapp...");
-		System.out.println(getMensagem());
-	}
+    public NotificaWhatsapp(String mensagem) {
+            super(mensagem);
+    }
+
+    public void enviar() {
+            System.out.println("Enviando notificacao por whatsapp...");
+            System.out.println(getMensagem());
+    }
 }

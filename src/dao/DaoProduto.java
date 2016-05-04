@@ -15,6 +15,16 @@ import java.util.ArrayList;
  */
 public class DaoProduto implements IDaoProduto{
 
+    static DaoProduto daoProduto = null;
+
+    public static DaoProduto getInstance() {
+        if(daoProduto == null){
+            daoProduto = new DaoProduto();
+        }
+        return daoProduto;
+    }
+        
+    
     @Override
     public void adicionarProduto(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

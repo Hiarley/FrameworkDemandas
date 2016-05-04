@@ -14,6 +14,15 @@ import java.util.ArrayList;
  */
 public class DaoHistorico implements IDaoHistorico{
 
+    static DaoHistorico daoHistorico = null;
+
+    public static DaoHistorico getInstance() {
+        if(daoHistorico == null){
+            daoHistorico = new DaoHistorico();
+        }
+        return daoHistorico;
+    }
+        
     @Override
     public void adicionarHistorico(Historico historico) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
