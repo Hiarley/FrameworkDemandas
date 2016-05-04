@@ -10,5 +10,12 @@ package domain;
  * @author hiarl
  */
 public class NotificaSMS extends Notificao{
-    
+    public NotificaSMS(String mensagem) {
+            super(mensagem);
+    }
+
+    public void enviar() {
+            System.out.println("Enviando notificacao por SMS...");
+            System.out.println(getMensagem());
+    }
 }

@@ -10,5 +10,13 @@ package domain;
  * @author hiarl
  */
 public class NotificaEmail extends Notificao{
-    
+
+    public NotificaEmail(String mensagem) {
+            super(mensagem);
+    }
+
+    public void enviar() {
+            System.out.println("Enviando notificacao por email...");
+            System.out.println(getMensagem());
+    }
 }

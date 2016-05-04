@@ -5,37 +5,38 @@
  */
 package dao;
 
-import domain.Setor;
+import domain.Cliente;
+import domain.Produto;
 import java.util.ArrayList;
 
 /**
  *
  * @author hiarl
  */
-public class DaoSetor implements IDaoSetor{
+public class DaoProduto implements IDaoProduto{
 
     @Override
-    public void adicionarSetor(Setor setor) {
+    public void adicionarProduto(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void removerSetor(Setor setor) {
+    public void removerProduto(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void atualizarSetor(Setor setor) {
+    public void atualizarProduto(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Setor pegarSetor(long id) {
+    public Cliente pegarProduto(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<Setor> listarSetores() {
+    public ArrayList<Produto> listarProdutos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
