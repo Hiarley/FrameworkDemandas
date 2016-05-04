@@ -13,30 +13,43 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class DaoCliente implements IDaoCliente{
+    
+    static DaoCliente daoCliente = null;
 
+    public static DaoCliente getInstance() {
+        if(daoCliente == null){
+            daoCliente = new DaoCliente();
+        }
+        return daoCliente;
+    }
+    
     @Override
     public void adicionarCliente(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Comandos SQL para adicionar no banco
     }
 
     @Override
     public void removerCliente(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Comandos SQL para remover no banco
     }
 
     @Override
     public void atualizarCliente(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Comandos SQL para atualizar no banco
     }
 
     @Override
     public Cliente pegarCliente(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Comandos SQL para pegar cliente no banco
+        Cliente cliente = null;
+        return cliente;
     }
 
     @Override
     public ArrayList<Cliente> listarClientes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Comandos SQL para listar todos clientes no banco
+        ArrayList<Cliente> cliente = null;
+        return cliente;
     }
     
 }

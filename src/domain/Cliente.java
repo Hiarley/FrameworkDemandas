@@ -5,13 +5,13 @@
  */
 package domain;
 
-import java.util.Date;
+import excecao.ClienteInvalidoException;
 
 /**
  *
  * @author hiarl
  */
-public class Cliente {
+public abstract class Cliente {
     private long idCliente;
     private String nome;
     private String endereco;
@@ -114,6 +114,8 @@ public class Cliente {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    public abstract boolean validarCliente() throws ClienteInvalidoException;
 
     
 }

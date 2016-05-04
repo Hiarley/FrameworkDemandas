@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Thiago
  */
-public class Produto {
+public abstract class Produto {
     private long idProduto;
     private String nome;
     private double preco;
