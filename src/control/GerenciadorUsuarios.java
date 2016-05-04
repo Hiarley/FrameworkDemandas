@@ -5,10 +5,41 @@
  */
 package control;
 
+import dao.DaoUsuario;
+import domain.Usuario;
+import java.util.ArrayList;
+
 /**
  *
  * @author hiarl
  */
 public class GerenciadorUsuarios {
+    private DaoUsuario daoUsuario;
+
+    public GerenciadorUsuarios() {
+        daoUsuario = daoUsuario.getInstance();
+    }
+
+    public void cadastrarUsuario(Usuario usuario){
+        if(usuario.validarUsuario()) {
+            this.daoUsuario.adicionarUsuario(usuario);
+        }
+    }
+
+    public void removerUsuario(Usuario usuario) {
+        this.daoUsuario.removerUsuario(usuario);
+    }
+
+    public void atualizarUsuario(Usuario usuario){
+        this.daoUsuario.atualizarUsuario(usuario);
+    }
+    
+    public ArrayList<Usuario> listarSetores(){
+        return this.daoUsuario.listarUsuarios();
+    }
+
+    public Usuario getUsuario(String login) {
+        return this.daoUsuario.pegarUsuario(login);
+    }
     
 }

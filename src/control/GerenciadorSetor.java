@@ -5,10 +5,41 @@
  */
 package control;
 
+import dao.DaoSetor;
+import domain.Setor;
+import java.util.ArrayList;
+
 /**
  *
  * @author hiarl
  */
 public class GerenciadorSetor {
+    private DaoSetor daoSetor;
+
+    public GerenciadorSetor() {
+        daoSetor = DaoSetor.getInstance();
+    }
+
+    public void cadastrarSetor(Setor setor){
+        if(setor.validarCliente()) {
+            this.daoSetor.adicionarSetor(setor);
+        }
+    }
+
+    public void removerSetor(Setor setor) {
+        this.daoSetor.removerSetor(setor);
+    }
+
+    public void atualizarSetor(Setor setor){
+        this.daoSetor.atualizarSetor(setor);
+    }
+    
+    public ArrayList<Setor> listarSetores(){
+        return this.daoSetor.listarSetores();
+    }
+
+    public Setor getSetor(Long id) {
+        return this.daoSetor.pegarSetor(id);
+    }
     
 }

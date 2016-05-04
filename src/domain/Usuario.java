@@ -129,4 +129,8 @@ public class Usuario {
         this.administrador = administrador;
     }
 
+    public boolean validarUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
