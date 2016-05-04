@@ -131,8 +131,12 @@ public class Demanda {
     public void setListaProdutos(ArrayList<Produto> listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-
     
+    public boolean validarDemanda(){
+       //Verifica se a Demanda é válida.
+        
+        return true;
+    }    
     
     
 }

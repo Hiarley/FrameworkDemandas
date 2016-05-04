@@ -31,6 +31,10 @@ public class GerenciadorClientes {
         this.daoCliente.removerCliente(cliente);
     }
 
+    public void atualizarCliente(Cliente cliente){
+        this.daoCliente.atualizarCliente(cliente);
+    }
+    
     public ArrayList<Cliente> listarClientes(){
         return this.daoCliente.listarClientes();
     }
@@ -38,4 +42,6 @@ public class GerenciadorClientes {
     public Cliente getCliente(Long codigo) {
         return this.daoCliente.pegarCliente(codigo);
     }
+    
+    
 }

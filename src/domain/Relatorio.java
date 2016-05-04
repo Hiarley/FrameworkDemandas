@@ -26,9 +26,6 @@ public class Relatorio {
         this.listaCliente = listaCliente;
         this.listaDatas = listaDatas;
     }
-
-    
-    
     
     /**
      * @return the listaSetor

@@ -16,6 +16,5 @@ import java.util.ArrayList;
 public interface IDaoHistorico {
     public void adicionarHistorico(Historico historico);
     public void removerHistorico(Historico historico);
-    public void atualizarHistorico(Historico historico);
     public ArrayList<Historico> pegarHistorico(long idDemanda);
 }

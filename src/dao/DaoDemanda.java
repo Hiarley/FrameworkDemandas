@@ -22,6 +22,7 @@ public class DaoDemanda implements IDaoDemanda{
         }
         return daoDemanda;
     }
+    
     @Override
     public void adicionarDemanda(Demanda demanda) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -5,10 +5,40 @@
  */
 package control;
 
+import dao.DaoDemanda;
+import domain.Demanda;
+import java.util.ArrayList;
+
 /**
  *
  * @author hiarl
  */
 public class GerenciadorDemandas {
+    private DaoDemanda daoDemandas;
+
+    public GerenciadorDemandas() {
+        daoDemandas = daoDemandas.getInstance();
+    }
+
+    public void cadastrarDemanda(Demanda demanda) {
+        if(demanda.validarDemanda()) {
+            this.daoDemandas.adicionarDemanda(demanda);
+        }
+    }
+
+    public void removerCliente(Demanda demanda) {
+        this.daoDemandas.removerDemanda(demanda);
+    }
+
+    public ArrayList<Demanda> listarDemandas(){
+        return this.daoDemandas.listarDemandas();
+    }
     
+    public ArrayList<Demanda> listarSituacaoDemandas(char status){
+        return this.daoDemandas.listarDemandasSituacao(status);
+    }
+
+    public Demanda getCliente(Long codigo) {
+        return this.daoDemandas.pegarDemanda(codigo);
+    }    
 }
