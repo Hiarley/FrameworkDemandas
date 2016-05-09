@@ -6,6 +6,7 @@
 package control;
 
 import dao.DaoUsuario;
+import dao.IDaoUsuario;
 import domain.Usuario;
 import java.util.ArrayList;
 

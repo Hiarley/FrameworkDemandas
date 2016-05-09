@@ -6,6 +6,7 @@
 package control;
 
 import dao.DaoCliente;
+import dao.IDaoCliente;
 import domain.Cliente;
 import excecao.ClienteInvalidoException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorClientes {
-    private DaoCliente daoCliente;
+    private IDaoCliente daoCliente;
 
     public GerenciadorClientes() {
         daoCliente = DaoCliente.getInstance();

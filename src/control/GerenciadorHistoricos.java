@@ -6,6 +6,7 @@
 package control;
 
 import dao.DaoHistorico;
+import dao.IDaoHistorico;
 import domain.Historico;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorHistoricos {
-    private DaoHistorico daoHistorico;
+    private IDaoHistorico daoHistorico;
 
     public GerenciadorHistoricos() {
         daoHistorico = DaoHistorico.getInstance();
