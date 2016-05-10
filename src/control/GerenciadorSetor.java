@@ -22,7 +22,7 @@ public class GerenciadorSetor {
     }
 
     public void cadastrarSetor(Setor setor){
-        if(setor.validarCliente()) {
+        if(setor.validarSetor()) {
             this.daoSetor.adicionarSetor(setor);
         }
     }
