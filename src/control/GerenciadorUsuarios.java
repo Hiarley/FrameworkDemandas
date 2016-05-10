@@ -35,7 +35,7 @@ public class GerenciadorUsuarios {
         this.daoUsuario.atualizarUsuario(usuario);
     }
     
-    public ArrayList<Usuario> listarSetores(){
+    public ArrayList<Usuario> listarUsuarios(){
         return this.daoUsuario.listarUsuarios();
     }
 
