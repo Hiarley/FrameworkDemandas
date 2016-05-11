@@ -5,7 +5,7 @@
  */
 package control;
 
-import dao.DaoDemanda;
+import dao.IDaoDemanda;
 import domain.Demanda;
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorDemandas {
-    private DaoDemanda daoDemandas;
+    private IDaoDemanda daoDemandas;
 
     public GerenciadorDemandas() {
         daoDemandas = daoDemandas.getInstance();

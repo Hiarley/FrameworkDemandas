@@ -16,7 +16,7 @@ public class DaoUsuario implements IDaoUsuario{
 
     static DaoUsuario daoUsuario = null;
 
-    public static DaoUsuario getInstance() {
+    public DaoUsuario getInstance() {
         if(daoUsuario == null){
             daoUsuario = new DaoUsuario();
         }

@@ -5,7 +5,6 @@
  */
 package control;
 
-import dao.DaoUsuario;
 import dao.IDaoUsuario;
 import domain.Usuario;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorUsuarios {
-    private DaoUsuario daoUsuario;
+    private IDaoUsuario daoUsuario;
 
     public GerenciadorUsuarios() {
         daoUsuario = daoUsuario.getInstance();

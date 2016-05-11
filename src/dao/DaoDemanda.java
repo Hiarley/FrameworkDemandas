@@ -16,7 +16,7 @@ public class DaoDemanda implements IDaoDemanda{
     
     static DaoDemanda daoDemanda = null;
 
-    public static DaoDemanda getInstance() {
+    public DaoDemanda getInstance() {
         if(daoDemanda == null){
             daoDemanda = new DaoDemanda();
         }
