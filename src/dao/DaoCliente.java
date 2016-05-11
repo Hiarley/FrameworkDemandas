@@ -16,7 +16,7 @@ public class DaoCliente implements IDaoCliente{
     
     static DaoCliente daoCliente = null;
 
-    public static DaoCliente getInstance() {
+    public DaoCliente getInstance() {
         if(daoCliente == null){
             daoCliente = new DaoCliente();
         }

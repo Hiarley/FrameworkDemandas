@@ -19,4 +19,5 @@ public interface IDaoDemanda {
     public Demanda pegarDemanda(long id);
     public ArrayList<Demanda> listarDemandas();
     public ArrayList<Demanda> listarDemandasSituacao(char status);
+    public IDaoDemanda getInstance();
 }

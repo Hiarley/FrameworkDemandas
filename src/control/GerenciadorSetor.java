@@ -6,6 +6,7 @@
 package control;
 
 import dao.DaoSetor;
+import dao.IDaoSetor;
 import domain.Setor;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorSetor {
-    private DaoSetor daoSetor;
+    private IDaoSetor daoSetor;
 
     public GerenciadorSetor() {
         daoSetor = DaoSetor.getInstance();
