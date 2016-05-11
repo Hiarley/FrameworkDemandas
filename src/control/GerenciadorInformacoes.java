@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package control;
 
 /**
  *
  * @author Thiago
  */
-public class Comida extends Produto{
+public class GerenciadorInformacoes {
     
 }

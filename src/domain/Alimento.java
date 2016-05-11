@@ -6,9 +6,9 @@
 package domain;
 
 /**
- *
+ * Será usado para fazer um builder.
  * @author Thiago
  */
-public abstract class Servico extends Produto{
+public abstract class Alimento extends Produto{
     
 }

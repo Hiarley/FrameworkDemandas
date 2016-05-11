@@ -6,7 +6,6 @@
 package control;
 
 import dao.DaoSetor;
-import dao.IDaoSetor;
 import domain.Setor;
 import java.util.ArrayList;
 

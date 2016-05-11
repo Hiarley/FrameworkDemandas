@@ -9,6 +9,6 @@ package domain;
  *
  * @author Thiago
  */
-public class Item extends Produto{
+public abstract class Item extends Produto{
     
 }
