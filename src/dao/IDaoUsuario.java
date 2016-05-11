@@ -19,5 +19,7 @@ public interface IDaoUsuario {
     public void atualizarUsuario(Usuario usuario);
     public Usuario pegarUsuario(String login);
     public ArrayList<Usuario> listarUsuarios();
+
+    public IDaoUsuario getInstance();
          
 }

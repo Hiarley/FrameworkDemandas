@@ -84,5 +84,9 @@ public class Historico {
     public void setUsuarioSolicitante(Usuario usuarioSolicitante) {
         this.usuarioSolicitante = usuarioSolicitante;
     }
+
+    public boolean validarHistorico() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
