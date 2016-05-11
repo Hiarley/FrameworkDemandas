@@ -9,7 +9,7 @@ package GUI;
  *
  * @author Thiago
  */
-public interface GUIAdministrador {
+public interface GUIAdministrador extends GUIUsuario{
     public void cadastrarUsuario();
     public void cadastrarInformacoes();
     public void removerUsuario();
