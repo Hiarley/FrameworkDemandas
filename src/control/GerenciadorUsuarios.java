@@ -7,6 +7,7 @@ package control;
 
 import dao.IDaoUsuario;
 import domain.Usuario;
+import excecao.ClienteInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -20,8 +21,8 @@ public class GerenciadorUsuarios {
         daoUsuario = daoUsuario.getInstance();
     }
 
-    public void cadastrarUsuario(Usuario usuario){
-        if(usuario.validarUsuario()) {
+    public void cadastrarUsuario(Usuario usuario) throws ClienteInvalidoException{
+        if(usuario.validar()) {
             this.daoUsuario.adicionarUsuario(usuario);
         }
     }

@@ -12,7 +12,7 @@ import excecao.ClienteInvalidoException;
  * @author hiarl
  */
 public abstract class Cliente {
-    private long idCliente;
+    private long id;
     private String nome;
     private String endereco;
     private String telefone;
@@ -23,7 +23,7 @@ public abstract class Cliente {
     }
 
     public Cliente(long idCliente, String nome, String endereco, String telefone, String login, String senha) {
-        this.idCliente = idCliente;
+        this.id = idCliente;
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -32,17 +32,17 @@ public abstract class Cliente {
     }
 
     /**
-     * @return the idCliente
+     * @return the id
      */
-    public long getIdCliente() {
-        return idCliente;
+    public long getId() {
+        return id;
     }
 
     /**
-     * @param idCliente the idCliente to set
+     * @param id the id to set
      */
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setId(long id) {
+        this.id = id;
     }
 
     /**
@@ -115,7 +115,7 @@ public abstract class Cliente {
         this.senha = senha;
     }
     
-    public abstract boolean validarCliente() throws ClienteInvalidoException;
+    public abstract boolean validar() throws ClienteInvalidoException;
 
     
 }

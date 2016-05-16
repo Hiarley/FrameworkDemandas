@@ -39,7 +39,7 @@ public class DaoCliente implements IDaoCliente{
 			Cliente c = it.next();
 			
 			//Remove o objeto armazenado se o codigo for igual
-			if(c.getIdCliente() == cliente.getIdCliente()) {
+			if(c.getId() == cliente.getId()) {
 				it.remove();
 				return;
 			}
@@ -53,7 +53,7 @@ public class DaoCliente implements IDaoCliente{
 			Cliente c = it.next();
 			
 			//Atualiza objeto armazenado se o codigo for igual
-			if(c.getIdCliente() == cliente.getIdCliente()) {
+			if(c.getId() == cliente.getId()) {
 				c = cliente;
 				return;
                     }    
@@ -66,7 +66,7 @@ public class DaoCliente implements IDaoCliente{
 		while(it.hasNext()) {
 			Cliente c = it.next();
 			
-			if(c.getIdCliente() == (id)) {
+			if(c.getId() == (id)) {
 				return c;
 			}
 		}
