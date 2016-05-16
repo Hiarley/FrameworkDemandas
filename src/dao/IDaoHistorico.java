@@ -5,7 +5,7 @@
  */
 package dao;
 
-import instanciaservico.Demanda;
+import domain.Demanda;
 import domain.Historico;
 import java.util.ArrayList;
 

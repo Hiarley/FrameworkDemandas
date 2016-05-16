@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package instanciaservico;
+package instancia.servico;
 
 /**
  *
  * @author hiarl
  */
-public class FabricaNotificacaoDemanda {
+public class Main {
     
 }

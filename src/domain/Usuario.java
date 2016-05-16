@@ -5,8 +5,6 @@
  */
 package domain;
 
-import excecao.ClienteInvalidoException;
-
 /**
  *
  * @author hiarl
@@ -115,5 +113,7 @@ public abstract class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    
 
 }

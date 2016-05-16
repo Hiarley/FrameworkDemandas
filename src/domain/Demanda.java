@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package instanciaservico;
+package domain;
 
-import domain.Historico;
-import domain.Produto;
-import domain.Usuario;
+import excecao.DemandaInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,7 +13,7 @@ import java.util.Date;
  *
  * @author hiarl
  */
-public class Demanda {
+public abstract class Demanda {
     private long idDemanda;
     private Date dataAbertura;
     private Usuario usuarioSolicitante;
@@ -135,11 +133,7 @@ public class Demanda {
         this.listaProdutos = listaProdutos;
     }
     
-    public boolean validarDemanda(){
-       //Verifica se a Demanda é válida.
-        
-        return true;
-    }    
+    public abstract boolean validarDemanda() throws DemandaInvalidoException;
     
     
 }

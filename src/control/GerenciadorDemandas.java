@@ -6,7 +6,7 @@
 package control;
 
 import dao.IDaoDemanda;
-import instanciaservico.Demanda;
+import domain.Demanda;
 import java.util.ArrayList;
 
 /**
