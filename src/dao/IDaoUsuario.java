@@ -17,7 +17,7 @@ public interface IDaoUsuario {
     public void adicionarUsuario(Usuario usuario);
     public void removerUsuario(Usuario usuario);
     public void atualizarUsuario(Usuario usuario);
-    public Usuario pegarUsuario(String login);
+    public Usuario pegarUsuario(long id);
     public ArrayList<Usuario> listarUsuarios();
 
     public IDaoUsuario getInstance();

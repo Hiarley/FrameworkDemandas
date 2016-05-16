@@ -38,8 +38,8 @@ public class GerenciadorUsuarios {
         return this.daoUsuario.listarUsuarios();
     }
 
-    public Usuario getUsuario(String login) {
-        return this.daoUsuario.pegarUsuario(login);
+    public Usuario getUsuario(long id) {
+        return this.daoUsuario.pegarUsuario(id);
     }
     
 }

@@ -58,7 +58,7 @@ public class DaoCliente implements IDaoCliente{
 				return;
                     }    
                 }
-                }
+    }
 
     @Override
     public Cliente pegarCliente(long id) {
@@ -76,14 +76,14 @@ public class DaoCliente implements IDaoCliente{
 
     @Override
     public ArrayList<Cliente> listarClientes() {
-        List<Cliente> resultList = new ArrayList<Cliente>();
+        ArrayList<Cliente> resultList = new ArrayList<Cliente>();
 		
 		Iterator<Cliente> it = clientes.iterator();
 		while(it.hasNext()) {
 			resultList.add(it.next());
 		}
 		
-		return (ArrayList<Cliente>) resultList;
+		return resultList;
     }
     
 }
