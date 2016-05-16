@@ -20,7 +20,7 @@ public class DaoProduto implements IDaoProduto{
     static DaoProduto daoProduto = null;
     private Set<Produto> produtos;
 
-    public static DaoProduto getInstance() {
+    public DaoProduto getInstance() {
         if(daoProduto == null){
             daoProduto = new DaoProduto();
         }

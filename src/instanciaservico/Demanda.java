@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package instanciaservico;
 
+import domain.Historico;
+import domain.Produto;
+import domain.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
 

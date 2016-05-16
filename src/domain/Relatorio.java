@@ -5,6 +5,7 @@
  */
 package domain;
 
+import instanciaservico.Demanda;
 import java.util.ArrayList;
 
 /**
