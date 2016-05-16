@@ -7,6 +7,9 @@ package dao;
 
 import domain.Cliente;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -15,6 +18,7 @@ import java.util.ArrayList;
 public class DaoCliente implements IDaoCliente{
     
     static DaoCliente daoCliente = null;
+    private Set<Cliente> clientes;
 
     public static DaoCliente getInstance() {
         if(daoCliente == null){
@@ -24,32 +28,62 @@ public class DaoCliente implements IDaoCliente{
     }
     
     @Override
-    public void adicionarCliente(Cliente cliente) {
-        //Comandos SQL para adicionar no banco
+    public void adicionarCliente(Cliente cliente){
+        clientes.add(cliente);
     }
 
     @Override
     public void removerCliente(Cliente cliente) {
-        //Comandos SQL para remover no banco
+        Iterator<Cliente> it = clientes.iterator();
+		while(it.hasNext()) {
+			Cliente c = it.next();
+			
+			//Remove o objeto armazenado se o codigo for igual
+			if(c.getIdCliente() == cliente.getIdCliente()) {
+				it.remove();
+				return;
+			}
+		}
     }
 
     @Override
     public void atualizarCliente(Cliente cliente) {
-        //Comandos SQL para atualizar no banco
-    }
+        Iterator<Cliente> it = clientes.iterator();
+		while(it.hasNext()) {
+			Cliente c = it.next();
+			
+			//Atualiza objeto armazenado se o codigo for igual
+			if(c.getIdCliente() == cliente.getIdCliente()) {
+				c = cliente;
+				return;
+                    }    
+                }
+                }
 
     @Override
     public Cliente pegarCliente(long id) {
-        //Comandos SQL para pegar cliente no banco
-        Cliente cliente = null;
-        return cliente;
+        Iterator<Cliente> it = clientes.iterator();
+		while(it.hasNext()) {
+			Cliente c = it.next();
+			
+			if(c.getIdCliente() == (id)) {
+				return c;
+			}
+		}
+		
+		return null;
     }
 
     @Override
     public ArrayList<Cliente> listarClientes() {
-        //Comandos SQL para listar todos clientes no banco
-        ArrayList<Cliente> cliente = null;
-        return cliente;
+        List<Cliente> resultList = new ArrayList<Cliente>();
+		
+		Iterator<Cliente> it = clientes.iterator();
+		while(it.hasNext()) {
+			resultList.add(it.next());
+		}
+		
+		return (ArrayList<Cliente>) resultList;
     }
     
 }
