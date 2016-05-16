@@ -33,10 +33,6 @@ public class GerenciadorDemandas {
     public ArrayList<Demanda> listarDemandas(){
         return this.daoDemandas.listarDemandas();
     }
-    
-    public ArrayList<Demanda> listarSituacaoDemandas(char status){
-        return this.daoDemandas.listarDemandasSituacao(status);
-    }
 
     public Demanda getCliente(Long codigo) {
         return this.daoDemandas.pegarDemanda(codigo);
