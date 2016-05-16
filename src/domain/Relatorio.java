@@ -14,13 +14,13 @@ import java.util.ArrayList;
 public class Relatorio {
     private ArrayList<Setor> listaSetor;
     private ArrayList<Usuario> listaUsuario;
-    private ArrayList<Cliente> listaCliente;
+    private ArrayList<UsuarioCliente> listaCliente;
     private ArrayList<Demanda> listaDatas;
 
     public Relatorio() {
     }
 
-    public Relatorio(ArrayList<Setor> listaSetor, ArrayList<Usuario> listaUsuario, ArrayList<Cliente> listaCliente, ArrayList<Demanda> listaDatas) {
+    public Relatorio(ArrayList<Setor> listaSetor, ArrayList<Usuario> listaUsuario, ArrayList<UsuarioCliente> listaCliente, ArrayList<Demanda> listaDatas) {
         this.listaSetor = listaSetor;
         this.listaUsuario = listaUsuario;
         this.listaCliente = listaCliente;
@@ -58,14 +58,14 @@ public class Relatorio {
     /**
      * @return the listaCliente
      */
-    public ArrayList<Cliente> getListaCliente() {
+    public ArrayList<UsuarioCliente> getListaCliente() {
         return listaCliente;
     }
 
     /**
      * @param listaCliente the listaCliente to set
      */
-    public void setListaCliente(ArrayList<Cliente> listaCliente) {
+    public void setListaCliente(ArrayList<UsuarioCliente> listaCliente) {
         this.listaCliente = listaCliente;
     }
 

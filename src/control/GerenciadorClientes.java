@@ -5,9 +5,8 @@
  */
 package control;
 
-import dao.DaoCliente;
-import dao.IDaoCliente;
-import domain.Cliente;
+import dao.IDaoUsuarioCliente;
+import domain.UsuarioCliente;
 import excecao.ClienteInvalidoException;
 import java.util.ArrayList;
 
@@ -16,32 +15,32 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorClientes {
-    private IDaoCliente daoCliente;
+    private IDaoUsuarioCliente daoCliente;
 
     public GerenciadorClientes() {
-        daoCliente = DaoCliente.getInstance();
+        daoCliente = daoCliente.getInstance();
     }
 
-    public void cadastrarCliente(Cliente cliente) throws  ClienteInvalidoException {
-        if(cliente.validarCliente()) {
-            this.daoCliente.adicionarCliente(cliente);
+    public void cadastrarCliente(UsuarioCliente cliente) throws  ClienteInvalidoException {
+        if(cliente.validar()) {
+            this.daoCliente.adicionarUsuario(cliente);
         }
     }
 
-    public void removerCliente(Cliente cliente) {
-        this.daoCliente.removerCliente(cliente);
+    public void removerCliente(UsuarioCliente cliente) {
+        this.daoCliente.removerUsuario(cliente);
     }
 
-    public void atualizarCliente(Cliente cliente){
-        this.daoCliente.atualizarCliente(cliente);
+    public void atualizarCliente(UsuarioCliente cliente){
+        this.daoCliente.atualizarUsuario(cliente);
     }
     
-    public ArrayList<Cliente> listarClientes(){
-        return this.daoCliente.listarClientes();
+    public ArrayList<UsuarioCliente> listarClientes(){
+        return this.daoCliente.listarUsuarios();
     }
 
-    public Cliente getCliente(Long codigo) {
-        return this.daoCliente.pegarCliente(codigo);
+    public UsuarioCliente getCliente(Long codigo) {
+        return this.daoCliente.pegarUsuario(codigo);
     }
     
     

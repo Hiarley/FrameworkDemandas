@@ -5,7 +5,7 @@
  */
 package dao;
 
-import domain.Cliente;
+import domain.UsuarioCliente;
 import domain.Setor;
 import java.util.ArrayList;
 

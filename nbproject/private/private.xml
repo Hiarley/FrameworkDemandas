@@ -3,16 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoUsuario.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Cliente.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoProduto.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/IDaoProduto.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Demanda.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoCliente.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoDemanda.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Produto.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Notificao.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorNotificacao.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorUsuarios.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/UsuarioPadrao.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/DaoUsuario.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/IDaoUsuario.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Usuario.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/excecao/UsuarioInvalidoException.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorClientes.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/UsuarioCliente.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,8 +5,7 @@
  */
 package dao;
 
-import domain.Cliente;
-import domain.Usuario;
+import domain.UsuarioPadrao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
@@ -15,29 +14,27 @@ import java.util.Set;
  *
  * @author hiarl
  */
-public class DaoUsuario implements IDaoUsuario{
+public class DaoUsuarioPadrao implements IDaoUsuarioPadrao{
 
-    static DaoUsuario daoUsuario = null;
-    private Set<Usuario> usuarios;
+    static DaoUsuarioPadrao daoUsuario = null;
+    private Set<UsuarioPadrao> usuarios;
     
-    public DaoUsuario getInstance() {
+    public DaoUsuarioPadrao getInstance() {
         if(daoUsuario == null){
-            daoUsuario = new DaoUsuario();
+            daoUsuario = new DaoUsuarioPadrao();
         }
         return daoUsuario;
     }
-        
-    
-    @Override
-    public void adicionarUsuario(Usuario usuario) {
+
+    public void adicionarUsuario(UsuarioPadrao usuario) {
         usuarios.add(usuario);
     }
 
     @Override
-    public void removerUsuario(Usuario usuario) {
-         Iterator<Usuario> it = usuarios.iterator();
+    public void removerUsuario(UsuarioPadrao usuario) {
+        Iterator<UsuarioPadrao> it = usuarios.iterator();
 		while(it.hasNext()) {
-			Usuario u = it.next();
+			UsuarioPadrao u = it.next();
 			
 			//Remove o objeto armazenado se o codigo for igual
 			if(u.getId() == usuario.getId()) {
@@ -48,10 +45,10 @@ public class DaoUsuario implements IDaoUsuario{
     }
 
     @Override
-    public void atualizarUsuario(Usuario usuario) {
-        Iterator<Usuario> it = usuarios.iterator();
+    public void atualizarUsuario(UsuarioPadrao usuario) {
+        Iterator<UsuarioPadrao> it = usuarios.iterator();
 		while(it.hasNext()) {
-			Usuario u = it.next();
+			UsuarioPadrao u = it.next();
 			
 			//Atualiza objeto armazenado se o codigo for igual
 			if(u.getId() == usuario.getId()) {
@@ -62,29 +59,28 @@ public class DaoUsuario implements IDaoUsuario{
     }
 
     @Override
-    public Usuario pegarUsuario(long id) {
-        Iterator<Usuario> it = usuarios.iterator();
+    public UsuarioPadrao pegarUsuario(long id) {
+        Iterator<UsuarioPadrao> it = usuarios.iterator();
 		while(it.hasNext()) {
-			Usuario u = it.next();
+			UsuarioPadrao u = it.next();
 			
 			if(u.getId() == (id)) {
 				return u;
 			}
 		}
 		
-		return null;
-    }
+		return null;    }
 
     @Override
-    public ArrayList<Usuario> listarUsuarios() {
-        ArrayList<Usuario> resultList = new ArrayList<Usuario>();
+    public ArrayList<UsuarioPadrao> listarUsuarios() {
+        ArrayList<UsuarioPadrao> resultList = new ArrayList<UsuarioPadrao>();
 		
-		Iterator<Usuario> it = usuarios.iterator();
+		Iterator<UsuarioPadrao> it = usuarios.iterator();
 		while(it.hasNext()) {
 			resultList.add(it.next());
 		}
 		
 		return resultList;
     }
-    
+        
 }

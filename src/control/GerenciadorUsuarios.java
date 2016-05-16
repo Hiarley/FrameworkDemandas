@@ -5,9 +5,11 @@
  */
 package control;
 
-import dao.IDaoUsuario;
+import dao.IDaoUsuarioPadrao;
 import domain.Usuario;
+import domain.UsuarioPadrao;
 import excecao.ClienteInvalidoException;
+import excecao.UsuarioInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -15,31 +17,31 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorUsuarios {
-    private IDaoUsuario daoUsuario;
+    private IDaoUsuarioPadrao daoUsuario;
 
     public GerenciadorUsuarios() {
         daoUsuario = daoUsuario.getInstance();
     }
 
-    public void cadastrarUsuario(Usuario usuario) throws ClienteInvalidoException{
+    public void cadastrarUsuario(UsuarioPadrao usuario) throws UsuarioInvalidoException{
         if(usuario.validar()) {
             this.daoUsuario.adicionarUsuario(usuario);
         }
     }
 
-    public void removerUsuario(Usuario usuario) {
+    public void removerUsuario(UsuarioPadrao usuario) {
         this.daoUsuario.removerUsuario(usuario);
     }
 
-    public void atualizarUsuario(Usuario usuario){
+    public void atualizarUsuario(UsuarioPadrao usuario){
         this.daoUsuario.atualizarUsuario(usuario);
     }
     
-    public ArrayList<Usuario> listarUsuarios(){
+    public ArrayList<UsuarioPadrao> listarUsuarios(){
         return this.daoUsuario.listarUsuarios();
     }
 
-    public Usuario getUsuario(long id) {
+    public UsuarioPadrao getUsuario(long id) {
         return this.daoUsuario.pegarUsuario(id);
     }
     
