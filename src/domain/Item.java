@@ -5,10 +5,38 @@
  */
 package domain;
 
+import java.util.Date;
+
 /**
  * Será usado para fazer um builder.
  * @author Thiago
  */
 public abstract class Item extends Produto{
+    
+    private int quantidadeEmEstoque;
+
+    public Item() {
+    }
+
+    public Item(int quantidadeEmEstoque, long idProduto, String nome, double preco, String descricao, Date prazo) {
+        super(idProduto, nome, preco, descricao, prazo);
+        this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
+
+    /**
+     * @return the quantidadeEmEstoque
+     */
+    public int getQuantidadeEmEstoque() {
+        return quantidadeEmEstoque;
+    }
+
+    /**
+     * @param quantidadeEmEstoque the quantidadeEmEstoque to set
+     */
+    public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
+        this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
+    
+    
     
 }
