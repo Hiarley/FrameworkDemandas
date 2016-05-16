@@ -17,7 +17,7 @@ public interface IDaoProduto {
     public void adicionarProduto(Produto produto);
     public void removerProduto(Produto produto);
     public void atualizarProduto(Produto produto);
-    public Cliente pegarProduto(long id);
+    public Produto pegarProduto(long id);
     public ArrayList<Produto> listarProdutos();
     
 }

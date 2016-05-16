@@ -8,6 +8,8 @@ package dao;
 import domain.Cliente;
 import domain.Produto;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  *
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 public class DaoProduto implements IDaoProduto{
 
     static DaoProduto daoProduto = null;
+    private Set<Produto> produtos;
 
     public static DaoProduto getInstance() {
         if(daoProduto == null){
@@ -27,27 +30,61 @@ public class DaoProduto implements IDaoProduto{
     
     @Override
     public void adicionarProduto(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        produtos.add(produto);
     }
 
     @Override
     public void removerProduto(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Iterator<Produto> it = produtos.iterator();
+		while(it.hasNext()) {
+			Produto p = it.next();
+			
+			//Remove o objeto armazenado se o codigo for igual
+			if(p.getIdProduto() == produto.getIdProduto()) {
+				it.remove();
+				return;
+			}
+		}
     }
 
     @Override
     public void atualizarProduto(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Iterator<Produto> it = produtos.iterator();
+		while(it.hasNext()) {
+			Produto p = it.next();
+			
+			//Atualiza objeto armazenado se o codigo for igual
+			if(p.getIdProduto() == produto.getIdProduto()) {
+				p = produto;
+				return;
+                    }    
+                }
     }
 
     @Override
-    public Cliente pegarProduto(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Produto pegarProduto(long id) {
+        Iterator<Produto> it = produtos.iterator();
+		while(it.hasNext()) {
+			Produto p = it.next();
+			
+			if(p.getIdProduto() == (id)) {
+				return p;
+			}
+		}
+		
+		return null;
     }
 
     @Override
     public ArrayList<Produto> listarProdutos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Produto> resultList = new ArrayList<>();
+		
+		Iterator<Produto> it = produtos.iterator();
+		while(it.hasNext()) {
+			resultList.add(it.next());
+		}
+		
+		return resultList;
     }
     
 }
