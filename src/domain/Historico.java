@@ -12,6 +12,7 @@ import java.util.Date;
  * @author hiarl
  */
 public class Historico {
+    private long idDemanda;
     private long idHistorico;
     private Date dataModificaco;
     private String descricao;
@@ -20,15 +21,22 @@ public class Historico {
     public Historico() {
     }
 
-    public Historico(long idHistorico, Date dataModificaco, String descricao, Usuario usuarioSolicitante) {
+    public Historico(long idDemanda, long idHistorico, Date dataModificaco, String descricao, Usuario usuarioSolicitante) {
+        this.idDemanda = idDemanda;
         this.idHistorico = idHistorico;
         this.dataModificaco = dataModificaco;
         this.descricao = descricao;
         this.usuarioSolicitante = usuarioSolicitante;
     }
-    
-    
 
+    public long getIdDemanda() {
+        return idDemanda;
+    }
+
+    public void setIdDemanda(long idDemanda) {
+        this.idDemanda = idDemanda;
+    }
+    
     /**
      * @return the idHistorico
      */
