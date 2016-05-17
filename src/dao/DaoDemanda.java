@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -19,7 +19,7 @@ public class DaoDemanda implements IDaoDemanda{
     static DaoDemanda daoDemanda = null;
     private Set<Demanda> demandas;
 
-    public DaoDemanda getInstance() {
+    public static DaoDemanda getInstance() {
         if(daoDemanda == null){
             daoDemanda = new DaoDemanda();
         }

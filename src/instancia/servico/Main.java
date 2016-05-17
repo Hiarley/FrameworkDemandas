@@ -5,10 +5,18 @@
  */
 package instancia.servico;
 
+import GUI.GUIInicial;
+
 /**
  *
  * @author hiarl
  */
 public class Main {
-    
+
+    private static GUIInicial guiIncial = new GUIInicialServico();
+
+    public static void main(String[] args) {
+
+        guiIncial.acessarInterface();
+    }
 }

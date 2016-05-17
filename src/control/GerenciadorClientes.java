@@ -5,6 +5,7 @@
  */
 package control;
 
+import dao.DaoUsuarioCliente;
 import dao.IDaoUsuarioCliente;
 import domain.UsuarioCliente;
 import excecao.ClienteInvalidoException;
@@ -18,7 +19,7 @@ public class GerenciadorClientes {
     private IDaoUsuarioCliente daoCliente;
 
     public GerenciadorClientes() {
-        daoCliente = daoCliente.getInstance();
+        daoCliente = DaoUsuarioCliente.getInstance();
     }
 
     public void cadastrarCliente(UsuarioCliente cliente) throws  ClienteInvalidoException {

@@ -19,7 +19,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
     static DaoUsuarioCliente daoUsuario = null;
     private Set<UsuarioCliente> usuarios;
     
-    public DaoUsuarioCliente getInstance() {
+    public static DaoUsuarioCliente getInstance() {
         if(daoUsuario == null){
             daoUsuario = new DaoUsuarioCliente();
         }

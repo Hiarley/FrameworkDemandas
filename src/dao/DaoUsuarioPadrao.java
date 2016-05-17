@@ -19,7 +19,7 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao{
     static DaoUsuarioPadrao daoUsuario = null;
     private Set<UsuarioPadrao> usuarios;
     
-    public DaoUsuarioPadrao getInstance() {
+    public static DaoUsuarioPadrao getInstance() {
         if(daoUsuario == null){
             daoUsuario = new DaoUsuarioPadrao();
         }

@@ -6,6 +6,9 @@
 package instancia.servico;
 
 import GUI.GUIAdministrador;
+import control.GerenciadorClientes;
+import control.GerenciadorDemandas;
+import control.GerenciadorProduto;
 import control.GerenciadorUsuarios;
 import domain.UsuarioPadrao;
 import java.util.Scanner;
@@ -17,9 +20,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class GUIAdministradorServico implements GUIAdministrador {
 
-    private Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
-    private AtomicInteger count = new AtomicInteger(0); 
+    private GerenciadorProduto gerenciadorProduto = new GerenciadorProduto();
+    private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
+    private static AtomicInteger count = new AtomicInteger(0); 
 
     @Override
     public void cadastrarUsuario() {
@@ -49,7 +55,10 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void cadastrarInformacoes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            
+        } catch (Exception e) {
+        }
     }
 
     @Override
@@ -64,7 +73,11 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void listarUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+          //  gerenciadorUsuarios.listarUsuarios();
+        } catch (Exception e) {
+        }
+    
     }
 
     @Override

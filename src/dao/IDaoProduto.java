@@ -20,6 +20,5 @@ public interface IDaoProduto {
     public Produto pegarProduto(long id);
     public ArrayList<Produto> listarProdutos();
 
-    public IDaoProduto getInstance();
     
 }

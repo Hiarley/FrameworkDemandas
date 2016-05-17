@@ -5,8 +5,10 @@
  */
 package control;
 
+import dao.DaoDemanda;
 import dao.IDaoDemanda;
 import domain.Demanda;
+import excecao.DemandaInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -17,10 +19,10 @@ public class GerenciadorDemandas {
     private IDaoDemanda daoDemandas;
 
     public GerenciadorDemandas() {
-        daoDemandas = daoDemandas.getInstance();
+        daoDemandas = DaoDemanda.getInstance();
     }
 
-    public void cadastrarDemanda(Demanda demanda) {
+    public void cadastrarDemanda(Demanda demanda) throws DemandaInvalidoException {
         if(demanda.validarDemanda()) {
             this.daoDemandas.adicionarDemanda(demanda);
         }

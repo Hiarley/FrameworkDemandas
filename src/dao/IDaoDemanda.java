@@ -18,5 +18,4 @@ public interface IDaoDemanda {
     public void atualizarDemanda(Demanda demanda);
     public Demanda pegarDemanda(long id);
     public ArrayList<Demanda> listarDemandas();
-    public IDaoDemanda getInstance();
 }

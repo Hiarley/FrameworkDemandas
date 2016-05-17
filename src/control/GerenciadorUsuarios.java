@@ -5,6 +5,7 @@
  */
 package control;
 
+import dao.DaoUsuarioPadrao;
 import dao.IDaoUsuarioPadrao;
 import domain.Usuario;
 import domain.UsuarioPadrao;
@@ -20,7 +21,7 @@ public class GerenciadorUsuarios {
     private IDaoUsuarioPadrao daoUsuario;
 
     public GerenciadorUsuarios() {
-        daoUsuario = daoUsuario.getInstance();
+        this.daoUsuario = DaoUsuarioPadrao.getInstance();
     }
 
     public void cadastrarUsuario(UsuarioPadrao usuario) throws UsuarioInvalidoException{

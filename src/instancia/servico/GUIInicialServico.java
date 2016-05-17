@@ -17,11 +17,11 @@ import java.util.Scanner;
  */
 public class GUIInicialServico implements GUIInicial{
     
-    private static Scanner in = new Scanner(System.in);
+    private  Scanner in = new Scanner(System.in);
     
-    private static GUIAdministrador guiAdministrador = new GUIAdministradorServico();
-    private static GUIUsuario guiUsuario = new GUIUsuarioServico();
-    private static GUICliente guiCliente = new GUIClienteServico();
+    private  GUIAdministrador guiAdministrador = new GUIAdministradorServico();
+    private  GUIUsuario guiUsuario = new GUIUsuarioServico();
+    private  GUICliente guiCliente = new GUIClienteServico();
     
     @Override
     public void acessarInterface() {

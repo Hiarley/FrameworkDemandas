@@ -5,6 +5,7 @@
  */
 package control;
 
+import dao.DaoProduto;
 import dao.IDaoProduto;
 import domain.Produto;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class GerenciadorProduto {
     private IDaoProduto daoProduto;
 
     public GerenciadorProduto() {
-        daoProduto = daoProduto.getInstance();
+        daoProduto = DaoProduto.getInstance();
     }
 
     public void cadastrarProduto(Produto setor) {

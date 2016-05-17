@@ -25,6 +25,5 @@ public interface IDaoUsuarioCliente {
 
     public ArrayList<UsuarioCliente> listarUsuarios();
 
-    public IDaoUsuarioCliente getInstance();
 
 }

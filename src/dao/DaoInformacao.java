@@ -13,6 +13,15 @@ import java.util.ArrayList;
  */
 public class DaoInformacao implements IDaoInformacao{
 
+    static DaoProduto daoInformacao = null;
+
+    public static DaoProduto getInstance() {
+        if(daoInformacao == null){
+            daoInformacao = new DaoProduto();
+        }
+        return daoInformacao;
+    }
+    
     @Override
     public ArrayList<Object> listarGenericInformacao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
