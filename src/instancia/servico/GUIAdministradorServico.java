@@ -6,16 +6,45 @@
 package instancia.servico;
 
 import GUI.GUIAdministrador;
+import control.GerenciadorUsuarios;
+import domain.UsuarioPadrao;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author Thiago
  */
-public class GUIAdministradorServico implements GUIAdministrador{
+public class GUIAdministradorServico implements GUIAdministrador {
+
+    private Scanner in = new Scanner(System.in);
+    private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
+    private AtomicInteger count = new AtomicInteger(0); 
 
     @Override
     public void cadastrarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+           
+            System.out.println("---------- Cadastrar Usuario----------");
+            System.out.print("Nome: ");
+            String nome = in.nextLine();
+            System.out.print("Setor: ");
+            String setor = in.nextLine();
+            System.out.print("Telefone: ");
+            String telefone = in.nextLine();
+            System.out.print("Login: ");
+            String login = in.nextLine();
+            System.out.print("Senha: ");
+            String senha = in.nextLine();
+            System.out.print("Administrador: ");
+            boolean administrador = in.nextBoolean();
+            
+            UsuarioPadrao usuarioPadrao = new UsuarioPadrao(administrador, count.incrementAndGet(), nome, setor, telefone, login, senha);
+            gerenciadorUsuarios.cadastrarUsuario(usuarioPadrao);
+        } catch (Exception e) {
+
+        }
+
     }
 
     @Override
@@ -62,5 +91,5 @@ public class GUIAdministradorServico implements GUIAdministrador{
     public void analisarPedido() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
