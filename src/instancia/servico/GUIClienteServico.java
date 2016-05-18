@@ -41,11 +41,14 @@ public class GUIClienteServico implements GUICliente {
             long idCliente = in.nextLong();
             System.out.println("Descrição: ");
             String descricao = in.next();
-/*
-            ListarProdutos();
-            System.out.println("Digite o IdProduto do servico escolhido: ");
-            long id = in.nextLong();
-            listaProdutos.add(gerenciadorProduto.getProduto(id));*/
+            System.out.println("Quantos servicos deseja adicionar?");
+            int servicos = in.nextInt();
+            for(;servicos > 0;servicos--){
+                ListarProdutos();
+                System.out.println("Digite o IdServico do servico escolhido: ");
+                long id = in.nextLong();
+                listaProdutos.add(gerenciadorProduto.getProduto(id));
+            }
             Demanda demanda = new Demanda(idCliente, count.incrementAndGet(), date, idCliente, descricao, 'I', listaProdutos);
             gerenciadorDemanda.cadastrarDemanda(demanda);
             notificao.NotificaoPeidoRealizado(demanda);

@@ -7,6 +7,7 @@ package instancia.servico;
 
 import domain.Demanda;
 import domain.NotificaSMS;
+import domain.Notificao;
 import domain.Produto;
 import domain.Servico;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  *
  * @author hiarl
  */
-public class FabricaNotificacaoDemanda {
+public class FabricaNotificacaoDemanda{
     public void NotificaoPeidoRealizado(Demanda demanda){
         System.out.println("Novo Pedido Realizado\n");
         System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");

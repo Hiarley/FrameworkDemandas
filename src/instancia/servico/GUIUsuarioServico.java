@@ -82,19 +82,21 @@ public class GUIUsuarioServico implements GUIUsuario {
     }
 
     @Override
-    public void analisarPedido() {
+    public void analisarPedido(long id) {
         ArrayList<Demanda> listUsuario = gerenciadorDemandas.listarDemandas();
         Iterator<Demanda> it = listUsuario.iterator();
         System.out.println("oi");
         while (it.hasNext()) {
             Demanda demanda = it.next();
-            System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");
-            System.out.println("idDemanda: " + demanda.getIdDemanda() + "\n");
-            System.out.println("dataAbertura: " + demanda.getDataAbertura() + "\n");
-            System.out.println("idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n");
-            System.out.println("descricao: " + demanda.getDescricao() + "\n");
-            System.out.println("status: " + demanda.getStatus() + "\n");
+            if(demanda.getIdDemanda() == (id)){
+                
+                System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");
+                System.out.println("idDemanda: " + demanda.getIdDemanda() + "\n");
+                System.out.println("dataAbertura: " + demanda.getDataAbertura() + "\n");
+                System.out.println("idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n");
+                System.out.println("descricao: " + demanda.getDescricao() + "\n");
+                System.out.println("status: " + demanda.getStatus() + "\n");
         }
     }
-
+    }
 }
