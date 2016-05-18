@@ -7,9 +7,7 @@ package control;
 
 import dao.DaoUsuarioPadrao;
 import dao.IDaoUsuarioPadrao;
-import domain.Usuario;
 import domain.UsuarioPadrao;
-import excecao.ClienteInvalidoException;
 import excecao.UsuarioInvalidoException;
 import java.util.ArrayList;
 
@@ -25,7 +23,7 @@ public class GerenciadorUsuarios {
     }
 
     public void cadastrarUsuario(UsuarioPadrao usuario) throws UsuarioInvalidoException{
-        if(usuario.validar()) {
+        if(validarUsuario(usuario)) {
             this.daoUsuario.adicionarUsuario(usuario);
         }
     }
@@ -44,6 +42,21 @@ public class GerenciadorUsuarios {
 
     public UsuarioPadrao getUsuario(long id) {
         return this.daoUsuario.pegarUsuario(id);
+    }
+
+    private boolean validarUsuario(UsuarioPadrao usuario) throws UsuarioInvalidoException {
+        if(usuario.getNome().equals("")){
+            throw new UsuarioInvalidoException("Nome de usuario vazio.");
+        }else if(usuario.getLogin().equals("")){
+            throw new UsuarioInvalidoException("Login vazio.");
+            
+        }else if(usuario.getSenha().equals("")){
+            throw new UsuarioInvalidoException("Senha vazia");
+            
+        }else if(this.daoUsuario.pegarUsuario(usuario.getId()) != null){
+            throw new UsuarioInvalidoException("ID invalido contate o Administrador");
+        }
+        return true;
     }
     
 }

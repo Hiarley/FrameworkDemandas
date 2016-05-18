@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorDemandas {
+
     private IDaoDemanda daoDemandas;
 
     public GerenciadorDemandas() {
@@ -23,20 +24,34 @@ public class GerenciadorDemandas {
     }
 
     public void cadastrarDemanda(Demanda demanda) throws DemandaInvalidoException {
-        if(demanda.validarDemanda()) {
+        if (validarDemanda(demanda)) {
             this.daoDemandas.adicionarDemanda(demanda);
         }
     }
 
-    public void removerCliente(Demanda demanda) {
+    public void removerDemanda(Demanda demanda) {
         this.daoDemandas.removerDemanda(demanda);
     }
 
-    public ArrayList<Demanda> listarDemandas(){
+    public ArrayList<Demanda> listarDemandas() {
         return this.daoDemandas.listarDemandas();
     }
 
-    public Demanda getCliente(Long codigo) {
+    public Demanda getDemanda(Long codigo) {
         return this.daoDemandas.pegarDemanda(codigo);
-    }    
+    }
+
+    private boolean validarDemanda(Demanda demanda) throws DemandaInvalidoException {
+        if (demanda.getUsuarioSolicitante().equals("")) {
+            throw new DemandaInvalidoException("Solicitante não encontrado");
+            demanda.get
+        } else if (demanda.getDescricao().equals("")) {
+            throw new DemandaInvalidoException("Demanda estar vazia");
+
+        } else if (daoDemandas.pegarDemanda(demanda.getIdDemanda()) != null) {
+            throw new DemandaInvalidoException("ID da demanda invalido, contate o administrador.");
+
+        }
+        return true;
+    }
 }
