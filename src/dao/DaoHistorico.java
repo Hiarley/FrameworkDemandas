@@ -5,8 +5,11 @@
  */
 package dao;
 
+import domain.Demanda;
 import domain.Historico;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  *
@@ -15,6 +18,7 @@ import java.util.ArrayList;
 public class DaoHistorico implements IDaoHistorico{
 
     static DaoHistorico daoHistorico = null;
+    private Set<Historico> historicos;
 
     public static DaoHistorico getInstance() {
         if(daoHistorico == null){
@@ -25,17 +29,36 @@ public class DaoHistorico implements IDaoHistorico{
         
     @Override
     public void adicionarHistorico(Historico historico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        historicos.add(historico);
     }
 
     @Override
     public void removerHistorico(Historico historico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Iterator<Historico> it = historicos.iterator();
+		while(it.hasNext()) {
+			Historico h = it.next();
+			
+			//Remove o objeto armazenado se o codigo for igual
+			if(h.getIdHistorico() == historico.getIdHistorico()) {
+				it.remove();
+				return;
+			}
+		}
     }
 
     @Override
     public ArrayList<Historico> pegarHistorico(long idDemanda) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Iterator<Historico> it = historicos.iterator();
+        ArrayList<Historico> resultList = new ArrayList<>();
+		while(it.hasNext()) {
+			Historico h = it.next();
+			
+			if(h.getIdDemanda() == (idDemanda)) {
+				resultList.add(it.next());
+			}
+		}
+		
+		return resultList;
     }
     
 }
