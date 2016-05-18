@@ -11,10 +11,7 @@ import control.GerenciadorProduto;
 import domain.Demanda;
 import domain.Produto;
 import domain.Servico;
-import domain.UsuarioPadrao;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -29,19 +26,21 @@ public class GUIClienteServico implements GUICliente{
     private GerenciadorProduto gerenciadorProduto = new GerenciadorProduto();
     private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
     private static AtomicInteger count = new AtomicInteger(0); 
+    ArrayList<Produto> listaProdutos = new ArrayList<>();
     
     @Override
     public void cadastrarPedido() {
         try {
-            ArrayList<Produto> listaProdutos = new ArrayList<>();
+            
             System.out.println("---------- Cadastrar Pedido----------");
             System.out.println("id Cliente: ");
             long nome = in.nextLong();
             System.out.println("Descrição: ");
-            String setor = in.nextLine();
+            String setor = in.next();
             System.out.println("Quantos servicos deseja adicionar?");
             int servicos = in.nextInt();
-            for(;servicos < 0;servicos--){
+            System.out.println(servicos);
+            for(;servicos > 0;servicos--){
                 ListarProdutos();
                 System.out.println("Digite o IdProduto do servico escolhido: ");
                 long id = in.nextLong();
