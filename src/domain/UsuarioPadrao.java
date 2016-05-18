@@ -25,4 +25,20 @@ public class UsuarioPadrao extends Usuario{
     public  boolean validar() throws UsuarioInvalidoException{
         return true;
     }
+
+    /**
+     * @return the administrador
+     */
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
+    /**
+     * @param administrador the administrador to set
+     */
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
+    
+    
 }

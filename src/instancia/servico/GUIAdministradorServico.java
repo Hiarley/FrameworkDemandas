@@ -66,7 +66,14 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void removerUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            System.out.println("---------- Remover Usuario----------");
+            System.out.print("Id: ");
+            long id = Long.parseLong(in.nextLine());
+            gerenciadorUsuarios.removerUsuario(gerenciadorUsuarios.getUsuario(id));
+        } catch (Exception e) {
+
+        }
     }
 
     @Override
@@ -77,7 +84,19 @@ public class GUIAdministradorServico implements GUIAdministrador {
     @Override
     public void listarUsuarios() {
         try {
-          //  gerenciadorUsuarios.listarUsuarios();
+            ArrayList<UsuarioPadrao> listUsuario = gerenciadorUsuarios.listarUsuarios();
+            Iterator<UsuarioPadrao> it = listUsuario.iterator();
+        
+        while(it.hasNext()){
+            UsuarioPadrao usuarioPadrao = it.next();
+            System.out.println("Administrador" + usuarioPadrao.isAdministrador());
+            System.out.println("Id: " + usuarioPadrao.getId());
+            System.out.println("Nome: " + usuarioPadrao.getNome());
+            System.out.println("Endereço: " + usuarioPadrao.getEndereco());
+            System.out.println("Telefone: " + usuarioPadrao.getTelefone());
+            System.out.println("Login: " + usuarioPadrao.getLogin());
+            System.out.println("Senha: " + usuarioPadrao.getSenha());
+        }
         } catch (Exception e) {
         }
     
@@ -93,15 +112,15 @@ public class GUIAdministradorServico implements GUIAdministrador {
         try {
            
             System.out.println("---------- Cadastrar Cliente----------");
-            System.out.print("Nome: ");
+            System.out.println("Nome: ");
             String nome = in.nextLine();
-            System.out.print("Endereço: ");
+            System.out.println("Endereço: ");
             String setor = in.nextLine();
-            System.out.print("Telefone: ");
+            System.out.println("Telefone: ");
             String telefone = in.nextLine();
-            System.out.print("Login: ");
+            System.out.println("Login: ");
             String login = in.nextLine();
-            System.out.print("Senha: ");
+            System.out.println("Senha: ");
             String senha = in.nextLine();
             
             UsuarioCliente usuarioCliente = new UsuarioCliente(count.incrementAndGet(), nome, setor, telefone, login, senha);
@@ -130,11 +149,11 @@ public class GUIAdministradorServico implements GUIAdministrador {
         
         while(it.hasNext()){
             UsuarioCliente usuarioCliente = it.next();
-            System.out.print("Nome: " + usuarioCliente.getNome());
-            System.out.print("Endereço: " + usuarioCliente.getEndereco());
-            System.out.print("Telefone: " + usuarioCliente.getTelefone());
-            System.out.print("Login: " + usuarioCliente.getLogin());
-            System.out.print("Senha: " + usuarioCliente.getSenha());
+            System.out.println("Nome: " + usuarioCliente.getNome());
+            System.out.println("Endereço: " + usuarioCliente.getEndereco());
+            System.out.println("Telefone: " + usuarioCliente.getTelefone());
+            System.out.println("Login: " + usuarioCliente.getLogin());
+            System.out.println("Senha: " + usuarioCliente.getSenha());
         }
     }
 

@@ -70,12 +70,12 @@ public class GUIUsuarioServico implements GUIUsuario{
         
         while(it.hasNext()){
             UsuarioCliente usuarioCliente = it.next();
-            System.out.print("Id: " + usuarioCliente.getId());
-            System.out.print("Nome: " + usuarioCliente.getNome());
-            System.out.print("Endereço: " + usuarioCliente.getEndereco());
-            System.out.print("Telefone: " + usuarioCliente.getTelefone());
-            System.out.print("Login: " + usuarioCliente.getLogin());
-            System.out.print("Senha: " + usuarioCliente.getSenha());
+            System.out.println("Id: " + usuarioCliente.getId());
+            System.out.println("Nome: " + usuarioCliente.getNome());
+            System.out.println("Endereço: " + usuarioCliente.getEndereco());
+            System.out.println("Telefone: " + usuarioCliente.getTelefone());
+            System.out.println("Login: " + usuarioCliente.getLogin());
+            System.out.println("Senha: " + usuarioCliente.getSenha());
         }
         
     }
