@@ -8,6 +8,7 @@ package dao;
 import domain.Demanda;
 import domain.Historico;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -26,6 +27,12 @@ public class DaoHistorico implements IDaoHistorico{
         }
         return daoHistorico;
     }
+
+    public DaoHistorico() {
+        historicos = new HashSet<>();
+    }
+    
+    
         
     @Override
     public void adicionarHistorico(Historico historico) {

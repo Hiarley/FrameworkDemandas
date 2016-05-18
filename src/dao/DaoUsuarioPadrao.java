@@ -7,6 +7,7 @@ package dao;
 
 import domain.UsuarioPadrao;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -26,6 +27,12 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao{
         return daoUsuario;
     }
 
+    public DaoUsuarioPadrao() {
+        usuarios = new HashSet<>();
+    }
+
+    
+    
     public void adicionarUsuario(UsuarioPadrao usuario) {
         usuarios.add(usuario);
     }

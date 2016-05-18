@@ -7,6 +7,7 @@ package dao;
 
 import domain.UsuarioCliente;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -25,6 +26,12 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
         }
         return daoUsuario;
     }
+
+    public DaoUsuarioCliente() {
+        usuarios = new HashSet<UsuarioCliente>();
+    }
+    
+    
 
     public void adicionarUsuario(UsuarioCliente usuario) {
         usuarios.add(usuario);
@@ -73,7 +80,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
 
     @Override
     public ArrayList<UsuarioCliente> listarUsuarios() {
-        ArrayList<UsuarioCliente> resultList = new ArrayList<UsuarioCliente>();
+        ArrayList<UsuarioCliente> resultList = new ArrayList<>();
 		
 		Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {

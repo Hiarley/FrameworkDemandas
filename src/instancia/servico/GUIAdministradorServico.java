@@ -10,7 +10,10 @@ import control.GerenciadorClientes;
 import control.GerenciadorDemandas;
 import control.GerenciadorProduto;
 import control.GerenciadorUsuarios;
+import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -87,17 +90,52 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void cadastrarCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+           
+            System.out.println("---------- Cadastrar Cliente----------");
+            System.out.print("Nome: ");
+            String nome = in.nextLine();
+            System.out.print("Endereço: ");
+            String setor = in.nextLine();
+            System.out.print("Telefone: ");
+            String telefone = in.nextLine();
+            System.out.print("Login: ");
+            String login = in.nextLine();
+            System.out.print("Senha: ");
+            String senha = in.nextLine();
+            
+            UsuarioCliente usuarioCliente = new UsuarioCliente(count.incrementAndGet(), nome, setor, telefone, login, senha);
+            gerenciadorCliente.cadastrarCliente(usuarioCliente);
+        } catch (Exception e) {
+
+        }
     }
 
     @Override
     public void removerCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            System.out.println("---------- Remover Cliente----------");
+            System.out.print("Id: ");
+            long id = Long.parseLong(in.nextLine());
+            gerenciadorCliente.removerCliente(gerenciadorCliente.getCliente(id));
+        } catch (Exception e) {
+
+        }
     }
 
     @Override
     public void listarCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<UsuarioCliente> listUsuario = gerenciadorCliente.listarClientes();
+        Iterator<UsuarioCliente> it = listUsuario.iterator();
+        
+        while(it.hasNext()){
+            UsuarioCliente usuarioCliente = it.next();
+            System.out.print("Nome: " + usuarioCliente.getNome());
+            System.out.print("Endereço: " + usuarioCliente.getEndereco());
+            System.out.print("Telefone: " + usuarioCliente.getTelefone());
+            System.out.print("Login: " + usuarioCliente.getLogin());
+            System.out.print("Senha: " + usuarioCliente.getSenha());
+        }
     }
 
     @Override

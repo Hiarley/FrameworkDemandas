@@ -8,6 +8,7 @@ package dao;
 import domain.UsuarioCliente;
 import domain.Produto;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -26,6 +27,12 @@ public class DaoProduto implements IDaoProduto{
         }
         return daoProduto;
     }
+
+    public DaoProduto() {
+        produtos = new HashSet<>();
+    }
+    
+    
         
     
     @Override

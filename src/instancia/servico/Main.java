@@ -6,6 +6,11 @@
 package instancia.servico;
 
 import GUI.GUIInicial;
+import control.GerenciadorClientes;
+import dao.DaoUsuarioCliente;
+import dao.IDaoUsuarioCliente;
+import domain.UsuarioCliente;
+import excecao.ClienteInvalidoException;
 
 /**
  *
@@ -14,9 +19,16 @@ import GUI.GUIInicial;
 public class Main {
 
     private static GUIInicial guiIncial = new GUIInicialServico();
+    private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws ClienteInvalidoException {
+        popularDao();
         guiIncial.acessarInterface();
+    }
+    
+    public static void popularDao() throws ClienteInvalidoException{
+        IDaoUsuarioCliente daoCliente = DaoUsuarioCliente.getInstance();
+        UsuarioCliente usuarioCliente = new UsuarioCliente((long) 23.2,"dsa","asd","asd","asd","asd");
+        daoCliente.adicionarUsuario(usuarioCliente);
     }
 }

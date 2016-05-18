@@ -18,9 +18,11 @@ public class UsuarioCliente extends Usuario{
     public UsuarioCliente() {
     }
 
-    public UsuarioCliente(ArrayList<Demanda> listaDemandas, long id, String nome, String endereco, String telefone, String login, String senha) {
+    public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha) {
         super(id, nome, endereco, telefone, login, senha);
     }
+
+    
     
      
     public  boolean validar() throws ClienteInvalidoException{
