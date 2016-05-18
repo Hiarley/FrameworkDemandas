@@ -38,7 +38,7 @@ public class Main {
         */
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, 1, "Hiarley", "Teste", "123", "admin", "admin");
         UsuarioCliente usuarioCliente = new UsuarioCliente((long) 1,"dsa","asd","asd","asd","asd");
-        daoCliente.adicionarUsuario(usuarioCliente);
+       // daoCliente.adicionarUsuario(usuarioCliente);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
     }
 }

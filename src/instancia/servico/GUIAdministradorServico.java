@@ -8,11 +8,15 @@ package instancia.servico;
 import GUI.GUIAdministrador;
 import control.GerenciadorClientes;
 import control.GerenciadorDemandas;
+import control.GerenciadorHistoricos;
 import control.GerenciadorProduto;
 import control.GerenciadorUsuarios;
+import domain.Demanda;
+import domain.Historico;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -28,6 +32,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     private GerenciadorProduto gerenciadorProduto = new GerenciadorProduto();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
+    private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private static AtomicInteger count = new AtomicInteger(0); 
 
     @Override
@@ -159,7 +164,18 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void analisarPedido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Digite o IdDemanda: ");
+        long idDemanda = in.nextLong();
+        Demanda demanda = gerenciadorDemanda.getDemanda(idDemanda);
+        
+        System.out.println("Descreva o historico: ");
+        String descricao = in.nextLine();
+        
+        Historico historico = new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
+        
+        
+        
+        gerenciadorHistoricos.adicionarHistorico(historico);
     }
 
 }
