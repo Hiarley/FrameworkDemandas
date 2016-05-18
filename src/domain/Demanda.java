@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author hiarl
  */
-public abstract class Demanda {
+public class Demanda {
     private long idUsuarioSolicitante;
     private long idDemanda;
     private Date dataAbertura;
