@@ -8,6 +8,7 @@ package instancia.servico;
 import GUI.GUIUsuario;
 import control.GerenciadorClientes;
 import control.GerenciadorDemandas;
+import control.GerenciadorHistoricos;
 import domain.Demanda;
 import domain.Usuario;
 import domain.UsuarioCliente;
@@ -26,6 +27,7 @@ public class GUIUsuarioServico implements GUIUsuario {
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     private GerenciadorDemandas gerenciadorDemandas = new GerenciadorDemandas();
     private static AtomicInteger count = new AtomicInteger(0);
+    private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
 
     @Override
     public void cadastrarCliente() {
@@ -89,13 +91,16 @@ public class GUIUsuarioServico implements GUIUsuario {
         while (it.hasNext()) {
             Demanda demanda = it.next();
             if(demanda.getIdDemanda() == (id)){
-                
+                long asd = 0;
+                demanda.setIdUsuarioDemandando(asd);
                 System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");
                 System.out.println("idDemanda: " + demanda.getIdDemanda() + "\n");
                 System.out.println("dataAbertura: " + demanda.getDataAbertura() + "\n");
                 System.out.println("idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n");
                 System.out.println("descricao: " + demanda.getDescricao() + "\n");
                 System.out.println("status: " + demanda.getStatus() + "\n");
+                
+                gerenciadorHistorico.adicionarHistorico(null);
         }
     }
     }
