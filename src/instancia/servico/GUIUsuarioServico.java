@@ -7,6 +7,8 @@ package instancia.servico;
 
 import GUI.GUIUsuario;
 import control.GerenciadorClientes;
+import control.GerenciadorDemandas;
+import domain.Demanda;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import java.util.ArrayList;
@@ -18,17 +20,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Thiago
  */
-public class GUIUsuarioServico implements GUIUsuario{
-    
+public class GUIUsuarioServico implements GUIUsuario {
+
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    private GerenciadorDemandas gerenciadorDemandas = new GerenciadorDemandas();
     private static AtomicInteger count = new AtomicInteger(0);
-    
-    
+
     @Override
     public void cadastrarCliente() {
         try {
-           
+
             System.out.println("---------- Cadastrar Cliente----------");
             System.out.print("Nome: ");
             String nome = in.nextLine();
@@ -40,14 +42,13 @@ public class GUIUsuarioServico implements GUIUsuario{
             String login = in.nextLine();
             System.out.print("Senha: ");
             String senha = in.nextLine();
-            
+
             UsuarioCliente usuarioCliente = new UsuarioCliente(count.incrementAndGet(), nome, setor, telefone, login, senha);
             gerenciadorCliente.cadastrarCliente(usuarioCliente);
         } catch (Exception e) {
-            
 
         }
-            System.out.println("Cliente cadastrado com sucesso!!");
+        System.out.println("Cliente cadastrado com sucesso!!");
     }
 
     @Override
@@ -67,8 +68,8 @@ public class GUIUsuarioServico implements GUIUsuario{
     public void listarCliente() {
         ArrayList<UsuarioCliente> listUsuario = gerenciadorCliente.listarClientes();
         Iterator<UsuarioCliente> it = listUsuario.iterator();
-        
-        while(it.hasNext()){
+
+        while (it.hasNext()) {
             UsuarioCliente usuarioCliente = it.next();
             System.out.println("Id: " + usuarioCliente.getId());
             System.out.println("Nome: " + usuarioCliente.getNome());
@@ -77,12 +78,23 @@ public class GUIUsuarioServico implements GUIUsuario{
             System.out.println("Login: " + usuarioCliente.getLogin());
             System.out.println("Senha: " + usuarioCliente.getSenha());
         }
-        
+
     }
 
     @Override
     public void analisarPedido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Demanda> listUsuario = gerenciadorDemandas.listarDemandas();
+        Iterator<Demanda> it = listUsuario.iterator();
+        System.out.println("oi");
+        while (it.hasNext()) {
+            Demanda demanda = it.next();
+            System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");
+            System.out.println("idDemanda: " + demanda.getIdDemanda() + "\n");
+            System.out.println("dataAbertura: " + demanda.getDataAbertura() + "\n");
+            System.out.println("idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n");
+            System.out.println("descricao: " + demanda.getDescricao() + "\n");
+            System.out.println("status: " + demanda.getStatus() + "\n");
+        }
     }
-    
+
 }

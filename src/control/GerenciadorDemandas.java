@@ -42,9 +42,9 @@ public class GerenciadorDemandas {
     }
 
     private boolean validarDemanda(Demanda demanda) throws DemandaInvalidoException {
-        if (demanda.getUsuarioSolicitante().equals("")) {
+        if (demanda.getIdUsuarioSolicitante() < 0 ) {
             throw new DemandaInvalidoException("Solicitante não encontrado");
-            demanda.get
+            
         } else if (demanda.getDescricao().equals("")) {
             throw new DemandaInvalidoException("Demanda estar vazia");
 
