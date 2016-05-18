@@ -14,9 +14,10 @@ import java.util.Date;
  * @author hiarl
  */
 public abstract class Demanda {
+    private long idUsuarioSolicitante;
     private long idDemanda;
     private Date dataAbertura;
-    private Usuario usuarioSolicitante;
+    private long idUsuarioDemandando;
     private ArrayList<Historico> listaHistoricoDemanda;
     private String descricao;
     private char status;
@@ -25,14 +26,29 @@ public abstract class Demanda {
     public Demanda() {
     }
 
-    public Demanda(long idDemanda, Date dataAbertura, Usuario usuarioSolicitante, ArrayList<Historico> listaHistoricoDemanda, String descricao, char status, ArrayList<Produto> listaProdutos) {
+    public Demanda(long idUsuarioSolicitante, long idDemanda, Date dataAbertura, long idUsuarioDemandando, ArrayList<Historico> listaHistoricoDemanda, String descricao, char status, ArrayList<Produto> listaProdutos) {
+        this.idUsuarioSolicitante = idUsuarioSolicitante;
         this.idDemanda = idDemanda;
         this.dataAbertura = dataAbertura;
-        this.usuarioSolicitante = usuarioSolicitante;
+        this.idUsuarioDemandando = idUsuarioDemandando;
         this.listaHistoricoDemanda = listaHistoricoDemanda;
         this.descricao = descricao;
         this.status = status;
         this.listaProdutos = listaProdutos;
+    }
+
+    /**
+     * @return the idUsuarioSolicitante
+     */
+    public long getIdUsuarioSolicitante() {
+        return idUsuarioSolicitante;
+    }
+
+    /**
+     * @param idUsuarioSolicitante the idUsuarioSolicitante to set
+     */
+    public void setIdUsuarioSolicitante(long idUsuarioSolicitante) {
+        this.idUsuarioSolicitante = idUsuarioSolicitante;
     }
 
     /**
@@ -64,17 +80,17 @@ public abstract class Demanda {
     }
 
     /**
-     * @return the usuarioSolicitante
+     * @return the idUsuarioDemandando
      */
-    public Usuario getUsuarioSolicitante() {
-        return usuarioSolicitante;
+    public long getIdUsuarioDemandando() {
+        return idUsuarioDemandando;
     }
 
     /**
-     * @param usuarioSolicitante the usuarioSolicitante to set
+     * @param idUsuarioDemandando the idUsuarioDemandando to set
      */
-    public void setUsuarioSolicitante(Usuario usuarioSolicitante) {
-        this.usuarioSolicitante = usuarioSolicitante;
+    public void setIdUsuarioDemandando(long idUsuarioDemandando) {
+        this.idUsuarioDemandando = idUsuarioDemandando;
     }
 
     /**
@@ -132,8 +148,6 @@ public abstract class Demanda {
     public void setListaProdutos(ArrayList<Produto> listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-    
-    public abstract boolean validarDemanda() throws DemandaInvalidoException;
-    
+
     
 }

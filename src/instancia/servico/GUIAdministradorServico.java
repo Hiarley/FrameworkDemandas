@@ -34,7 +34,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
             System.out.println("---------- Cadastrar Usuario----------");
             System.out.print("Nome: ");
             String nome = in.nextLine();
-            System.out.print("Setor: ");
+            System.out.print("Endereço: ");
             String setor = in.nextLine();
             System.out.print("Telefone: ");
             String telefone = in.nextLine();

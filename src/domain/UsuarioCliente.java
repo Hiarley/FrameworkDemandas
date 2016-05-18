@@ -14,14 +14,12 @@ import java.util.ArrayList;
  */
 public class UsuarioCliente extends Usuario{
     
-    private ArrayList<Demanda> listaDemandas;
 
     public UsuarioCliente() {
     }
 
     public UsuarioCliente(ArrayList<Demanda> listaDemandas, long id, String nome, String endereco, String telefone, String login, String senha) {
         super(id, nome, endereco, telefone, login, senha);
-        this.listaDemandas = listaDemandas;
     }
     
      
@@ -29,18 +27,5 @@ public class UsuarioCliente extends Usuario{
         return true;
     }
 
-    /**
-     * @return the listaDemandas
-     */
-    public ArrayList<Demanda> getListaDemandas() {
-        return listaDemandas;
-    }
-
-    /**
-     * @param listaDemandas the listaDemandas to set
-     */
-    public void setListaDemandas(ArrayList<Demanda> listaDemandas) {
-        this.listaDemandas = listaDemandas;
-    }
 
 }
