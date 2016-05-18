@@ -18,7 +18,6 @@ public abstract class Demanda {
     private long idDemanda;
     private Date dataAbertura;
     private long idUsuarioDemandando;
-    private ArrayList<Historico> listaHistoricoDemanda;
     private String descricao;
     private char status;
     private ArrayList<Produto> listaProdutos;
@@ -26,12 +25,11 @@ public abstract class Demanda {
     public Demanda() {
     }
 
-    public Demanda(long idUsuarioSolicitante, long idDemanda, Date dataAbertura, long idUsuarioDemandando, ArrayList<Historico> listaHistoricoDemanda, String descricao, char status, ArrayList<Produto> listaProdutos) {
+    public Demanda(long idUsuarioSolicitante, long idDemanda, Date dataAbertura, long idUsuarioDemandando, String descricao, char status, ArrayList<Produto> listaProdutos) {
         this.idUsuarioSolicitante = idUsuarioSolicitante;
         this.idDemanda = idDemanda;
         this.dataAbertura = dataAbertura;
         this.idUsuarioDemandando = idUsuarioDemandando;
-        this.listaHistoricoDemanda = listaHistoricoDemanda;
         this.descricao = descricao;
         this.status = status;
         this.listaProdutos = listaProdutos;
@@ -91,20 +89,6 @@ public abstract class Demanda {
      */
     public void setIdUsuarioDemandando(long idUsuarioDemandando) {
         this.idUsuarioDemandando = idUsuarioDemandando;
-    }
-
-    /**
-     * @return the listaHistoricoDemanda
-     */
-    public ArrayList<Historico> getListaHistoricoDemanda() {
-        return listaHistoricoDemanda;
-    }
-
-    /**
-     * @param listaHistoricoDemanda the listaHistoricoDemanda to set
-     */
-    public void setListaHistoricoDemanda(ArrayList<Historico> listaHistoricoDemanda) {
-        this.listaHistoricoDemanda = listaHistoricoDemanda;
     }
 
     /**
