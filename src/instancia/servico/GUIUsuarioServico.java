@@ -81,7 +81,7 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     }
 
-    @Override
+    
     public void analisarPedido(long id) {
         ArrayList<Demanda> listUsuario = gerenciadorDemandas.listarDemandas();
         Iterator<Demanda> it = listUsuario.iterator();
@@ -98,5 +98,10 @@ public class GUIUsuarioServico implements GUIUsuario {
                 System.out.println("status: " + demanda.getStatus() + "\n");
         }
     }
+    }
+
+    @Override
+    public void analisarPedido() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

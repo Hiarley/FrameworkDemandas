@@ -24,25 +24,28 @@ public class GerenciadorClientes {
 
     public void cadastrarCliente(UsuarioCliente cliente) throws  ClienteInvalidoException {
         if(cliente.validar()) {
-            this.daoCliente.adicionarUsuario(cliente);
+            this.daoCliente.adicionarCliente(cliente);
         }
     }
 
     public void removerCliente(UsuarioCliente cliente) {
-        this.daoCliente.removerUsuario(cliente);
+        this.daoCliente.removerCliente(cliente);
     }
 
     public void atualizarCliente(UsuarioCliente cliente){
-        this.daoCliente.atualizarUsuario(cliente);
+        this.daoCliente.atualizarCliente(cliente);
     }
     
     public ArrayList<UsuarioCliente> listarClientes(){
-        return this.daoCliente.listarUsuarios();
+        return this.daoCliente.listarCliente();
     }
 
     public UsuarioCliente getCliente(Long codigo) {
-        return this.daoCliente.pegarUsuario(codigo);
+        return this.daoCliente.pegarCliente(codigo);
     }
-    
+        
+    public UsuarioCliente getCliente(String login){
+        return this.daoCliente.pegarCliente(login);
+    }
     
 }

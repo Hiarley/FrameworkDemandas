@@ -7,9 +7,10 @@ package GUI;
 
 /**
  *
- * @author Thiago
+ * @author hiarl
  */
-public interface GUICliente {
-    public void cadastrarPedido();
-    public void listarDemandas();
+public interface GUILogin {
+    public boolean autenticar(String login, String senha);
+    public void logar();
+    
 }

@@ -33,12 +33,12 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
     
     
 
-    public void adicionarUsuario(UsuarioCliente usuario) {
+    public void adicionarCliente(UsuarioCliente usuario) {
         usuarios.add(usuario);
     }
 
     @Override
-    public void removerUsuario(UsuarioCliente usuario) {
+    public void removerCliente(UsuarioCliente usuario) {
         Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {
 			UsuarioCliente u = it.next();
@@ -52,7 +52,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
     }
 
     @Override
-    public void atualizarUsuario(UsuarioCliente usuario) {
+    public void atualizarCliente(UsuarioCliente usuario) {
         Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {
 			UsuarioCliente u = it.next();
@@ -65,8 +65,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
                 }
     }
 
-    @Override
-    public UsuarioCliente pegarUsuario(long id) {
+    public UsuarioCliente pegarCliente(long id) {
         Iterator<UsuarioCliente> it = usuarios.iterator();
 		while(it.hasNext()) {
 			UsuarioCliente u = it.next();
@@ -76,10 +75,10 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
 			}
 		}
 		
-		return null;    }
+		return null;   
+    }
 
-    @Override
-    public ArrayList<UsuarioCliente> listarUsuarios() {
+    public ArrayList<UsuarioCliente> listarCliente() {
         ArrayList<UsuarioCliente> resultList = new ArrayList<>();
 		
 		Iterator<UsuarioCliente> it = usuarios.iterator();
@@ -88,6 +87,20 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
 		}
 		
 		return resultList;
+    }
+
+    @Override
+    public UsuarioCliente pegarCliente(String login) {
+        Iterator<UsuarioCliente> it = usuarios.iterator();
+		while(it.hasNext()) {
+			UsuarioCliente u = it.next();
+			
+			if(u.getLogin().equals(login)) {
+				return u;
+			}
+		}
+		
+		return null;   
     }
         
 }

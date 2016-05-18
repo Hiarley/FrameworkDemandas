@@ -20,5 +20,7 @@ public interface IDaoUsuarioPadrao {
     public UsuarioPadrao pegarUsuario(long id);
     public ArrayList<UsuarioPadrao> listarUsuarios();
 
+    public UsuarioPadrao pegarUsuario(String login);
+
          
 }

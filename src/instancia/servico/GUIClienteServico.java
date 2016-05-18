@@ -75,4 +75,9 @@ public class GUIClienteServico implements GUICliente {
         } catch (Exception e) {
         }
     }
+
+    @Override
+    public void listarDemandas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

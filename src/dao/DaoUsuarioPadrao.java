@@ -76,7 +76,8 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao{
 			}
 		}
 		
-		return null;    }
+		return null;  
+    }
 
     @Override
     public ArrayList<UsuarioPadrao> listarUsuarios() {
@@ -88,6 +89,20 @@ public class DaoUsuarioPadrao implements IDaoUsuarioPadrao{
 		}
 		
 		return resultList;
+    }
+
+    @Override
+    public UsuarioPadrao pegarUsuario(String login) {
+        Iterator<UsuarioPadrao> it = usuarios.iterator();
+		while(it.hasNext()) {
+			UsuarioPadrao u = it.next();
+			
+			if(u.getLogin().equals(login)) {
+				return u;
+			}
+		}
+		
+		return null;  
     }
         
 }

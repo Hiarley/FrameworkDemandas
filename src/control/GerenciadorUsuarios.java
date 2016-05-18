@@ -43,6 +43,10 @@ public class GerenciadorUsuarios {
     public UsuarioPadrao getUsuario(long id) {
         return this.daoUsuario.pegarUsuario(id);
     }
+    
+    public UsuarioPadrao getUsuario(String login){
+        return this.daoUsuario.pegarUsuario(login);
+    }
 
     private boolean validarUsuario(UsuarioPadrao usuario) throws UsuarioInvalidoException {
         if(usuario.getNome().equals("")){

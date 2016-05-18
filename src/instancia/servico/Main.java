@@ -6,10 +6,14 @@
 package instancia.servico;
 
 import GUI.GUIInicial;
+import GUI.GUILogin;
 import control.GerenciadorClientes;
 import dao.DaoUsuarioCliente;
+import dao.DaoUsuarioPadrao;
 import dao.IDaoUsuarioCliente;
+import dao.IDaoUsuarioPadrao;
 import domain.UsuarioCliente;
+import domain.UsuarioPadrao;
 import excecao.ClienteInvalidoException;
 
 /**
@@ -18,17 +22,23 @@ import excecao.ClienteInvalidoException;
  */
 public class Main {
 
-    private static GUIInicial guiIncial = new GUIInicialServico();
+    private static GUILogin guiLogin = new GUILoginServico();
     private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
 
     public static void main(String[] args) throws ClienteInvalidoException {
         popularDao();
-        guiIncial.acessarInterface();
+        guiLogin.logar();
     }
     
     public static void popularDao() throws ClienteInvalidoException{
         IDaoUsuarioCliente daoCliente = DaoUsuarioCliente.getInstance();
-        UsuarioCliente usuarioCliente = new UsuarioCliente((long) 23.2,"dsa","asd","asd","asd","asd");
+        IDaoUsuarioPadrao daoUsuarioPadrao = DaoUsuarioPadrao.getInstance();
+        /*
+        public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
+        */
+        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, 1, "Hiarley", "Teste", "123", "admin", "admin");
+        UsuarioCliente usuarioCliente = new UsuarioCliente((long) 1,"dsa","asd","asd","asd","asd");
         daoCliente.adicionarUsuario(usuarioCliente);
+        daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
     }
 }
