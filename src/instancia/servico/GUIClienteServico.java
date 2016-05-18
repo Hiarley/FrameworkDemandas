@@ -27,6 +27,7 @@ public class GUIClienteServico implements GUICliente{
     private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
     private static AtomicInteger count = new AtomicInteger(0); 
     ArrayList<Produto> listaProdutos = new ArrayList<>();
+    private FabricaNotificacaoDemanda notificao = new FabricaNotificacaoDemanda();
     
     @Override
     public void cadastrarPedido() {
@@ -39,7 +40,6 @@ public class GUIClienteServico implements GUICliente{
             String setor = in.next();
             System.out.println("Quantos servicos deseja adicionar?");
             int servicos = in.nextInt();
-            System.out.println(servicos);
             for(;servicos > 0;servicos--){
                 ListarProdutos();
                 System.out.println("Digite o IdProduto do servico escolhido: ");
@@ -49,9 +49,12 @@ public class GUIClienteServico implements GUICliente{
             
             Demanda demanda = new Demanda(nome, count.incrementAndGet(), null, nome, setor, 'a', listaProdutos);
             gerenciadorDemanda.cadastrarDemanda(demanda);
+            notificao.NotificaoPeidoRealizado(demanda);
         } catch (Exception e) {
 
         }
+        
+        
     }
     
     public void ListarProdutos(){
