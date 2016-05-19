@@ -9,6 +9,9 @@ import GUI.GUIAdministrador;
 import GUI.GUICliente;
 import GUI.GUIInicial;
 import GUI.GUIUsuario;
+import domain.Usuario;
+import domain.UsuarioCliente;
+import domain.UsuarioPadrao;
 import java.util.Scanner;
 
 /**
@@ -23,21 +26,21 @@ public class GUIInicialServico implements GUIInicial {
     private GUIUsuario guiUsuario = new GUIUsuarioServico();
     private GUICliente guiCliente = new GUIClienteServico();
 
-    @Override
-    public void acessarInterface() {
-
+    public void acessarInterface(Usuario usuario) {
+        
         int option;
 
         do {
-            System.out.println("---------- Gerenciamento de Demandas ----------");
-            System.out.println("1 - Acessar area Usuario Administrador");
-            System.out.println("2 - Acessar area Usuario Padrao");
-            System.out.println("3 - Acessar area Usuario Cliente");
-            System.out.println("0 - Sair");
-
-            System.out.print("Opcao desejada: ");
-            option = in.nextInt();
-
+            if(usuario instanceof UsuarioPadrao){
+                 UsuarioPadrao padrao = (UsuarioPadrao) usuario;
+                 if(padrao.isAdministrador()){
+                     option = 1;
+                 }else{
+                     option = 2;
+                 }
+            }else{
+                option = 3;
+            }
             switch (option) {
                 case 1:
                     showMenuGUIUsuarioAdministrador();
@@ -70,7 +73,7 @@ public class GUIInicialServico implements GUIInicial {
             System.out.println("9 - Listar Clientes");
             System.out.println("10 - Analisar Pedido");
 
-            System.out.println("0 - Voltar");
+            System.out.println("0 - Sair");
 
             System.out.print("Opcao desejada: ");
             option = in.nextInt();
@@ -109,7 +112,8 @@ public class GUIInicialServico implements GUIInicial {
                     break;
 
                 default:
-                    return;
+                   System.exit(0);
+                    break;
             }
         } while (option > 0);
     }
@@ -124,7 +128,7 @@ public class GUIInicialServico implements GUIInicial {
             System.out.println("3 - Listar Clientes");
             System.out.println("4 - Analisar Pedido");
 
-            System.out.println("0 - Voltar");
+            System.out.println("0 - Sair");
 
             System.out.print("Opcao desejada: ");
             option = in.nextInt();
@@ -143,6 +147,7 @@ public class GUIInicialServico implements GUIInicial {
                     guiUsuario.analisarPedido();
                     break;
                 default:
+                    System.exit(0);
                     break;
             }
         } while (option > 0);
@@ -156,7 +161,7 @@ public class GUIInicialServico implements GUIInicial {
             System.out.println("1 - Cadastrar Pedido");
             System.out.println("2 - Listar Minhas Demandas");
 
-            System.out.println("0 - Voltar");
+            System.out.println("0 - Sair");
 
             System.out.print("Opcao desejada: ");
             option = in.nextInt();
@@ -168,6 +173,7 @@ public class GUIInicialServico implements GUIInicial {
                 case 2:
                     guiCliente.listarDemandas();
                 default:
+                    System.exit(0);
                     break;
             }
         } while (option > 0);

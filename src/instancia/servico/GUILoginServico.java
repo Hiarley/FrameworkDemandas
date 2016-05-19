@@ -17,23 +17,29 @@ import java.util.Scanner;
  * @author hiarl
  */
 public class GUILoginServico implements GUI.GUILogin {
+
     private Scanner in = new Scanner(System.in);
 
     GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     GUIInicial guiInicialServico = new GUIInicialServico();
-    
+    Usuario usuario;
 
     @Override
     public boolean autenticar(String login, String senha) {
         Usuario usuarioPadrao = gerenciadorUsuarios.getUsuario(login);
-        
-        if(gerenciadorUsuarios.getUsuario(login) == null || ){
+        Usuario usuarioCliente = gerenciadorCliente.getCliente(login);
+
+        if (gerenciadorUsuarios.getUsuario(login) == null && gerenciadorCliente.getCliente(login) == null) {
             System.out.println("Usuario não cadastrado");
             return false;
-        }else if(usuarioPadrao.getSenha().equals(senha)){
+        } else if (usuarioPadrao.getSenha().equals(senha)) {
+            usuario = gerenciadorUsuarios.getUsuario(login);
             return true;
-        }else{
+        } else if (usuarioCliente.getSenha().equals(senha)) {
+            usuario = gerenciadorCliente.getCliente(login);
+            return true;
+        } else {
             System.out.println("Senha incorreta.");
             return false;
         }
@@ -47,8 +53,8 @@ public class GUILoginServico implements GUI.GUILogin {
             String login = in.next();
             System.out.println("Senha:");
             String senha = in.next();
-            if(autenticar(login, senha)){
-                guiInicialServico.acessarInterface(gerenciadorUsuarios.getUsuario(login));
+            if (autenticar(login, senha)) {
+                guiInicialServico.acessarInterface(usuario);
             }
         } while (true);
     }

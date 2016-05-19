@@ -5,10 +5,12 @@
  */
 package GUI;
 
+import domain.Usuario;
+
 /**
  *
  * @author Thiago
  */
 public interface GUIInicial {
-    public void acessarInterface();
+    public void acessarInterface(Usuario usuario);
 }

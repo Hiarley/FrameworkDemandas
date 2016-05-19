@@ -29,16 +29,20 @@ public class Main {
         popularDao();
         guiLogin.logar();
     }
-    
-    public static void popularDao() throws ClienteInvalidoException{
+
+    public static void popularDao() throws ClienteInvalidoException {
         IDaoUsuarioCliente daoCliente = DaoUsuarioCliente.getInstance();
         IDaoUsuarioPadrao daoUsuarioPadrao = DaoUsuarioPadrao.getInstance();
         /*
         public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
-        */
+         */
+        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, 2, "Thiago", "Teste", "123", "thiago", "admin");
+
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, 1, "Hiarley", "Teste", "123", "admin", "admin");
-        UsuarioCliente usuarioCliente = new UsuarioCliente((long) 1,"dsa","asd","asd","asd","asd");
-       // daoCliente.adicionarUsuario(usuarioCliente);
+        UsuarioCliente usuarioCliente = new UsuarioCliente((long) 1, "dsa", "asd", "asd", "asd", "asd");
+        // daoCliente.adicionarUsuario(usuarioCliente);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
+        daoUsuarioPadrao.adicionarUsuario(usuarioPadrao1);
+
     }
 }
