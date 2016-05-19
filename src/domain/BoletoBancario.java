@@ -19,12 +19,14 @@ public class BoletoBancario extends Pagamento{
     public BoletoBancario() {
     }
 
-    public BoletoBancario(Date vencimentoBoleto, int linhaDigitavel, int codigoBanco, String nome, double valor) {
-        super(nome, valor);
+    public BoletoBancario(Date vencimentoBoleto, int linhaDigitavel, int codigoBanco, long idPagamento, String nome, double valor) {
+        super(idPagamento, nome, valor);
         this.vencimentoBoleto = vencimentoBoleto;
         this.linhaDigitavel = linhaDigitavel;
         this.codigoBanco = codigoBanco;
     }
+
+    
 
     /**
      * @return the vencimentoBoleto

@@ -10,15 +10,31 @@ package domain;
  * @author Thiago
  */
 public abstract class Pagamento {
+    private long idPagamento;
     private String nome;
     private double valor;
 
     public Pagamento() {
     }
 
-    public Pagamento(String nome, double valor) {
+    public Pagamento(long idPagamento, String nome, double valor) {
+        this.idPagamento = idPagamento;
         this.nome = nome;
         this.valor = valor;
+    }
+
+    /**
+     * @return the idPagamento
+     */
+    public long getIdPagamento() {
+        return idPagamento;
+    }
+
+    /**
+     * @param idPagamento the idPagamento to set
+     */
+    public void setIdPagamento(long idPagamento) {
+        this.idPagamento = idPagamento;
     }
 
     /**
@@ -48,6 +64,6 @@ public abstract class Pagamento {
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
+
     
 }

@@ -17,12 +17,14 @@ public class CartaoCredito extends Pagamento{
     public CartaoCredito() {
     }
 
-    public CartaoCredito(int numeroCartao, int numeroParcelas, String Banco, String nome, double valor) {
-        super(nome, valor);
+    public CartaoCredito(int numeroCartao, int numeroParcelas, String Banco, long idPagamento, String nome, double valor) {
+        super(idPagamento, nome, valor);
         this.numeroCartao = numeroCartao;
         this.numeroParcelas = numeroParcelas;
         this.Banco = Banco;
     }
+
+    
 
     /**
      * @return the numeroCartao
