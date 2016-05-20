@@ -65,5 +65,7 @@ public abstract class Pagamento {
         this.valor = valor;
     }
 
-    
+    public boolean validarPagamento() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

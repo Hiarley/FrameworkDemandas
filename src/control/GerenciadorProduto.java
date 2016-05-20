@@ -25,18 +25,18 @@ public class GerenciadorProduto {
         daoProduto = DaoProduto.getInstance();
     }
 
-    public void cadastrarProduto(Produto setor) {
-        if (setor.validarProduto()) {
-            this.daoProduto.adicionarProduto(setor);
+    public void cadastrarProduto(Produto produto) {
+        if (produto.validarProduto()) {
+            this.daoProduto.adicionarProduto(produto);
         }
     }
 
-    public void removerProduto(Produto setor) {
-        this.daoProduto.removerProduto(setor);
+    public void removerProduto(Produto produto) {
+        this.daoProduto.removerProduto(produto);
     }
 
-    public void atualizarProduto(Produto setor) {
-        this.daoProduto.atualizarProduto(setor);
+    public void atualizarProduto(Produto produto) {
+        this.daoProduto.atualizarProduto(produto);
     }
 
     public ArrayList<Produto> listarProdutos() {
