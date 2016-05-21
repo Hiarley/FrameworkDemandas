@@ -68,8 +68,11 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
         mensagem+="Olá, ";
         mensagem+=usuarioCliente.getTelefone();         
         mensagem+="!Uma nova atualização foi feita no seu Pedido:\n";
-        mensagem+="Descricao:\n";
+        mensagem+="Na Data: ";
+        mensagem+=historico.getDataModificaco();
+        mensagem+="\nDescricao:\n";
         mensagem+=historico.getDescricao();
+        
                   
         return new NotificaSMS(mensagem);
     }
