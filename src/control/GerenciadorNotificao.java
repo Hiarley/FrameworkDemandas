@@ -7,6 +7,7 @@ package control;
 
 import domain.Demanda;
 import domain.FabricaNotificacao;
+import domain.Historico;
 import domain.Notificacao;
 
 /**
@@ -26,8 +27,8 @@ public class GerenciadorNotificao {
         notificao.enviar();
     }
     
-    public void NotificarAtualizacao(Demanda demanda){
-        fabricaNotificacao.NotificarAtualizacaoDemanda(demanda);
+    public void NotificarAtualizacao(Historico historico){
+        fabricaNotificacao.NotificarAtualizacaoDemanda(historico);
         notificao.enviar();
     }
 }

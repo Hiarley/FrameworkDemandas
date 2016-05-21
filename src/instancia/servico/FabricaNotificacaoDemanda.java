@@ -5,40 +5,75 @@
  */
 package instancia.servico;
 
+import control.GerenciadorClientes;
+import control.GerenciadorDemandas;
 import domain.Demanda;
+import domain.FabricaNotificacao;
+import domain.Historico;
 import domain.NotificaSMS;
 import domain.Notificacao;
 import domain.Produto;
 import domain.Servico;
+import domain.UsuarioCliente;
 import java.util.List;
 
 /**
  *
  * @author hiarl
  */
-public class FabricaNotificacaoDemanda{
-    public void NotificaoPeidoRealizado(Demanda demanda){
-        System.out.println("Novo Pedido Realizado\n");
-        System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");
-        System.out.println("idDemanda: " + demanda.getIdDemanda() +"\n");
-        System.out.println("dataAbertura: " + demanda.getDataAbertura() + "\n");
-        System.out.println("idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n");
-        System.out.println("descricao: " + demanda.getDescricao()+"\n");
-        System.out.println("status: " + demanda.getStatus() + "\n");
-        System.out.println("Com o seguintes servicos: " + "\n");
+public class FabricaNotificacaoDemanda implements FabricaNotificacao{
+    
+    
+    
+    private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
+    private GerenciadorDemandas gerenciadorDemandas = new GerenciadorDemandas();
+    
+    @Override
+    public Notificacao NotificarInicioDemanda(Demanda demanda){
+        UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
+        String mensagem = null;
+        mensagem+="Olá, ";
+        mensagem+=usuariocliente.getTelefone();
+        mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
+        mensagem+="idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n";
+        mensagem+="idDemanda: " + demanda.getIdDemanda() +"\n";
+        mensagem+="dataAbertura: " + demanda.getDataAbertura() + "\n";
+        mensagem+="idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n";
+        mensagem+="descricao: " + demanda.getDescricao()+"\n";
+        mensagem+="status: " + demanda.getStatus() + "\n";
+        mensagem+="Com o seguintes servicos: " + "\n";
         
         List<Produto> listProdutos = demanda.getListaProdutos();
         for(Produto produto : listProdutos){
             
             Servico servico = (Servico) produto;
-            System.out.println("Nome" + servico.getNome());
-            System.out.println("IdProduto: " + servico.getIdProduto());
-            System.out.println("Empresa Fornecedora: " + servico.getEmpresaFornecedora());
-            System.out.println("Preco: " + servico.getPreco());
-            System.out.println("Descricao: " + servico.getDescricao());
-            System.out.println("Prazo: " + servico.getPrazo());
+            mensagem+="Nome" + servico.getNome();
+            mensagem+="IdProduto: " + servico.getIdProduto();
+            mensagem+="Empresa Fornecedora: " + servico.getEmpresaFornecedora();
+            mensagem+="Preco: " + servico.getPreco();
+            mensagem+="Descricao: " + servico.getDescricao();
+            mensagem+="Prazo: " + servico.getPrazo();
         }
         
+        return new NotificaSMS(mensagem);
+
+            
+        };
+
+    @Override
+    public Notificacao NotificarAtualizacaoDemanda(Historico historico) {
+        Demanda demanda = gerenciadorDemandas.getDemanda(historico.getIdDemanda());
+        UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
+        String mensagem = null;
+        mensagem+="Olá, ";
+        mensagem+=usuarioCliente.getTelefone();         
+        mensagem+="!Uma nova atualização foi feita no seu Pedido:\n";
+        mensagem+="Descricao:\n";
+        mensagem+=historico.getDescricao();
+                  
+        return new NotificaSMS(mensagem);
+    }
         
     }
-}
+
+

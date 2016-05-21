@@ -51,7 +51,7 @@ public class GUIClienteServico implements GUICliente {
             }
             Demanda demanda = new Demanda(idCliente, count.incrementAndGet(), date, idCliente, descricao, 'I', listaProdutos);
             gerenciadorDemanda.cadastrarDemanda(demanda);
-            notificao.NotificaoPeidoRealizado(demanda);
+            notificao.NotificarInicioDemanda(demanda);
         } catch (Exception e) {
 
         }

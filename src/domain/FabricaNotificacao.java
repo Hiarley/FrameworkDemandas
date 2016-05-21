@@ -11,5 +11,5 @@ package domain;
  */
 public interface FabricaNotificacao {
     public Notificacao NotificarInicioDemanda(Demanda demanda);
-    public Notificacao NotificarAtualizacaoDemanda(Demanda demanda);
+    public Notificacao NotificarAtualizacaoDemanda(Historico historico);
 }

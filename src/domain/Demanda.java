@@ -5,7 +5,6 @@
  */
 package domain;
 
-import excecao.DemandaInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 
