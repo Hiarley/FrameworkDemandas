@@ -9,6 +9,7 @@ import GUI.GUIAdministrador;
 import control.GerenciadorClientes;
 import control.GerenciadorDemandas;
 import control.GerenciadorHistoricos;
+import control.GerenciadorNotificao;
 import control.GerenciadorProduto;
 import control.GerenciadorUsuarios;
 import domain.Demanda;
@@ -33,6 +34,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
+    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
     private static AtomicInteger count = new AtomicInteger(0); 
 
     @Override
@@ -173,7 +175,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
         
         Historico historico = new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
         
-        
+        gerenciadorNotificacao.NotificarAtualizacao(historico);
         
         gerenciadorHistoricos.adicionarHistorico(historico);
     }

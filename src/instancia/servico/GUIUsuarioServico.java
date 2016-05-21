@@ -9,6 +9,7 @@ import GUI.GUIUsuario;
 import control.GerenciadorClientes;
 import control.GerenciadorDemandas;
 import control.GerenciadorHistoricos;
+import control.GerenciadorNotificao;
 import domain.Demanda;
 import domain.Historico;
 import domain.Usuario;
@@ -30,6 +31,7 @@ public class GUIUsuarioServico implements GUIUsuario {
     private GerenciadorDemandas gerenciadorDemandas = new GerenciadorDemandas();
     private static AtomicInteger count = new AtomicInteger(0);
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
+    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
 
     @Override
     public void cadastrarCliente() {
@@ -123,7 +125,7 @@ public class GUIUsuarioServico implements GUIUsuario {
         
         Historico historico = new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
         
-        
+        gerenciadorNotificacao.NotificarAtualizacao(historico);
         
         gerenciadorHistorico.adicionarHistorico(historico);
     }

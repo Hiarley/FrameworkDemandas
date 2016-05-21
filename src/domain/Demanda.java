@@ -25,8 +25,9 @@ public class Demanda {
     }
 
     public Demanda(long idUsuarioSolicitante, long idDemanda, Date dataAbertura, 
-            long idUsuarioDemandando, String descricao, char status,
-            ArrayList<Produto> listaProdutos) {
+        long idUsuarioDemandando, String descricao, char status,
+        ArrayList<Produto> listaProdutos) {
+        
         this.idUsuarioSolicitante = idUsuarioSolicitante;
         this.idDemanda = idDemanda;
         this.dataAbertura = dataAbertura;
