@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package control;
+package domain;
 
 /**
  *
  * @author Thiago
  */
-public class GerenciadorInformacoes {
-    
+public interface FabricaNotificacao {
+    public Notificacao NotificarInicioDemanda(Demanda demanda);
+    public Notificacao NotificarAtualizacaoDemanda(Demanda demanda);
 }

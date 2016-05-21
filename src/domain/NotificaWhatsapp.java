@@ -9,7 +9,7 @@ package domain;
  *
  * @author hiarl
  */
-public class NotificaWhatsapp extends Notificao{
+public class NotificaWhatsapp extends Notificacao{
     
     public NotificaWhatsapp(String mensagem) {
             super(mensagem);

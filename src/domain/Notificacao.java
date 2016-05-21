@@ -9,14 +9,14 @@ package domain;
  *
  * @author hiarl
  */
-public abstract class Notificao {
+public abstract class Notificacao {
     private String mensagem;
     
     
-    public Notificao() {
+    public Notificacao() {
     }
 
-    public Notificao(String mensagem) {
+    public Notificacao(String mensagem) {
         this.mensagem = mensagem;
     }
     
@@ -36,5 +36,5 @@ public abstract class Notificao {
         this.mensagem = mensagem;
     }
     
-    //public abstract void enviar();
+    public abstract void enviar();
 }

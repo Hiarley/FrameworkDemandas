@@ -9,7 +9,7 @@ package domain;
  *
  * @author hiarl
  */
-public class NotificaEmail extends Notificao{
+public class NotificaEmail extends Notificacao{
 
     public NotificaEmail(String mensagem) {
             super(mensagem);

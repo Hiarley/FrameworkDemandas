@@ -7,7 +7,7 @@ package instancia.servico;
 
 import domain.Demanda;
 import domain.NotificaSMS;
-import domain.Notificao;
+import domain.Notificacao;
 import domain.Produto;
 import domain.Servico;
 import java.util.List;

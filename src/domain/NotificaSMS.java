@@ -9,7 +9,7 @@ package domain;
  *
  * @author hiarl
  */
-public class NotificaSMS extends Notificao{
+public class NotificaSMS extends Notificacao{
     public NotificaSMS(String mensagem) {
             super(mensagem);
     }
