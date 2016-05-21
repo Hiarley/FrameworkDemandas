@@ -9,7 +9,6 @@ import GUI.GUIInicial;
 import control.GerenciadorClientes;
 import control.GerenciadorUsuarios;
 import domain.Usuario;
-import domain.UsuarioPadrao;
 import java.util.Scanner;
 
 /**

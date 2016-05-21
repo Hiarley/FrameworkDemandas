@@ -10,7 +10,6 @@ import GUI.GUICliente;
 import GUI.GUIInicial;
 import GUI.GUIUsuario;
 import domain.Usuario;
-import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
 import java.util.Scanner;
 

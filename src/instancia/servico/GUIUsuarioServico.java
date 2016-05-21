@@ -12,7 +12,6 @@ import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
 import domain.Demanda;
 import domain.Historico;
-import domain.Usuario;
 import domain.UsuarioCliente;
 import java.util.ArrayList;
 import java.util.Date;

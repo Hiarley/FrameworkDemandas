@@ -5,7 +5,6 @@
  */
 package instancia.servico;
 
-import GUI.GUIInicial;
 import GUI.GUILogin;
 import control.GerenciadorClientes;
 import dao.DaoUsuarioCliente;
