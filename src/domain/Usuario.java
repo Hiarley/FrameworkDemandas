@@ -5,6 +5,9 @@
  */
 package domain;
 
+import excecao.UsuarioInvalidoException;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  *
  * @author hiarl
@@ -17,9 +20,10 @@ public abstract class Usuario {
     private String telefone;
     private String login;
     private String senha;
+    private static AtomicInteger count = new AtomicInteger(0); 
 
-    public Usuario(long id, String nome, String endereco, String telefone, String login, String senha) {
-        this.id = id;
+    public Usuario(String nome, String endereco, String telefone, String login, String senha) {
+        this.id = count.getAndIncrement();
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -40,7 +44,8 @@ public abstract class Usuario {
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(long id) throws UsuarioInvalidoException {
+        if(id < 0) throw new UsuarioInvalidoException("id inválido");        
         this.id = id;
     }
 
@@ -54,7 +59,8 @@ public abstract class Usuario {
     /**
      * @param nome the nome to set
      */
-    public void setNome(String nome) {
+    public void setNome(String nome) throws UsuarioInvalidoException {
+        if(!(nome instanceof String)) throw new UsuarioInvalidoException("Nome inválido");
         this.nome = nome;
     }
 
@@ -68,7 +74,8 @@ public abstract class Usuario {
     /**
      * @param endereco the endereco to set
      */
-    public void setEndereco(String endereco) {
+    public void setEndereco(String endereco) throws UsuarioInvalidoException {
+        if(!(endereco instanceof String)) throw new UsuarioInvalidoException("Endereço inválido");
         this.endereco = endereco;
     }
 
@@ -82,7 +89,8 @@ public abstract class Usuario {
     /**
      * @param telefone the telefone to set
      */
-    public void setTelefone(String telefone) {
+    public void setTelefone(String telefone) throws UsuarioInvalidoException {
+        if(!(telefone instanceof String)) throw new UsuarioInvalidoException("Telefone inválido");        
         this.telefone = telefone;
     }
 
@@ -96,7 +104,9 @@ public abstract class Usuario {
     /**
      * @param login the login to set
      */
-    public void setLogin(String login) {
+    public void setLogin(String login) throws UsuarioInvalidoException {
+        if(!(login instanceof String)) throw new UsuarioInvalidoException("Login inválido");
+        
         this.login = login;
     }
 
@@ -110,7 +120,8 @@ public abstract class Usuario {
     /**
      * @param senha the senha to set
      */
-    public void setSenha(String senha) {
+    public void setSenha(String senha) throws UsuarioInvalidoException {
+        if(!(senha instanceof String)) throw new UsuarioInvalidoException("Senha inválido");
         this.senha = senha;
     }
     

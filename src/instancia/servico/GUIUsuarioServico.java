@@ -49,7 +49,7 @@ public class GUIUsuarioServico implements GUIUsuario {
             System.out.print("Senha: ");
             String senha = in.nextLine();
 
-            UsuarioCliente usuarioCliente = new UsuarioCliente(count.incrementAndGet(), nome, setor, telefone, login, senha);
+            UsuarioCliente usuarioCliente = new UsuarioCliente(nome, setor, telefone, login, senha);
             gerenciadorCliente.cadastrarCliente(usuarioCliente);
         } catch (Exception e) {
 
@@ -87,14 +87,13 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     }
 
-    
     public void analisarPedido(long id) {
         ArrayList<Demanda> listUsuario = gerenciadorDemandas.listarDemandas();
         Iterator<Demanda> it = listUsuario.iterator();
         System.out.println("oi");
         while (it.hasNext()) {
             Demanda demanda = it.next();
-            if(demanda.getIdDemanda() == (id)){
+            if (demanda.getIdDemanda() == (id)) {
                 long asd = 0;
                 demanda.setIdUsuarioDemandando(asd);
                 System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");
@@ -103,31 +102,27 @@ public class GUIUsuarioServico implements GUIUsuario {
                 System.out.println("idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n");
                 System.out.println("descricao: " + demanda.getDescricao() + "\n");
                 System.out.println("status: " + demanda.getStatus() + "\n");
-                
-                
+
                 gerenciadorHistorico.adicionarHistorico(null);
+            }
         }
-    }
-        
+
     }
 
-       
-    
-    
     @Override
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Demanda demanda =gerenciadorDemandas.getDemanda(idDemanda);
+        Demanda demanda = gerenciadorDemandas.getDemanda(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
-        
+
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
-        
+
         Historico historico = new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
-        
+
         gerenciadorNotificacao.NotificarAtualizacao(historico);
-        
+
         gerenciadorHistorico.adicionarHistorico(historico);
     }
 }

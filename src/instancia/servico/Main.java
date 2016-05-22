@@ -35,10 +35,9 @@ public class Main {
         /*
         public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
          */
-        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, 2, "Thiago", "Teste", "123", "thiago", "admin");
-
-        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, 1, "Hiarley", "Teste", "123", "admin", "admin");
-        UsuarioCliente usuarioCliente = new UsuarioCliente( 1, "Joao", "Teste", "123", "joao", "admin");
+        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "Teste", "123", "thiago", "admin");
+        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "Teste", "123", "admin", "admin");
+        UsuarioCliente usuarioCliente = new UsuarioCliente( "Joao", "Teste", "123", "joao", "admin");
         daoCliente.adicionarCliente(usuarioCliente);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao1);

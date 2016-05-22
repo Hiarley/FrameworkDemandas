@@ -17,8 +17,8 @@ public class UsuarioPadrao extends Usuario{
     
     private boolean administrador;
 
-    public UsuarioPadrao(boolean administrador, long id, String nome, String endereco, String telefone, String login, String senha) {
-        super(id, nome, endereco, telefone, login, senha);
+    public UsuarioPadrao(boolean administrador, String nome, String endereco, String telefone, String login, String senha) {
+        super(nome, endereco, telefone, login, senha);
         this.administrador = administrador;
     }
     

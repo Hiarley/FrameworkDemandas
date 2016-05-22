@@ -36,7 +36,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
-    private static AtomicInteger count = new AtomicInteger(0); 
+
 
     @Override
     public void cadastrarUsuario() {
@@ -56,7 +56,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
             System.out.print("Administrador: ");
             boolean administrador = in.nextBoolean();
             
-            UsuarioPadrao usuarioPadrao = new UsuarioPadrao(administrador, count.incrementAndGet(), nome, setor, telefone, login, senha);
+            UsuarioPadrao usuarioPadrao = new UsuarioPadrao(administrador, nome, setor, telefone, login, senha);
             gerenciadorUsuarios.cadastrarUsuario(usuarioPadrao);
         } catch (Exception e) {
 
@@ -131,7 +131,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
             System.out.println("Senha: ");
             String senha = in.nextLine();
             
-            UsuarioCliente usuarioCliente = new UsuarioCliente(count.incrementAndGet(), nome, setor, telefone, login, senha);
+            UsuarioCliente usuarioCliente = new UsuarioCliente( nome, setor, telefone, login, senha);
             gerenciadorCliente.cadastrarCliente(usuarioCliente);
         } catch (Exception e) {
 

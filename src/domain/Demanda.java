@@ -5,6 +5,7 @@
  */
 package domain;
 
+import excecao.DemandaInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -103,7 +104,8 @@ public class Demanda {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) {
+    public void setDescricao(String descricao) throws DemandaInvalidoException {
+    	if(!(descricao instanceof String)) throw new DemandaInvalidoException("Descrição inválida");
         this.descricao = descricao;
     }
 
@@ -111,13 +113,15 @@ public class Demanda {
      * @return the status
      */
     public char getStatus() {
+        
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(char status) {
+    public void setStatus(char status) throws DemandaInvalidoException {
+    	if(Character.isDigit(status)) throw new DemandaInvalidoException("Status inválido");
         this.status = status;
     }
 
@@ -131,7 +135,8 @@ public class Demanda {
     /**
      * @param listaProdutos the listaProdutos to set
      */
-    public void setListaProdutos(ArrayList<Produto> listaProdutos) {
+    public void setListaProdutos(ArrayList<Produto> listaProdutos) throws DemandaInvalidoException {
+        
         this.listaProdutos = listaProdutos;
     }
 
