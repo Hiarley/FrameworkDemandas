@@ -7,6 +7,7 @@ package instancia.servico;
 
 import GUI.GUICliente;
 import control.GerenciadorDemandas;
+import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
 import control.GerenciadorProduto;
 import domain.CartaoDebito;
@@ -32,7 +33,7 @@ public class GUIClienteServico implements GUICliente {
     private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
     private static AtomicInteger count = new AtomicInteger(0);
     ArrayList<Produto> listaProdutos = new ArrayList<>();
-    private FabricaNotificacaoDemanda notificao = new FabricaNotificacaoDemanda();
+    private GerenciadorNotificao notificao = new GerenciadorNotificao();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
     @Override
@@ -59,7 +60,7 @@ public class GUIClienteServico implements GUICliente {
             Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, count.incrementAndGet(), "Cartao de Debito", 500);
             Demanda demanda = new Demanda(idCliente, count.incrementAndGet(), date, idCliente, descricao, 'I',listaProdutos);
             gerenciadorDemanda.cadastrarDemanda(demanda);
-            notificao.NotificarInicioDemanda(demanda);
+            notificao.NotificarInicio(demanda);
         } catch (Exception e) {
 
         }
