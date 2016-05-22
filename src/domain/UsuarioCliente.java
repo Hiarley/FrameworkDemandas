@@ -12,22 +12,17 @@ import java.util.ArrayList;
  *
  * @author hiarl
  */
-public class UsuarioCliente extends Usuario{
-    
+public class UsuarioCliente extends Usuario {
 
     public UsuarioCliente() {
     }
 
-    public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha) {
-        super(id, nome, endereco, telefone, login, senha);
+    public UsuarioCliente(String nome, String endereco, String telefone, String login, String senha) {
+        super(nome, endereco, telefone, login, senha);
     }
 
-    
-    
-     
-    public  boolean validar() throws ClienteInvalidoException{
+    public boolean validar() throws ClienteInvalidoException {
         return true;
     }
-
 
 }
