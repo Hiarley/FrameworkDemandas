@@ -12,6 +12,7 @@ import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
 import domain.Demanda;
 import domain.Historico;
+import domain.Usuario;
 import domain.UsuarioCliente;
 import java.util.ArrayList;
 import java.util.Date;
@@ -114,10 +115,11 @@ public class GUIUsuarioServico implements GUIUsuario {
     
     
     @Override
-    public void analisarPedido() {
+    public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
         Demanda demanda =gerenciadorDemandas.getDemanda(idDemanda);
+        demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();

@@ -14,6 +14,7 @@ import domain.Demanda;
 import domain.Pagamento;
 import domain.Produto;
 import domain.Servico;
+import domain.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,12 +36,11 @@ public class GUIClienteServico implements GUICliente {
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
     @Override
-    public void cadastrarPedido() {
+    public void cadastrarPedido(Usuario usuario) {
         try {
             Date date = new Date();
             System.out.println("---------- Cadastrar Pedido----------");
-            System.out.println("id Cliente: ");
-            long idCliente = in.nextLong();
+            long idCliente = usuario.getId();
             System.out.println("Descrição: ");
             String descricao = in.next();
             System.out.println("Quantos servicos deseja adicionar?");

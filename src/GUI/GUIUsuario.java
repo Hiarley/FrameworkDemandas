@@ -13,6 +13,6 @@ public interface GUIUsuario {
     public void cadastrarCliente();
     public void removerCliente();
     public void listarCliente();
-    public void analisarPedido();
+    public void analisarPedido(Usuario usuario);
     
 }

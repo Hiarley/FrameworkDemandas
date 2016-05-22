@@ -5,11 +5,13 @@
  */
 package GUI;
 
+import domain.Usuario;
+
 /**
  *
  * @author Thiago
  */
 public interface GUICliente {
-    public void cadastrarPedido();
+    public void cadastrarPedido(Usuario usuario);
     public void listarDemandas();
 }

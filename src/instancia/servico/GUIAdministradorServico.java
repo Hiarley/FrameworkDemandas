@@ -14,6 +14,7 @@ import control.GerenciadorProduto;
 import control.GerenciadorUsuarios;
 import domain.Demanda;
 import domain.Historico;
+import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
 import java.util.ArrayList;
@@ -165,10 +166,11 @@ public class GUIAdministradorServico implements GUIAdministrador {
     }
 
     @Override
-    public void analisarPedido() {
+    public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
         Demanda demanda = gerenciadorDemanda.getDemanda(idDemanda);
+        demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();

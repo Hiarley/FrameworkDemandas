@@ -42,13 +42,13 @@ public class GUIInicialServico implements GUIInicial {
             }
             switch (option) {
                 case 1:
-                    showMenuGUIUsuarioAdministrador();
+                    showMenuGUIUsuarioAdministrador(usuario);
                     break;
                 case 2:
-                    showMenuGUIUsuarioPadrao();
+                    showMenuGUIUsuarioPadrao(usuario);
                     break;
                 case 3:
-                    showMenuGUIUsuarioCliente();
+                    showMenuGUIUsuarioCliente(usuario);
                     break;
                 default:
                     break;
@@ -56,7 +56,7 @@ public class GUIInicialServico implements GUIInicial {
         } while (option > 0);
     }
 
-    public void showMenuGUIUsuarioAdministrador() {
+    public void showMenuGUIUsuarioAdministrador(Usuario usuario) {
         int option;
 
         do {
@@ -117,7 +117,7 @@ public class GUIInicialServico implements GUIInicial {
         } while (option > 0);
     }
 
-    public void showMenuGUIUsuarioPadrao() {
+    public void showMenuGUIUsuarioPadrao(Usuario usuario) {
         int option;
 
         do {
@@ -152,7 +152,7 @@ public class GUIInicialServico implements GUIInicial {
         } while (option > 0);
     }
 
-    public void showMenuGUIUsuarioCliente() {
+    public void showMenuGUIUsuarioCliente(Usuario usuario) {
         int option;
 
         do {
