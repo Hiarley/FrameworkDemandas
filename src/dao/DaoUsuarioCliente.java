@@ -28,7 +28,7 @@ public class DaoUsuarioCliente implements IDaoUsuarioCliente{
     }
 
     public DaoUsuarioCliente() {
-        usuarios = new HashSet<UsuarioCliente>();
+        usuarios = new HashSet<>();
     }
     
     
