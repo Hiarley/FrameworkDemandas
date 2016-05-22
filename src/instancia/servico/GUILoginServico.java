@@ -32,10 +32,10 @@ public class GUILoginServico implements GUI.GUILogin {
         if (gerenciadorUsuarios.getUsuario(login) == null && gerenciadorCliente.getCliente(login) == null) {
             System.out.println("Usuario não cadastrado");
             return false;
-        } else if (usuarioPadrao.getSenha().equals(senha)) {
+        } else if (gerenciadorUsuarios.getUsuario(login) != null && usuarioPadrao.getSenha().equals(senha)) {
             usuario = gerenciadorUsuarios.getUsuario(login);
             return true;
-        } else if (usuarioCliente.getSenha().equals(senha)) {
+        } else if (gerenciadorCliente.getCliente(login) != null && usuarioCliente.getSenha().equals(senha)) {
             usuario = gerenciadorCliente.getCliente(login);
             return true;
         } else {
