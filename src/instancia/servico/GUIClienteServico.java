@@ -38,6 +38,9 @@ public class GUIClienteServico implements GUICliente {
 
     @Override
     public void cadastrarPedido(Usuario usuario) {
+        
+        
+        long idDemanda = count.incrementAndGet();
         try {
             Date date = new Date();
             System.out.println("---------- Cadastrar Pedido----------");
@@ -57,8 +60,9 @@ public class GUIClienteServico implements GUICliente {
             int numeroCartao= in.nextInt();
             System.out.println("Banco");
             String Banco = in.nextLine();
-            Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, count.incrementAndGet(), "Cartao de Debito", 500);
-            Demanda demanda = new Demanda(idCliente, count.incrementAndGet(), date, idCliente, descricao, 'I',listaProdutos);
+            Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, idDemanda, "Cartao de Debito", 500);
+            gerenciadorPagamento.adicionarPagamento(pagamento);
+            Demanda demanda = new Demanda(idCliente, idDemanda, date, idCliente, descricao, 'I',listaProdutos);
             gerenciadorDemanda.cadastrarDemanda(demanda);
             notificao.NotificarInicio(demanda);
         } catch (Exception e) {
