@@ -107,7 +107,7 @@ public class GUIInicialServico implements GUIInicial {
                     guiAdministrador.listarCliente();
                     break;
                 case 10:
-                    guiAdministrador.analisarPedido();
+                    guiAdministrador.analisarPedido(usuario);
                     break;
 
                 default:
@@ -143,7 +143,7 @@ public class GUIInicialServico implements GUIInicial {
                     guiUsuario.listarCliente();
                     break;
                 case 4:
-                    guiUsuario.analisarPedido();
+                    guiUsuario.analisarPedido(usuario);
                     break;
                 default:
                     System.exit(0);
@@ -167,7 +167,7 @@ public class GUIInicialServico implements GUIInicial {
 
             switch (option) {
                 case 1:
-                    guiCliente.cadastrarPedido();
+                    guiCliente.cadastrarPedido(usuario);
                     break;
                 case 2:
                     guiCliente.listarDemandas();
