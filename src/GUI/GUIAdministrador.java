@@ -16,4 +16,5 @@ public interface GUIAdministrador extends GUIUsuario{
     public void removerInformacoes();
     public void listarUsuarios();
     public void listarInformacoes();
+    public void listarDemandas();
 }

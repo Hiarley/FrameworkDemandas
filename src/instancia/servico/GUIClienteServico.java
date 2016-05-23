@@ -51,7 +51,7 @@ public class GUIClienteServico implements GUICliente {
             int servicos = in.nextInt();
             
             for(;servicos > 0;servicos--){
-                ListarProdutos();
+                listarProdutos();
                 System.out.println("Digite o IdServico do servico escolhido: ");
                 long id = in.nextLong();
                 listaProdutos.add(gerenciadorProduto.getProduto(id));
@@ -71,7 +71,8 @@ public class GUIClienteServico implements GUICliente {
 
     }
 
-    public void ListarProdutos() {
+    @Override
+    public void listarProdutos() {
         try {
             List<Produto> listProdutos = gerenciadorProduto.listarProdutos();
 

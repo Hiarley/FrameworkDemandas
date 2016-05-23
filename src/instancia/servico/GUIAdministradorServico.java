@@ -20,6 +20,7 @@ import domain.UsuarioPadrao;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -180,6 +181,22 @@ public class GUIAdministradorServico implements GUIAdministrador {
         gerenciadorNotificacao.NotificarAtualizacao(historico);
         
         gerenciadorHistoricos.adicionarHistorico(historico);
+    }
+    
+    @Override
+    public void listarDemandas(){
+        
+        List<Demanda> listDemandas = gerenciadorDemanda.listarDemandas();
+        
+        for(Demanda demanda : listDemandas){
+    
+            System.out.println("IdUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante());
+            System.out.println("IdDemanda: " + demanda.getIdDemanda());
+            System.out.println("Data: " + demanda.getDataAbertura());
+            System.out.println("IdUsuarioDemandando: " + demanda.getIdUsuarioDemandando());
+            System.out.println("Descricao: " + demanda.getDescricao());
+            System.out.println("Status: " + demanda.getStatus());
+        }
     }
 
 }

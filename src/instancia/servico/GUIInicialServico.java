@@ -65,12 +65,10 @@ public class GUIInicialServico implements GUIInicial {
             System.out.println("2 - Cadastrar Informacoes");
             System.out.println("3 - Remover Usuario");
             System.out.println("4 - Remover Informacoes");
-            System.out.println("5 - Listar Usuarios");
-            System.out.println("6 - Listar Informacoes");
-            System.out.println("7 - Cadastrar Cliente");
-            System.out.println("8 - Remover Cliente");
-            System.out.println("9 - Listar Clientes");
-            System.out.println("10 - Analisar Pedido");
+            System.out.println("5 - Listar Informações");
+            System.out.println("6 - Cadastrar Cliente");
+            System.out.println("7 - Remover Cliente");
+            System.out.println("8 - Analisar Pedido");
 
             System.out.println("0 - Sair");
 
@@ -92,21 +90,15 @@ public class GUIInicialServico implements GUIInicial {
                     guiAdministrador.removerInformacoes();
                     break;
                 case 5:
-                    guiAdministrador.listarUsuarios();
+                    showMenuGUIInformacoes();
                     break;
                 case 6:
-                    guiAdministrador.listarInformacoes();
-                    break;
-                case 7:
                     guiAdministrador.cadastrarCliente();
                     break;
-                case 8:
+                case 7:
                     guiAdministrador.removerCliente();
                     break;
-                case 9:
-                    guiAdministrador.listarCliente();
-                    break;
-                case 10:
+                case 8:
                     guiAdministrador.analisarPedido(usuario);
                     break;
 
@@ -171,11 +163,47 @@ public class GUIInicialServico implements GUIInicial {
                     break;
                 case 2:
                     guiCliente.listarDemandas();
+                    break;
                 default:
                     System.exit(0);
                     break;
             }
         } while (option > 0);
+    }
+    
+    public void showMenuGUIInformacoes(){
+        int option;
+        do{
+            System.out.println("1 - Listar Usuarios");
+            System.out.println("2 - Listar Clientes");
+            System.out.println("3 - Listar Produtos");
+            System.out.println("4 - Listar Demandas");
+            
+            System.out.println("0 - Sair");
+            
+            System.out.print("Opcao desejada: ");
+            option = in.nextInt();
+            
+            switch (option) {
+                case 1:
+                    guiAdministrador.listarUsuarios();
+                    break;
+                case 2:
+                    guiAdministrador.listarCliente();
+                    break;
+                case 3:
+                    guiCliente.listarProdutos();
+                    break;
+                case 4:
+                    guiAdministrador.listarDemandas();
+                    break;
+                default:
+                    System.exit(0);
+                    break;
+            }
+            
+            
+        }while (option > 0);
     }
 
 }
