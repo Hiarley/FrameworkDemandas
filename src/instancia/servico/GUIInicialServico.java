@@ -81,13 +81,13 @@ public class GUIInicialServico implements GUIInicial {
                     guiAdministrador.cadastrarUsuario();
                     break;
                 case 2:
-                    guiAdministrador.cadastrarInformacoes();
+                    guiAdministrador.cadastrarProdutos();
                     break;
                 case 3:
                     guiAdministrador.removerUsuario();
                     break;
                 case 4:
-                    guiAdministrador.removerInformacoes();
+                    guiAdministrador.removerProdutos();
                     break;
                 case 5:
                     showMenuGUIInformacoes();

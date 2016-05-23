@@ -66,11 +66,21 @@ public class GUIAdministradorServico implements GUIAdministrador {
     }
 
     @Override
-    public void cadastrarInformacoes() {
-        try {
+    public void cadastrarProdutos() {
+        System.out.println("Nome" );
+        String nome = in.nextLine();
+        System.out.println("IdProduto: ");
+        long IdProduto = Long.parseLong(in.nextLine());
+        System.out.println("Empresa Fornecedora: ");
+        String empresaFornecedora = in.nextLine();
+        System.out.println("Preco: ");
+        double preco = Double.parseDouble(in.nextLine());
+        System.out.println("Descricao: ");
+        String descricao = in.nextLine();
+        System.out.println("Prazo: ");
+        String prazo = in.nextLine();
             
-        } catch (Exception e) {
-        }
+        
     }
 
     @Override
@@ -86,8 +96,10 @@ public class GUIAdministradorServico implements GUIAdministrador {
     }
 
     @Override
-    public void removerInformacoes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void removerProdutos() {
+        System.out.println("Digite o id do Produto: ");
+        long id = in.nextLong();
+        gerenciadorProduto.removerProduto(gerenciadorProduto.getProduto(id));
     }
 
     @Override
@@ -111,10 +123,6 @@ public class GUIAdministradorServico implements GUIAdministrador {
     
     }
 
-    @Override
-    public void listarInformacoes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void cadastrarCliente() {

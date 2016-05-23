@@ -11,10 +11,9 @@ package GUI;
  */
 public interface GUIAdministrador extends GUIUsuario{
     public void cadastrarUsuario();
-    public void cadastrarInformacoes();
+    public void cadastrarProdutos();
     public void removerUsuario();
-    public void removerInformacoes();
+    public void removerProdutos();
     public void listarUsuarios();
-    public void listarInformacoes();
     public void listarDemandas();
 }
