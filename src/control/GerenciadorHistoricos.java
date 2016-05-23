@@ -8,6 +8,7 @@ package control;
 import dao.DaoHistorico;
 import dao.IDaoHistorico;
 import domain.Historico;
+import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -21,8 +22,8 @@ public class GerenciadorHistoricos {
         daoHistorico = DaoHistorico.getInstance();
     }
 
-    public void adicionarHistorico(Historico historico){
-        if(historico.validarHistorico()) {
+    public void adicionarHistorico(Historico historico) throws HistoricoInvalidoException{
+        if(validarHistorico(historico)) {
             this.daoHistorico.adicionarHistorico(historico);
         }
     }
@@ -35,5 +36,14 @@ public class GerenciadorHistoricos {
         return this.daoHistorico.pegarHistorico(idDemanda);
     }
 
+        private boolean validarHistorico(Historico historico) throws HistoricoInvalidoException {
+        if(historico.getDescricao().equals("")){
+            throw new HistoricoInvalidoException("Descrição vazio.");
+        }else if(historico.getUsuarioSolicitante().equals("")){
+            throw new HistoricoInvalidoException("Login vazio.");
+            
+        }
+        return true;
+    }
 
 }

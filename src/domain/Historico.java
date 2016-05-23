@@ -98,9 +98,5 @@ public class Historico {
         if(!(usuarioSolicitante instanceof Usuario)) throw new HistoricoInvalidoException("Usuario invalido.");
         this.usuarioSolicitante = usuarioSolicitante;
     }
-
-    public boolean validarHistorico() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }
