@@ -8,7 +8,9 @@ package control;
 import dao.DaoUsuarioCliente;
 import dao.IDaoUsuarioCliente;
 import domain.UsuarioCliente;
+import domain.UsuarioPadrao;
 import excecao.ClienteInvalidoException;
+import excecao.UsuarioInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -16,14 +18,15 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorClientes {
+
     private IDaoUsuarioCliente daoCliente;
 
     public GerenciadorClientes() {
         daoCliente = DaoUsuarioCliente.getInstance();
     }
 
-    public void cadastrarCliente(UsuarioCliente cliente) throws  ClienteInvalidoException {
-        if(cliente.validar()) {
+    public void cadastrarCliente(UsuarioCliente cliente) throws ClienteInvalidoException {
+        if (cliente.validar()) {
             this.daoCliente.adicionarCliente(cliente);
         }
     }
@@ -32,20 +35,34 @@ public class GerenciadorClientes {
         this.daoCliente.removerCliente(cliente);
     }
 
-    public void atualizarCliente(UsuarioCliente cliente){
+    public void atualizarCliente(UsuarioCliente cliente) {
         this.daoCliente.atualizarCliente(cliente);
     }
-    
-    public ArrayList<UsuarioCliente> listarClientes(){
+
+    public ArrayList<UsuarioCliente> listarClientes() {
         return this.daoCliente.listarCliente();
     }
 
     public UsuarioCliente getCliente(Long codigo) {
         return this.daoCliente.pegarCliente(codigo);
     }
-        
-    public UsuarioCliente getCliente(String login){
+
+    public UsuarioCliente getCliente(String login) {
         return this.daoCliente.pegarCliente(login);
     }
-    
+
+    private boolean validarCliente(UsuarioCliente usuario) throws ClienteInvalidoException {
+        if (usuario.getNome().equals("")) {
+            throw new ClienteInvalidoException("Nome de usuario vazio.");
+        } else if (usuario.getLogin().equals("")) {
+            throw new ClienteInvalidoException("Login vazio.");
+
+        } else if (usuario.getSenha().equals("")) {
+            throw new ClienteInvalidoException("Senha vazia");
+
+        } else if (this.daoCliente.pegarCliente(usuario.getId()) != null) {
+            throw new ClienteInvalidoException("ID invalido contate o Administrador");
+        }
+        return true;
+    }
 }

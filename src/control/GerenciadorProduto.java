@@ -8,6 +8,8 @@ package control;
 import dao.DaoProduto;
 import dao.IDaoProduto;
 import domain.Produto;
+import domain.UsuarioPadrao;
+import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -25,8 +27,8 @@ public class GerenciadorProduto {
         daoProduto = DaoProduto.getInstance();
     }
 
-    public void cadastrarProduto(Produto produto) {
-        if (produto.validarProduto()) {
+    public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException {
+        if (validarProduto(produto)) {
             this.daoProduto.adicionarProduto(produto);
         }
     }
@@ -45,5 +47,20 @@ public class GerenciadorProduto {
 
     public Produto getProduto(Long id) {
         return this.daoProduto.pegarProduto(id);
+    }
+    
+        private boolean validarProduto(Produto produto) throws ProdutoInvalidoException {
+        if(produto.getDescricao().equals("")){
+            throw new ProdutoInvalidoException("Descrição vazia.");
+        }else if(produto.getNome().equals("")){
+            throw new ProdutoInvalidoException("Nome vazio.");
+            
+        }else if(produto.getPreco()<0){
+            throw new ProdutoInvalidoException("Valor invalido");
+            
+        }else if(this.daoProduto.pegarProduto(produto.getIdProduto()) != null){
+            throw new ProdutoInvalidoException("Produto já cadastrado");
+        }
+        return true;
     }
 }
