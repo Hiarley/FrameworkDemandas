@@ -5,6 +5,7 @@
  */
 package domain;
 
+import excecao.ProdutoInvalidoException;
 import java.util.Date;
 
 /**
@@ -39,7 +40,8 @@ public abstract class Produto {
     /**
      * @param idProduto the idProduto to set
      */
-    public void setIdProduto(long idProduto) {
+    public void setIdProduto(long idProduto) throws ProdutoInvalidoException {
+    	if(idProduto < 0) throw new ProdutoInvalidoException("Id do produto Invalido");
         this.idProduto = idProduto;
     }
 
@@ -53,7 +55,8 @@ public abstract class Produto {
     /**
      * @param nome the nome to set
      */
-    public void setNome(String nome) {
+    public void setNome(String nome) throws ProdutoInvalidoException {
+        if(!(nome instanceof String)) throw new ProdutoInvalidoException("Nome invalido.");
         this.nome = nome;
     }
 
@@ -67,7 +70,8 @@ public abstract class Produto {
     /**
      * @param preco the preco to set
      */
-    public void setPreco(double preco) {
+    public void setPreco(double preco) throws ProdutoInvalidoException {
+        if(preco < 0) throw new ProdutoInvalidoException("Preço invalido.");
         this.preco = preco;
     }
 
@@ -81,7 +85,9 @@ public abstract class Produto {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) {
+    public void setDescricao(String descricao) throws ProdutoInvalidoException {
+        if(!(descricao instanceof String)) throw new ProdutoInvalidoException("Descrição invalida.");
+
         this.descricao = descricao;
     }
 
@@ -95,11 +101,14 @@ public abstract class Produto {
     /**
      * @param prazo the prazo to set
      */
-    public void setPrazo(Date prazo) {
+    public void setPrazo(Date prazo) throws ProdutoInvalidoException {
+        if(!(prazo instanceof Date)) throw new ProdutoInvalidoException("Data invalida.");
+
         this.prazo = prazo;
     }
 
     public boolean validarProduto() {
+        //
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

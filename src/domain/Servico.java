@@ -5,6 +5,7 @@
  */
 package domain;
 
+import excecao.ProdutoInvalidoException;
 import java.util.Date;
 
 /**
@@ -33,7 +34,8 @@ public abstract class Servico extends Produto{
     /**
      * @param empresaFornecedora the empresaFornecedora to set
      */
-    public void setEmpresaFornecedora(String empresaFornecedora) {
+    public void setEmpresaFornecedora(String empresaFornecedora) throws ProdutoInvalidoException {
+        if(!(empresaFornecedora instanceof String)) throw new ProdutoInvalidoException("Invalido!");
         this.empresaFornecedora = empresaFornecedora;
     }
     

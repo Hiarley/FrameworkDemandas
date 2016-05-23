@@ -5,6 +5,7 @@
  */
 package domain;
 
+import excecao.ProdutoInvalidoException;
 import java.util.Date;
 
 /**
@@ -33,7 +34,9 @@ public abstract class Item extends Produto{
     /**
      * @param quantidadeEmEstoque the quantidadeEmEstoque to set
      */
-    public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
+    public void setQuantidadeEmEstoque(int quantidadeEmEstoque) throws ProdutoInvalidoException {
+        if(quantidadeEmEstoque < 0) throw new ProdutoInvalidoException("Quantidade invalida.");
+        
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
     

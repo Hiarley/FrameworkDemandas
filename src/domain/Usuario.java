@@ -106,7 +106,6 @@ public abstract class Usuario {
      */
     public void setLogin(String login) throws UsuarioInvalidoException {
         if(!(login instanceof String)) throw new UsuarioInvalidoException("Login inválido");
-        
         this.login = login;
     }
 

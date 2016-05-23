@@ -5,6 +5,7 @@
  */
 package domain;
 
+import excecao.HistoricoInvalidoException;
 import java.util.Date;
 
 /**
@@ -33,7 +34,8 @@ public class Historico {
         return idDemanda;
     }
 
-    public void setIdDemanda(long idDemanda) {
+    public void setIdDemanda(long idDemanda) throws HistoricoInvalidoException {
+        if(idDemanda < 0) throw new HistoricoInvalidoException("ID invalido.");
         this.idDemanda = idDemanda;
     }
     
@@ -47,7 +49,8 @@ public class Historico {
     /**
      * @param idHistorico the idHistorico to set
      */
-    public void setIdHistorico(long idHistorico) {
+    public void setIdHistorico(long idHistorico) throws HistoricoInvalidoException {
+        if(idHistorico < 0) throw new HistoricoInvalidoException("ID invalido.");
         this.idHistorico = idHistorico;
     }
 
@@ -61,7 +64,8 @@ public class Historico {
     /**
      * @param dataModificaco the dataModificaco to set
      */
-    public void setDataModificaco(Date dataModificaco) {
+    public void setDataModificaco(Date dataModificaco) throws HistoricoInvalidoException {
+        if(!(dataModificaco instanceof Date)) throw new HistoricoInvalidoException("Data invalida.");
         this.dataModificaco = dataModificaco;
     }
 
@@ -75,7 +79,8 @@ public class Historico {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) {
+    public void setDescricao(String descricao) throws HistoricoInvalidoException {
+        if(!(descricao instanceof String)) throw new HistoricoInvalidoException("Descrição invalida.");
         this.descricao = descricao;
     }
 
@@ -89,7 +94,8 @@ public class Historico {
     /**
      * @param usuarioSolicitante the usuarioSolicitante to set
      */
-    public void setUsuarioSolicitante(Usuario usuarioSolicitante) {
+    public void setUsuarioSolicitante(Usuario usuarioSolicitante) throws HistoricoInvalidoException {
+        if(!(usuarioSolicitante instanceof Usuario)) throw new HistoricoInvalidoException("Usuario invalido.");
         this.usuarioSolicitante = usuarioSolicitante;
     }
 

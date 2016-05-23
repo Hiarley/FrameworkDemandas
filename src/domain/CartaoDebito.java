@@ -35,6 +35,8 @@ public class CartaoDebito extends Pagamento{
      * @param numeroCartao the numeroCartao to set
      */
     public void setNumeroCartao(int numeroCartao) {
+        if(idDemanda < 0) throw new PagamentoInvalidoException("ID invalido.");
+
         this.numeroCartao = numeroCartao;
     }
 

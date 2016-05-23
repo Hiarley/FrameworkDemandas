@@ -5,6 +5,8 @@
  */
 package domain;
 
+import excecao.SetorInvalidoException;
+
 /**
  *
  * @author hiarl
@@ -33,7 +35,8 @@ public class Setor {
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(long id) throws SetorInvalidoException {
+        if(id < 0) throw new SetorInvalidoException("ID invalida.");
         this.id = id;
     }
 
@@ -47,7 +50,8 @@ public class Setor {
     /**
      * @param nome the nome to set
      */
-    public void setNome(String nome) {
+    public void setNome(String nome) throws SetorInvalidoException {
+        if(!(nome instanceof String)) throw new SetorInvalidoException("Nome invalida.");
         this.nome = nome;
     }
 
@@ -61,7 +65,8 @@ public class Setor {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) {
+    public void setDescricao(String descricao) throws SetorInvalidoException {
+        if(!(descricao instanceof String)) throw new SetorInvalidoException("Descrição invalida.");
         this.descricao = descricao;
     }
 
