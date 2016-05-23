@@ -44,15 +44,15 @@ public class GUIAdministradorServico implements GUIAdministrador {
            
             System.out.println("---------- Cadastrar Usuario----------");
             System.out.print("Nome: ");
-            String nome = in.nextLine();
+            String nome = in.next();
             System.out.print("Endereço: ");
-            String setor = in.nextLine();
+            String setor = in.next();
             System.out.print("Telefone: ");
-            String telefone = in.nextLine();
+            String telefone = in.next();
             System.out.print("Login: ");
-            String login = in.nextLine();
+            String login = in.next();
             System.out.print("Senha: ");
-            String senha = in.nextLine();
+            String senha = in.next();
             System.out.print("Administrador: ");
             boolean administrador = in.nextBoolean();
             
@@ -121,15 +121,15 @@ public class GUIAdministradorServico implements GUIAdministrador {
            
             System.out.println("---------- Cadastrar Cliente----------");
             System.out.println("Nome: ");
-            String nome = in.nextLine();
+            String nome = in.next();
             System.out.println("Endereço: ");
-            String setor = in.nextLine();
+            String setor = in.next();
             System.out.println("Telefone: ");
-            String telefone = in.nextLine();
+            String telefone = in.next();
             System.out.println("Login: ");
-            String login = in.nextLine();
+            String login = in.next();
             System.out.println("Senha: ");
-            String senha = in.nextLine();
+            String senha = in.next();
             
             UsuarioCliente usuarioCliente = new UsuarioCliente( nome, setor, telefone, login, senha);
             gerenciadorCliente.cadastrarCliente(usuarioCliente);
