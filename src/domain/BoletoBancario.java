@@ -5,6 +5,7 @@
  */
 package domain;
 
+import excecao.PagamentoInvalidoException;
 import java.util.Date;
 
 /**
@@ -38,7 +39,9 @@ public class BoletoBancario extends Pagamento{
     /**
      * @param vencimentoBoleto the vencimentoBoleto to set
      */
-    public void setVencimentoBoleto(Date vencimentoBoleto) {
+    public void setVencimentoBoleto(Date vencimentoBoleto) throws PagamentoInvalidoException {
+        if(!(vencimentoBoleto instanceof Date)) throw new PagamentoInvalidoException("Invalido!");
+
         this.vencimentoBoleto = vencimentoBoleto;
     }
 
@@ -52,7 +55,9 @@ public class BoletoBancario extends Pagamento{
     /**
      * @param linhaDigitavel the linhaDigitavel to set
      */
-    public void setLinhaDigitavel(int linhaDigitavel) {
+    public void setLinhaDigitavel(int linhaDigitavel) throws PagamentoInvalidoException {
+        if(linhaDigitavel<0) throw new PagamentoInvalidoException("Invalido!");
+        
         this.linhaDigitavel = linhaDigitavel;
     }
 
@@ -66,7 +71,9 @@ public class BoletoBancario extends Pagamento{
     /**
      * @param codigoBanco the codigoBanco to set
      */
-    public void setCodigoBanco(int codigoBanco) {
+    public void setCodigoBanco(int codigoBanco) throws PagamentoInvalidoException {
+        if(codigoBanco < 0) throw new PagamentoInvalidoException("Invalido!");
+        
         this.codigoBanco = codigoBanco;
     }
     

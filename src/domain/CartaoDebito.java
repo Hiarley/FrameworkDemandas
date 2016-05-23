@@ -5,21 +5,23 @@
  */
 package domain;
 
+import excecao.PagamentoInvalidoException;
+
 /**
  *
  * @author Thiago
  */
 public class CartaoDebito extends Pagamento{
     private int numeroCartao;
-    private String  Banco;
+    private String  banco;
 
     public CartaoDebito() {
     }
 
-    public CartaoDebito(int numeroCartao, String Banco, long idPagamento, String nome, double valor) {
+    public CartaoDebito(int numeroCartao, String banco, long idPagamento, String nome, double valor) {
         super(idPagamento, nome, valor);
         this.numeroCartao = numeroCartao;
-        this.Banco = Banco;
+        this.banco = banco;
     }
 
     
@@ -34,8 +36,8 @@ public class CartaoDebito extends Pagamento{
     /**
      * @param numeroCartao the numeroCartao to set
      */
-    public void setNumeroCartao(int numeroCartao) {
-        if(idDemanda < 0) throw new PagamentoInvalidoException("ID invalido.");
+    public void setNumeroCartao(int numeroCartao) throws PagamentoInvalidoException {
+        if(numeroCartao < 0) throw new PagamentoInvalidoException("Numero invalido.");
 
         this.numeroCartao = numeroCartao;
     }
@@ -44,14 +46,16 @@ public class CartaoDebito extends Pagamento{
      * @return the Banco
      */
     public String getBanco() {
-        return Banco;
+        return banco;
     }
 
     /**
      * @param Banco the Banco to set
      */
-    public void setBanco(String Banco) {
-        this.Banco = Banco;
+    public void setBanco(String banco) throws PagamentoInvalidoException {
+        if(!(banco instanceof String)) throw new PagamentoInvalidoException("Invalido!");
+
+        this.banco = banco;
     }
     
     
