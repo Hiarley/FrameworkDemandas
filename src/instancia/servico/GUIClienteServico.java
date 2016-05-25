@@ -11,9 +11,9 @@ import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
 import control.GerenciadorProduto;
 import domain.CartaoDebito;
-import domain.Demanda;
+import domain.Pedido;
 import domain.Pagamento;
-import domain.Produto;
+import domain.Demanda;
 import domain.Servico;
 import domain.Usuario;
 import java.util.ArrayList;
@@ -32,11 +32,9 @@ public class GUIClienteServico implements GUICliente {
     private GerenciadorProduto gerenciadorProduto = new GerenciadorProduto();
     private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
     private static AtomicInteger count = new AtomicInteger(0);
-    ArrayList<Produto> listaProdutos = new ArrayList<>();
-    private GerenciadorNotificao notificao = new GerenciadorNotificao();
+    ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
-    @Override
     public void cadastrarPedido(Usuario usuario) {
         
         
@@ -61,10 +59,9 @@ public class GUIClienteServico implements GUICliente {
             System.out.println("Banco");
             String Banco = in.nextLine();
             Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, idDemanda, "Cartao de Debito", 500);
-            gerenciadorPagamento.adicionarPagamento(pagamento);
-            Demanda demanda = new Demanda(idCliente, idDemanda, date, idCliente, descricao, 'I',listaProdutos);
-            gerenciadorDemanda.cadastrarDemanda(demanda);
-            notificao.NotificarInicio(demanda);
+            Pedido demanda = new Pedido(idCliente, idDemanda, date, idCliente, descricao, 'I',listaProdutos);
+            gerenciadorDemanda.cadastrarDemanda(demanda,pagamento, 1);
+            
         } catch (Exception e) {
 
         }
@@ -74,9 +71,9 @@ public class GUIClienteServico implements GUICliente {
     @Override
     public void listarProdutos() {
         try {
-            List<Produto> listProdutos = gerenciadorProduto.listarProdutos();
+            List<Demanda> listProdutos = gerenciadorProduto.listarProdutos();
 
-            for (Produto produto : listProdutos) {
+            for (Demanda produto : listProdutos) {
 
                 Servico servico = (Servico) produto;
                 System.out.println("Nome" + servico.getNome());

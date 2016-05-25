@@ -5,93 +5,74 @@
  */
 package domain;
 
-import excecao.DemandaInvalidoException;
-import java.util.ArrayList;
+import excecao.ProdutoInvalidoException;
 import java.util.Date;
 
 /**
  *
- * @author hiarl
+ * @author Thiago
  */
-public class Demanda {
-    private long idUsuarioSolicitante;
-    private long idDemanda;
-    private Date dataAbertura;
-    private long idUsuarioDemandando;
+public abstract class Demanda {
+    private long idProduto;
+    private String nome;
+    private double preco;
     private String descricao;
-    private char status;
-    private ArrayList<Produto> listaProdutos;
+    private String prazo;
 
     public Demanda() {
     }
 
-    public Demanda(long idUsuarioSolicitante, long idDemanda, Date dataAbertura, 
-        long idUsuarioDemandando, String descricao, char status,
-        ArrayList<Produto> listaProdutos) {
-        
-        this.idUsuarioSolicitante = idUsuarioSolicitante;
-        this.idDemanda = idDemanda;
-        this.dataAbertura = dataAbertura;
-        this.idUsuarioDemandando = idUsuarioDemandando;
+    public Demanda(long idProduto, String nome, double preco, String descricao, String prazo) {
+        this.idProduto = idProduto;
+        this.nome = nome;
+        this.preco = preco;
         this.descricao = descricao;
-        this.status = status;
-        this.listaProdutos = listaProdutos;
+        this.prazo = prazo;
     }
 
     /**
-     * @return the idUsuarioSolicitante
+     * @return the idProduto
      */
-    public long getIdUsuarioSolicitante() {
-        return idUsuarioSolicitante;
+    public long getIdProduto() {
+        return idProduto;
     }
 
     /**
-     * @param idUsuarioSolicitante the idUsuarioSolicitante to set
+     * @param idProduto the idProduto to set
      */
-    public void setIdUsuarioSolicitante(long idUsuarioSolicitante) {
-        this.idUsuarioSolicitante = idUsuarioSolicitante;
+    public void setIdProduto(long idProduto) throws ProdutoInvalidoException {
+    	if(idProduto < 0) throw new ProdutoInvalidoException("Id do produto Invalido");
+        this.idProduto = idProduto;
     }
 
     /**
-     * @return the idDemanda
+     * @return the nome
      */
-    public long getIdDemanda() {
-        return idDemanda;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param idDemanda the idDemanda to set
+     * @param nome the nome to set
      */
-    public void setIdDemanda(long idDemanda) {
-        this.idDemanda = idDemanda;
+    public void setNome(String nome) throws ProdutoInvalidoException {
+        if(!(nome instanceof String)) throw new ProdutoInvalidoException("Nome invalido.");
+        this.nome = nome;
     }
 
     /**
-     * @return the dataAbertura
+     * @return the preco
      */
-    public Date getDataAbertura() {
-        return dataAbertura;
+    public double getPreco() {
+        return preco;
     }
 
     /**
-     * @param dataAbertura the dataAbertura to set
+     * @param preco the preco to set
      */
-    public void setDataAbertura(Date dataAbertura) {
-        this.dataAbertura = dataAbertura;
-    }
-
-    /**
-     * @return the idUsuarioDemandando
-     */
-    public long getIdUsuarioDemandando() {
-        return idUsuarioDemandando;
-    }
-
-    /**
-     * @param idUsuarioDemandando the idUsuarioDemandando to set
-     */
-    public void setIdUsuarioDemandando(long idUsuarioDemandando) {
-        this.idUsuarioDemandando = idUsuarioDemandando;
+    public void setPreco(double preco) throws ProdutoInvalidoException {
+        if(preco < 0) throw new ProdutoInvalidoException("Preço invalido.");
+        this.preco = preco;
     }
 
     /**
@@ -104,41 +85,27 @@ public class Demanda {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) throws DemandaInvalidoException {
-    	if(!(descricao instanceof String)) throw new DemandaInvalidoException("Descrição inválida");
+    public void setDescricao(String descricao) throws ProdutoInvalidoException {
+        if(!(descricao instanceof String)) throw new ProdutoInvalidoException("Descrição invalida.");
+
         this.descricao = descricao;
     }
 
     /**
-     * @return the status
+     * @return the prazo
      */
-    public char getStatus() {
-        
-        return status;
+    public String getPrazo() {
+        return prazo;
     }
 
     /**
-     * @param status the status to set
+     * @param prazo the prazo to set
      */
-    public void setStatus(char status) throws DemandaInvalidoException {
-    	if(Character.isDigit(status)) throw new DemandaInvalidoException("Status inválido");
-        this.status = status;
-    }
+    public void setPrazo(String prazo) throws ProdutoInvalidoException {
+        if(!(prazo instanceof String)) throw new ProdutoInvalidoException("Data invalida.");
 
-    /**
-     * @return the listaProdutos
-     */
-    public ArrayList<Produto> getListaProdutos() {
-        return listaProdutos;
+        this.prazo = prazo;
     }
-
-    /**
-     * @param listaProdutos the listaProdutos to set
-     */
-    public void setListaProdutos(ArrayList<Produto> listaProdutos) throws DemandaInvalidoException {
-        
-        this.listaProdutos = listaProdutos;
-    }
-
+    
     
 }

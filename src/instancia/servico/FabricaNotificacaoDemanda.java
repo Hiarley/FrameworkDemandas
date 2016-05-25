@@ -7,12 +7,12 @@ package instancia.servico;
 
 import control.GerenciadorClientes;
 import control.GerenciadorDemandas;
-import domain.Demanda;
+import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
 import domain.NotificaSMS;
 import domain.Notificacao;
-import domain.Produto;
+import domain.Demanda;
 import domain.Servico;
 import domain.UsuarioCliente;
 import java.util.List;
@@ -29,7 +29,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
     private GerenciadorDemandas gerenciadorDemandas = new GerenciadorDemandas();
     
     @Override
-    public Notificacao NotificarInicioDemanda(Demanda demanda){
+    public Notificacao NotificarInicioDemanda(Pedido demanda){
         UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";
@@ -43,8 +43,8 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
         mensagem+="status: " + demanda.getStatus() + "\n";
         mensagem+="Com o seguintes servicos: " + "\n";
         
-        List<Produto> listProdutos = demanda.getListaProdutos();
-        for(Produto produto : listProdutos){
+        List<Demanda> listProdutos = demanda.getListaProdutos();
+        for(Demanda produto : listProdutos){
             
             Servico servico = (Servico) produto;
             mensagem+="Nome" + servico.getNome();
@@ -62,7 +62,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
 
     @Override
     public Notificacao NotificarAtualizacaoDemanda(Historico historico) {
-        Demanda demanda = gerenciadorDemandas.getDemanda(historico.getIdDemanda());
+        Pedido demanda = gerenciadorDemandas.getDemanda(historico.getIdDemanda());
         UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";

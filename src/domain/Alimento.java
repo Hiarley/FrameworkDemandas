@@ -12,7 +12,7 @@ import java.util.Date;
  * Será usado para fazer um builder.
  * @author Thiago
  */
-public abstract class Alimento extends Produto{
+public class Alimento extends Demanda{
     
     private int quantidade;
     private String fornecedor;
@@ -20,7 +20,7 @@ public abstract class Alimento extends Produto{
     public Alimento() {
     }
 
-    public Alimento(int quantidade, String fornecedor, long idProduto, String nome, double preco, String descricao, Date prazo) {
+    public Alimento(int quantidade, String fornecedor, long idProduto, String nome, double preco, String descricao, String prazo) {
         super(idProduto, nome, preco, descricao, prazo);
         this.quantidade = quantidade;
         this.fornecedor = fornecedor;

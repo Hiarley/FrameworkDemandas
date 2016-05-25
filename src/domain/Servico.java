@@ -12,14 +12,14 @@ import java.util.Date;
  * Será usado para fazer um builder.
  * @author Thiago
  */
-public abstract class Servico extends Produto{
+public class Servico extends Demanda{
     
     private String empresaFornecedora;
 
     public Servico() {
     }
 
-    public Servico(String empresaFornecedora, long idProduto, String nome, double preco, String descricao, Date prazo) {
+    public Servico(String empresaFornecedora, long idProduto, String nome, double preco, String descricao, String prazo) {
         super(idProduto, nome, preco, descricao, prazo);
         this.empresaFornecedora = empresaFornecedora;
     }

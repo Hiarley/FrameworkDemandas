@@ -12,17 +12,19 @@ import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
 import control.GerenciadorProduto;
 import control.GerenciadorUsuarios;
-import domain.Demanda;
+import domain.Pedido;
 import domain.Historico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
+import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -178,7 +180,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Demanda demanda = gerenciadorDemanda.getDemanda(idDemanda);
+        Pedido demanda = gerenciadorDemanda.getDemanda(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
@@ -188,15 +190,19 @@ public class GUIAdministradorServico implements GUIAdministrador {
         
         gerenciadorNotificacao.NotificarAtualizacao(historico);
         
-        gerenciadorHistoricos.adicionarHistorico(historico);
+        try {
+            gerenciadorHistoricos.adicionarHistorico(historico);
+        } catch (HistoricoInvalidoException ex) {
+            Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
     public void listarDemandas(){
         
-        List<Demanda> listDemandas = gerenciadorDemanda.listarDemandas();
+        List<Pedido> listDemandas = gerenciadorDemanda.listarDemandas();
         
-        for(Demanda demanda : listDemandas){
+        for(Pedido demanda : listDemandas){
     
             System.out.println("IdUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante());
             System.out.println("IdDemanda: " + demanda.getIdDemanda());

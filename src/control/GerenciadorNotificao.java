@@ -5,7 +5,7 @@
  */
 package control;
 
-import domain.Demanda;
+import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
 import domain.Notificacao;
@@ -22,7 +22,7 @@ public class GerenciadorNotificao {
     public GerenciadorNotificao() {
     }
     
-    public void NotificarInicio(Demanda demanda){
+    public void NotificarInicio(Pedido demanda){
         fabricaNotificacao.NotificarInicioDemanda(demanda);
         notificao.enviar();
     }

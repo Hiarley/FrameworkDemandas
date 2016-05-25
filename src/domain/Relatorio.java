@@ -15,12 +15,12 @@ public class Relatorio {
     private ArrayList<Setor> listaSetor;
     private ArrayList<Usuario> listaUsuario;
     private ArrayList<UsuarioCliente> listaCliente;
-    private ArrayList<Demanda> listaDatas;
+    private ArrayList<Pedido> listaDatas;
 
     public Relatorio() {
     }
 
-    public Relatorio(ArrayList<Setor> listaSetor, ArrayList<Usuario> listaUsuario, ArrayList<UsuarioCliente> listaCliente, ArrayList<Demanda> listaDatas) {
+    public Relatorio(ArrayList<Setor> listaSetor, ArrayList<Usuario> listaUsuario, ArrayList<UsuarioCliente> listaCliente, ArrayList<Pedido> listaDatas) {
         this.listaSetor = listaSetor;
         this.listaUsuario = listaUsuario;
         this.listaCliente = listaCliente;
@@ -72,14 +72,14 @@ public class Relatorio {
     /**
      * @return the listaDatas
      */
-    public ArrayList<Demanda> getListaDatas() {
+    public ArrayList<Pedido> getListaDatas() {
         return listaDatas;
     }
 
     /**
      * @param listaDatas the listaDatas to set
      */
-    public void setListaDatas(ArrayList<Demanda> listaDatas) {
+    public void setListaDatas(ArrayList<Pedido> listaDatas) {
         this.listaDatas = listaDatas;
     }
     

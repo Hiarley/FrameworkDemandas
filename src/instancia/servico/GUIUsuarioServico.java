@@ -10,15 +10,18 @@ import control.GerenciadorClientes;
 import control.GerenciadorDemandas;
 import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
-import domain.Demanda;
+import domain.Pedido;
 import domain.Historico;
 import domain.Usuario;
 import domain.UsuarioCliente;
+import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -87,33 +90,12 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     }
 
-    public void analisarPedido(long id) {
-        ArrayList<Demanda> listUsuario = gerenciadorDemandas.listarDemandas();
-        Iterator<Demanda> it = listUsuario.iterator();
-        System.out.println("oi");
-        while (it.hasNext()) {
-            Demanda demanda = it.next();
-            if (demanda.getIdDemanda() == (id)) {
-                long asd = 0;
-                demanda.setIdUsuarioDemandando(asd);
-                System.out.println("idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n");
-                System.out.println("idDemanda: " + demanda.getIdDemanda() + "\n");
-                System.out.println("dataAbertura: " + demanda.getDataAbertura() + "\n");
-                System.out.println("idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n");
-                System.out.println("descricao: " + demanda.getDescricao() + "\n");
-                System.out.println("status: " + demanda.getStatus() + "\n");
-
-                gerenciadorHistorico.adicionarHistorico(null);
-            }
-        }
-
-    }
 
     @Override
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Demanda demanda = gerenciadorDemandas.getDemanda(idDemanda);
+        Pedido demanda = gerenciadorDemandas.getDemanda(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
 
         System.out.println("Descreva o historico: ");
@@ -123,6 +105,10 @@ public class GUIUsuarioServico implements GUIUsuario {
 
         gerenciadorNotificacao.NotificarAtualizacao(historico);
 
-        gerenciadorHistorico.adicionarHistorico(historico);
+        try {
+            gerenciadorHistorico.adicionarHistorico(historico);
+        } catch (HistoricoInvalidoException ex) {
+            Logger.getLogger(GUIUsuarioServico.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

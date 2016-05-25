@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import domain.Pagamento;
 import domain.Usuario;
 
 /**

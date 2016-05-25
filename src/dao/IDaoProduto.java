@@ -6,7 +6,7 @@
 package dao;
 
 import domain.UsuarioCliente;
-import domain.Produto;
+import domain.Demanda;
 import java.util.ArrayList;
 
 /**
@@ -14,11 +14,11 @@ import java.util.ArrayList;
  * @author Thiago
  */
 public interface IDaoProduto {
-    public void adicionarProduto(Produto produto);
-    public void removerProduto(Produto produto);
-    public void atualizarProduto(Produto produto);
-    public Produto pegarProduto(long id);
-    public ArrayList<Produto> listarProdutos();
+    public void adicionarProduto(Demanda produto);
+    public void removerProduto(Demanda produto);
+    public void atualizarProduto(Demanda produto);
+    public Demanda pegarProduto(long id);
+    public ArrayList<Demanda> listarProdutos();
 
     
 }

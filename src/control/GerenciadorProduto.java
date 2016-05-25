@@ -7,7 +7,7 @@ package control;
 
 import dao.DaoProduto;
 import dao.IDaoProduto;
-import domain.Produto;
+import domain.Demanda;
 import domain.UsuarioPadrao;
 import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class GerenciadorProduto {
 
-    public void adicionarProduto(Produto produto) {
+    public void adicionarProduto(Demanda produto) {
 
     }
     private IDaoProduto daoProduto;
@@ -27,29 +27,29 @@ public class GerenciadorProduto {
         daoProduto = DaoProduto.getInstance();
     }
 
-    public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException {
+    public void cadastrarProduto(Demanda produto) throws ProdutoInvalidoException {
         if (validarProduto(produto)) {
             this.daoProduto.adicionarProduto(produto);
         }
     }
 
-    public void removerProduto(Produto produto) {
+    public void removerProduto(Demanda produto) {
         this.daoProduto.removerProduto(produto);
     }
 
-    public void atualizarProduto(Produto produto) {
+    public void atualizarProduto(Demanda produto) {
         this.daoProduto.atualizarProduto(produto);
     }
 
-    public ArrayList<Produto> listarProdutos() {
+    public ArrayList<Demanda> listarProdutos() {
         return this.daoProduto.listarProdutos();
     }
 
-    public Produto getProduto(Long id) {
+    public Demanda getProduto(Long id) {
         return this.daoProduto.pegarProduto(id);
     }
     
-        private boolean validarProduto(Produto produto) throws ProdutoInvalidoException {
+        private boolean validarProduto(Demanda produto) throws ProdutoInvalidoException {
         if(produto.getDescricao().equals("")){
             throw new ProdutoInvalidoException("Descrição vazia.");
         }else if(produto.getNome().equals("")){

@@ -10,6 +10,6 @@ package domain;
  * @author Thiago
  */
 public interface FabricaNotificacao {
-    public Notificacao NotificarInicioDemanda(Demanda demanda);
+    public Notificacao NotificarInicioDemanda(Pedido demanda);
     public Notificacao NotificarAtualizacaoDemanda(Historico historico);
 }

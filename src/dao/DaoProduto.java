@@ -6,7 +6,7 @@
 package dao;
 
 import domain.UsuarioCliente;
-import domain.Produto;
+import domain.Demanda;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,7 +19,7 @@ import java.util.Set;
 public class DaoProduto implements IDaoProduto{
 
     static DaoProduto daoProduto = null;
-    private Set<Produto> produtos;
+    private Set<Demanda> produtos;
 
     public static DaoProduto getInstance() {
         if(daoProduto == null){
@@ -36,15 +36,15 @@ public class DaoProduto implements IDaoProduto{
         
     
     @Override
-    public void adicionarProduto(Produto produto) {
+    public void adicionarProduto(Demanda produto) {
         produtos.add(produto);
     }
 
     @Override
-    public void removerProduto(Produto produto) {
-        Iterator<Produto> it = produtos.iterator();
+    public void removerProduto(Demanda produto) {
+        Iterator<Demanda> it = produtos.iterator();
 		while(it.hasNext()) {
-			Produto p = it.next();
+			Demanda p = it.next();
 			
 			//Remove o objeto armazenado se o codigo for igual
 			if(p.getIdProduto() == produto.getIdProduto()) {
@@ -55,10 +55,10 @@ public class DaoProduto implements IDaoProduto{
     }
 
     @Override
-    public void atualizarProduto(Produto produto) {
-        Iterator<Produto> it = produtos.iterator();
+    public void atualizarProduto(Demanda produto) {
+        Iterator<Demanda> it = produtos.iterator();
 		while(it.hasNext()) {
-			Produto p = it.next();
+			Demanda p = it.next();
 			
 			//Atualiza objeto armazenado se o codigo for igual
 			if(p.getIdProduto() == produto.getIdProduto()) {
@@ -69,10 +69,10 @@ public class DaoProduto implements IDaoProduto{
     }
 
     @Override
-    public Produto pegarProduto(long id) {
-        Iterator<Produto> it = produtos.iterator();
+    public Demanda pegarProduto(long id) {
+        Iterator<Demanda> it = produtos.iterator();
 		while(it.hasNext()) {
-			Produto p = it.next();
+			Demanda p = it.next();
 			
 			if(p.getIdProduto() == (id)) {
 				return p;
@@ -83,10 +83,10 @@ public class DaoProduto implements IDaoProduto{
     }
 
     @Override
-    public ArrayList<Produto> listarProdutos() {
-        ArrayList<Produto> resultList = new ArrayList<>();
+    public ArrayList<Demanda> listarProdutos() {
+        ArrayList<Demanda> resultList = new ArrayList<>();
 		
-		Iterator<Produto> it = produtos.iterator();
+		Iterator<Demanda> it = produtos.iterator();
 		while(it.hasNext()) {
 			resultList.add(it.next());
 		}

@@ -5,7 +5,7 @@
  */
 package dao;
 
-import domain.Demanda;
+import domain.Pedido;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,7 +18,7 @@ import java.util.Set;
 public class DaoDemanda implements IDaoDemanda{
     
     static DaoDemanda daoDemanda = null;
-    private Set<Demanda> demandas;
+    private Set<Pedido> demandas;
 
     public static DaoDemanda getInstance() {
         if(daoDemanda == null){
@@ -34,15 +34,15 @@ public class DaoDemanda implements IDaoDemanda{
     
     
     @Override
-    public void adicionarDemanda(Demanda demanda) {
+    public void adicionarDemanda(Pedido demanda) {
         demandas.add(demanda);
     }
 
     @Override
-    public void removerDemanda(Demanda demanda) {
-        Iterator<Demanda> it = demandas.iterator();
+    public void removerDemanda(Pedido demanda) {
+        Iterator<Pedido> it = demandas.iterator();
 		while(it.hasNext()) {
-			Demanda d = it.next();
+			Pedido d = it.next();
 			
 			//Remove o objeto armazenado se o codigo for igual
 			if(d.getIdDemanda() == demanda.getIdDemanda()) {
@@ -53,10 +53,10 @@ public class DaoDemanda implements IDaoDemanda{
     }
 
     @Override
-    public void atualizarDemanda(Demanda demanda) {
-        Iterator<Demanda> it = demandas.iterator();
+    public void atualizarDemanda(Pedido demanda) {
+        Iterator<Pedido> it = demandas.iterator();
 		while(it.hasNext()) {
-			Demanda d = it.next();
+			Pedido d = it.next();
 			
 			//Atualiza objeto armazenado se o codigo for igual
 			if(d.getIdDemanda() == demanda.getIdDemanda()) {
@@ -67,10 +67,10 @@ public class DaoDemanda implements IDaoDemanda{
     }
 
     @Override
-    public Demanda pegarDemanda(long id) {
-        Iterator<Demanda> it = demandas.iterator();
+    public Pedido pegarDemanda(long id) {
+        Iterator<Pedido> it = demandas.iterator();
 		while(it.hasNext()) {
-			Demanda d = it.next();
+			Pedido d = it.next();
 			
 			if(d.getIdDemanda() == (id)) {
 				return d;
@@ -81,10 +81,10 @@ public class DaoDemanda implements IDaoDemanda{
     }
 
     @Override
-    public ArrayList<Demanda> listarDemandas() {
-        ArrayList<Demanda> resultList = new ArrayList<>();
+    public ArrayList<Pedido> listarDemandas() {
+        ArrayList<Pedido> resultList = new ArrayList<>();
 		
-		Iterator<Demanda> it = demandas.iterator();
+		Iterator<Pedido> it = demandas.iterator();
 		while(it.hasNext()) {
 			resultList.add(it.next());
 		}
