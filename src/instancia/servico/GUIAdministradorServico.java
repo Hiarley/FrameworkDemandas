@@ -187,7 +187,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorServico.getDemanda(idDemanda);
+        Pedido demanda = gerenciadorServico.getServico(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
@@ -207,12 +207,12 @@ public class GUIAdministradorServico implements GUIAdministrador {
     @Override
     public void listarDemandas(){
         
-        List<Pedido> listDemandas = gerenciadorServico.listarDemandas();
+        List<Pedido> listDemandas = gerenciadorServico.listarServicos();
         
         for(Pedido demanda : listDemandas){
     
             System.out.println("IdUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante());
-            System.out.println("IdDemanda: " + demanda.getIdDemanda());
+            System.out.println("IdDemanda: " + demanda.getIdServico());
             System.out.println("Data: " + demanda.getDataAbertura());
             System.out.println("IdUsuarioDemandando: " + demanda.getIdUsuarioDemandando());
             System.out.println("Descricao: " + demanda.getDescricao());

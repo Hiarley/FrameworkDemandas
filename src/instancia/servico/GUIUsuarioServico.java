@@ -95,13 +95,13 @@ public class GUIUsuarioServico implements GUIUsuario {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorDemandas.getDemanda(idDemanda);
-        demanda.setIdUsuarioDemandando(usuario.getId());
+        Pedido pedido = gerenciadorDemandas.getServico(idDemanda);
+        pedido.setIdUsuarioDemandando(usuario.getId());
 
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
 
-        Historico historico = new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
+        Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
 
         gerenciadorNotificacao.NotificarAtualizacao(historico);
 

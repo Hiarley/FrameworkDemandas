@@ -18,18 +18,18 @@ import java.util.ArrayList;
  */
 public class GerenciadorServicos {
 
-    private IDaoServico daoDemandas;
+    private IDaoServico daoServicos;
     private GerenciadorPagamento gerenciadorPagamento;
     private GerenciadorNotificao notificao = new GerenciadorNotificao();
 
     public GerenciadorServicos() {
-        daoDemandas = DaoServico.getInstance();
+        daoServicos = DaoServico.getInstance();
 
     }
 
-    public void cadastrarDemanda(Pedido demanda, Pagamento pagamento, int opcao) throws DemandaInvalidoException {
-        if (validarDemanda(demanda)) {
-            this.daoDemandas.adicionarDemanda(demanda);
+    public void cadastrarServico(Pedido demanda, Pagamento pagamento, int opcao) throws DemandaInvalidoException {
+        if (validarServico(demanda)) {
+            this.daoServicos.adicionarServico(demanda);
             switch (opcao) {
                 case 1:
                     gerenciadorPagamento.adicionarPagamento(pagamento);
@@ -42,26 +42,26 @@ public class GerenciadorServicos {
         }
     }
 
-    public void removerDemanda(Pedido demanda) {
-        this.daoDemandas.removerDemanda(demanda);
+    public void removerServico(Pedido demanda) {
+        this.daoServicos.removerServico(demanda);
     }
 
-    public ArrayList<Pedido> listarDemandas() {
-        return this.daoDemandas.listarDemandas();
+    public ArrayList<Pedido> listarServicos() {
+        return this.daoServicos.listarServicos();
     }
 
-    public Pedido getDemanda(Long codigo) {
-        return this.daoDemandas.pegarDemanda(codigo);
+    public Pedido getServico(Long codigo) {
+        return this.daoServicos.pegarServico(codigo);
     }
 
-    private boolean validarDemanda(Pedido demanda) throws DemandaInvalidoException {
+    private boolean validarServico(Pedido demanda) throws DemandaInvalidoException {
         if (demanda.getIdUsuarioSolicitante() < 0) {
             throw new DemandaInvalidoException("Solicitante não encontrado");
 
         } else if (demanda.getDescricao().equals("")) {
-            throw new DemandaInvalidoException("Demanda estar vazia");
+            throw new DemandaInvalidoException("Servico estar vazia");
 
-        } else if (daoDemandas.pegarDemanda(demanda.getIdDemanda()) != null) {
+        } else if (daoServicos.pegarServico(demanda.getIdServico()) != null) {
             throw new DemandaInvalidoException("ID da demanda invalido, contate o administrador.");
 
         }

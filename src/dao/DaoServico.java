@@ -17,14 +17,14 @@ import java.util.Set;
  */
 public class DaoServico implements IDaoServico{
     
-    static DaoServico daoDemanda = null;
+    static DaoServico daoServico = null;
     private Set<Pedido> demandas;
 
     public static DaoServico getInstance() {
-        if(daoDemanda == null){
-            daoDemanda = new DaoServico();
+        if(daoServico == null){
+            daoServico = new DaoServico();
         }
-        return daoDemanda;
+        return daoServico;
     }
 
     public DaoServico() {
@@ -34,18 +34,18 @@ public class DaoServico implements IDaoServico{
     
     
     @Override
-    public void adicionarDemanda(Pedido demanda) {
+    public void adicionarServico(Pedido demanda) {
         demandas.add(demanda);
     }
 
     @Override
-    public void removerDemanda(Pedido demanda) {
+    public void removerServico(Pedido demanda) {
         Iterator<Pedido> it = demandas.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();
 			
 			//Remove o objeto armazenado se o codigo for igual
-			if(d.getIdDemanda() == demanda.getIdDemanda()) {
+			if(d.getIdServico() == demanda.getIdServico()) {
 				it.remove();
 				return;
 			}
@@ -53,13 +53,13 @@ public class DaoServico implements IDaoServico{
     }
 
     @Override
-    public void atualizarDemanda(Pedido demanda) {
+    public void atualizarServico(Pedido demanda) {
         Iterator<Pedido> it = demandas.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();
 			
 			//Atualiza objeto armazenado se o codigo for igual
-			if(d.getIdDemanda() == demanda.getIdDemanda()) {
+			if(d.getIdServico() == demanda.getIdServico()) {
 				d = demanda;
 				return;
                     }    
@@ -67,12 +67,12 @@ public class DaoServico implements IDaoServico{
     }
 
     @Override
-    public Pedido pegarDemanda(long id) {
+    public Pedido pegarServico(long id) {
         Iterator<Pedido> it = demandas.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();
 			
-			if(d.getIdDemanda() == (id)) {
+			if(d.getIdServico() == (id)) {
 				return d;
 			}
 		}
@@ -81,7 +81,7 @@ public class DaoServico implements IDaoServico{
     }
 
     @Override
-    public ArrayList<Pedido> listarDemandas() {
+    public ArrayList<Pedido> listarServicos() {
         ArrayList<Pedido> resultList = new ArrayList<>();
 		
 		Iterator<Pedido> it = demandas.iterator();

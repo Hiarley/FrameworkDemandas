@@ -13,9 +13,9 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public interface IDaoServico {
-    public void adicionarDemanda(Pedido demanda);
-    public void removerDemanda(Pedido demanda);
-    public void atualizarDemanda(Pedido demanda);
-    public Pedido pegarDemanda(long id);
-    public ArrayList<Pedido> listarDemandas();
+    public void adicionarServico(Pedido demanda);
+    public void removerServico(Pedido demanda);
+    public void atualizarServico(Pedido demanda);
+    public Pedido pegarServico(long id);
+    public ArrayList<Pedido> listarServicos();
 }

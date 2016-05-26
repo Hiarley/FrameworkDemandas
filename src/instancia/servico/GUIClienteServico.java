@@ -58,9 +58,10 @@ public class GUIClienteServico implements GUICliente {
             int numeroCartao= in.nextInt();
             System.out.println("Banco");
             String Banco = in.nextLine();
+            
             Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, idDemanda, "Cartao de Debito", 500);
-            Pedido demanda = new Pedido(idCliente, idDemanda, date, idCliente, descricao, 'I',listaProdutos);
-            gerenciadorServico.cadastrarDemanda(demanda,pagamento, 1);
+            Pedido pedido = new Pedido(idCliente, date, idCliente, descricao, 'I',listaProdutos);
+            gerenciadorServico.cadastrarServico(pedido,pagamento, 1);
             
         } catch (Exception e) {
 

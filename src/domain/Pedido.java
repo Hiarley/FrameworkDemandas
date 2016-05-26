@@ -8,29 +8,32 @@ package domain;
 import excecao.DemandaInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author hiarl
  */
 public class Pedido {
+
     private long idUsuarioSolicitante;
-    private long idDemanda;
+    private long idPedido;
     private Date dataAbertura;
     private long idUsuarioDemandando;
     private String descricao;
     private char status;
     private ArrayList<Demanda> listaProdutos;
+    private static AtomicInteger count = new AtomicInteger(0);
 
     public Pedido() {
     }
 
-    public Pedido(long idUsuarioSolicitante, long idDemanda, Date dataAbertura, 
-        long idUsuarioDemandando, String descricao, char status,
-        ArrayList<Demanda> listaProdutos) {
-        
+    public Pedido(long idUsuarioSolicitante, Date dataAbertura,
+            long idUsuarioDemandando, String descricao, char status,
+            ArrayList<Demanda> listaProdutos) {
+
         this.idUsuarioSolicitante = idUsuarioSolicitante;
-        this.idDemanda = idDemanda;
+        this.idPedido = count.getAndIncrement();
         this.dataAbertura = dataAbertura;
         this.idUsuarioDemandando = idUsuarioDemandando;
         this.descricao = descricao;
@@ -53,17 +56,17 @@ public class Pedido {
     }
 
     /**
-     * @return the idDemanda
+     * @return the idServico
      */
-    public long getIdDemanda() {
-        return idDemanda;
+    public long getIdServico() {
+        return idPedido;
     }
 
     /**
-     * @param idDemanda the idDemanda to set
+     * @param idServico the idServico to set
      */
-    public void setIdDemanda(long idDemanda) {
-        this.idDemanda = idDemanda;
+    public void setIdServico(long idPedido) {
+        this.idPedido = idPedido;
     }
 
     /**
@@ -81,14 +84,14 @@ public class Pedido {
     }
 
     /**
-     * @return the idUsuarioDemandando
+     * @return the idUsuarioServicondo
      */
     public long getIdUsuarioDemandando() {
         return idUsuarioDemandando;
     }
 
     /**
-     * @param idUsuarioDemandando the idUsuarioDemandando to set
+     * @param idUsuarioServicondo the idUsuarioServicondo to set
      */
     public void setIdUsuarioDemandando(long idUsuarioDemandando) {
         this.idUsuarioDemandando = idUsuarioDemandando;
@@ -105,7 +108,9 @@ public class Pedido {
      * @param descricao the descricao to set
      */
     public void setDescricao(String descricao) throws DemandaInvalidoException {
-    	if(!(descricao instanceof String)) throw new DemandaInvalidoException("Descrição inválida");
+        if (!(descricao instanceof String)) {
+            throw new DemandaInvalidoException("Descrição inválida");
+        }
         this.descricao = descricao;
     }
 
@@ -113,7 +118,7 @@ public class Pedido {
      * @return the status
      */
     public char getStatus() {
-        
+
         return status;
     }
 
@@ -121,7 +126,9 @@ public class Pedido {
      * @param status the status to set
      */
     public void setStatus(char status) throws DemandaInvalidoException {
-    	if(Character.isDigit(status)) throw new DemandaInvalidoException("Status inválido");
+        if (Character.isDigit(status)) {
+            throw new DemandaInvalidoException("Status inválido");
+        }
         this.status = status;
     }
 
@@ -136,9 +143,8 @@ public class Pedido {
      * @param listaProdutos the listaProdutos to set
      */
     public void setListaProdutos(ArrayList<Demanda> listaProdutos) throws DemandaInvalidoException {
-        
+
         this.listaProdutos = listaProdutos;
     }
 
-    
 }

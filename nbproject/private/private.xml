@@ -3,35 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIClienteServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Servico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorServicos.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/DaoServico.java</file>
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIInicialServico.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorDemandas.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/GUI/GUICliente.java</file>
-=======
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorClientes.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Pagamento.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/Main.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorPagamento.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorNotificao.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorDemandas.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUIInicialServico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Servico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorHistoricos.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUIAdministradorServico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorSetor.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorUsuarios.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/IDaoProduto.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoProduto.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Demanda.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/GUI/GUICliente.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Produto.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUILoginServico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUIUsuarioServico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/GUI/GUIAdministrador.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorProduto.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUIClienteServico.java</file>
->>>>>>> 74d8f9f446aea7578d8f7c132dcafcd3012ae2b0
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIClienteServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/IDaoServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Pedido.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Item.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Alimento.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorDemanda.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Demanda.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/FabricaNotificacaoDemanda.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Usuario.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/DaoDemanda.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/Main.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIAdministradorServico.java</file>
         </group>
     </open-files>
 </project-private>

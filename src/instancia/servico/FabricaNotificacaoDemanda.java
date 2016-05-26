@@ -26,7 +26,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorServicos gerenciadorDemandas = new GerenciadorServicos();
+    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
     
     @Override
     public Notificacao NotificarInicioDemanda(Pedido demanda){
@@ -36,7 +36,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
         mensagem+=usuariocliente.getTelefone();
         mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
         mensagem+="idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n";
-        mensagem+="idDemanda: " + demanda.getIdDemanda() +"\n";
+        mensagem+="idDemanda: " + demanda.getIdServico() +"\n";
         mensagem+="dataAbertura: " + demanda.getDataAbertura() + "\n";
         mensagem+="idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n";
         mensagem+="descricao: " + demanda.getDescricao()+"\n";
@@ -62,7 +62,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
 
     @Override
     public Notificacao NotificarAtualizacaoDemanda(Historico historico) {
-        Pedido demanda = gerenciadorDemandas.getDemanda(historico.getIdDemanda());
+        Pedido demanda = gerenciadorServico.getServico(historico.getIdDemanda());
         UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";
