@@ -5,8 +5,8 @@
  */
 package control;
 
-import dao.DaoDemanda;
-import dao.IDaoDemanda;
+import dao.DaoServico;
+import dao.IDaoServico;
 import domain.Pedido;
 import domain.Pagamento;
 import excecao.DemandaInvalidoException;
@@ -16,14 +16,14 @@ import java.util.ArrayList;
  *
  * @author hiarl
  */
-public class GerenciadorDemandas {
+public class GerenciadorServicos {
 
-    private IDaoDemanda daoDemandas;
+    private IDaoServico daoDemandas;
     private GerenciadorPagamento gerenciadorPagamento;
     private GerenciadorNotificao notificao = new GerenciadorNotificao();
 
-    public GerenciadorDemandas() {
-        daoDemandas = DaoDemanda.getInstance();
+    public GerenciadorServicos() {
+        daoDemandas = DaoServico.getInstance();
 
     }
 

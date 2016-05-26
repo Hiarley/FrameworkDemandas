@@ -5,25 +5,28 @@
  */
 package domain;
 
-import excecao.ProdutoInvalidoException;
+import excecao.DemandaInvalidoException;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author Thiago
  */
 public abstract class Demanda {
-    private long idProduto;
+
+    private long idDemanda;
     private String nome;
     private double preco;
     private String descricao;
     private String prazo;
+    private static AtomicInteger count = new AtomicInteger(0);
 
     public Demanda() {
     }
 
-    public Demanda(long idProduto, String nome, double preco, String descricao, String prazo) {
-        this.idProduto = idProduto;
+    public Demanda(String nome, double preco, String descricao, String prazo) {
+        this.idDemanda = count.getAndIncrement();
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
@@ -31,18 +34,20 @@ public abstract class Demanda {
     }
 
     /**
-     * @return the idProduto
+     * @return the idDemanda
      */
-    public long getIdProduto() {
-        return idProduto;
+    public long getIdDemanda() {
+        return idDemanda;
     }
 
     /**
-     * @param idProduto the idProduto to set
+     * @param idDemanda the idDemanda to set
      */
-    public void setIdProduto(long idProduto) throws ProdutoInvalidoException {
-    	if(idProduto < 0) throw new ProdutoInvalidoException("Id do produto Invalido");
-        this.idProduto = idProduto;
+    public void setIdDemanda(long idDemanda) throws DemandaInvalidoException {
+        if (idDemanda < 0) {
+            throw new DemandaInvalidoException("Id do demanda Invalido");
+        }
+        this.idDemanda = idDemanda;
     }
 
     /**
@@ -55,8 +60,10 @@ public abstract class Demanda {
     /**
      * @param nome the nome to set
      */
-    public void setNome(String nome) throws ProdutoInvalidoException {
-        if(!(nome instanceof String)) throw new ProdutoInvalidoException("Nome invalido.");
+    public void setNome(String nome) throws DemandaInvalidoException {
+        if (!(nome instanceof String)) {
+            throw new DemandaInvalidoException("Nome invalido.");
+        }
         this.nome = nome;
     }
 
@@ -70,8 +77,10 @@ public abstract class Demanda {
     /**
      * @param preco the preco to set
      */
-    public void setPreco(double preco) throws ProdutoInvalidoException {
-        if(preco < 0) throw new ProdutoInvalidoException("Preço invalido.");
+    public void setPreco(double preco) throws DemandaInvalidoException {
+        if (preco < 0) {
+            throw new DemandaInvalidoException("Preço invalido.");
+        }
         this.preco = preco;
     }
 
@@ -85,8 +94,10 @@ public abstract class Demanda {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) throws ProdutoInvalidoException {
-        if(!(descricao instanceof String)) throw new ProdutoInvalidoException("Descrição invalida.");
+    public void setDescricao(String descricao) throws DemandaInvalidoException {
+        if (!(descricao instanceof String)) {
+            throw new DemandaInvalidoException("Descrição invalida.");
+        }
 
         this.descricao = descricao;
     }
@@ -101,11 +112,12 @@ public abstract class Demanda {
     /**
      * @param prazo the prazo to set
      */
-    public void setPrazo(String prazo) throws ProdutoInvalidoException {
-        if(!(prazo instanceof String)) throw new ProdutoInvalidoException("Data invalida.");
+    public void setPrazo(String prazo) throws DemandaInvalidoException {
+        if (!(prazo instanceof String)) {
+            throw new DemandaInvalidoException("Data invalida.");
+        }
 
         this.prazo = prazo;
     }
-    
-    
+
 }

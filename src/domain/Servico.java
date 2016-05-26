@@ -19,8 +19,8 @@ public class Servico extends Demanda{
     public Servico() {
     }
 
-    public Servico(String empresaFornecedora, long idProduto, String nome, double preco, String descricao, String prazo) {
-        super(idProduto, nome, preco, descricao, prazo);
+    public Servico(String empresaFornecedora, String nome, double preco, String descricao, String prazo) {
+        super(nome, preco, descricao, prazo);
         this.empresaFornecedora = empresaFornecedora;
     }
 

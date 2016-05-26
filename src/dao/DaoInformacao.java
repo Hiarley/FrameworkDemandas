@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 public class DaoInformacao implements IDaoInformacao{
 
-    static DaoProduto daoInformacao = null;
+    static DaoDemanda daoInformacao = null;
 
-    public static DaoProduto getInstance() {
+    public static DaoDemanda getInstance() {
         if(daoInformacao == null){
-            daoInformacao = new DaoProduto();
+            daoInformacao = new DaoDemanda();
         }
         return daoInformacao;
     }

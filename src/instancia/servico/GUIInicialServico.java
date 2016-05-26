@@ -62,9 +62,9 @@ public class GUIInicialServico implements GUIInicial {
         do {
             System.out.println("---------- Area Admistrador----------");
             System.out.println("1 - Cadastrar Usuario");
-            System.out.println("2 - Cadastrar Informacoes");
+            System.out.println("2 - Cadastrar Tipo de Serviço");
             System.out.println("3 - Remover Usuario");
-            System.out.println("4 - Remover Informacoes");
+            System.out.println("4 - Remover Tipo de Serviço");
             System.out.println("5 - Listar Informações");
             System.out.println("6 - Cadastrar Cliente");
             System.out.println("7 - Remover Cliente");

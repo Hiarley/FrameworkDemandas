@@ -20,8 +20,8 @@ public class Alimento extends Demanda{
     public Alimento() {
     }
 
-    public Alimento(int quantidade, String fornecedor, long idProduto, String nome, double preco, String descricao, String prazo) {
-        super(idProduto, nome, preco, descricao, prazo);
+    public Alimento(int quantidade, String fornecedor, String nome, double preco, String descricao, String prazo) {
+        super( nome, preco, descricao, prazo);
         this.quantidade = quantidade;
         this.fornecedor = fornecedor;
     }

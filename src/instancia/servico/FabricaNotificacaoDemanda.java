@@ -6,7 +6,7 @@
 package instancia.servico;
 
 import control.GerenciadorClientes;
-import control.GerenciadorDemandas;
+import control.GerenciadorServicos;
 import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
@@ -26,7 +26,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorDemandas gerenciadorDemandas = new GerenciadorDemandas();
+    private GerenciadorServicos gerenciadorDemandas = new GerenciadorServicos();
     
     @Override
     public Notificacao NotificarInicioDemanda(Pedido demanda){
@@ -48,7 +48,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
             
             Servico servico = (Servico) produto;
             mensagem+="Nome" + servico.getNome();
-            mensagem+="IdProduto: " + servico.getIdProduto();
+            mensagem+="IdProduto: " + servico.getIdDemanda();
             mensagem+="Empresa Fornecedora: " + servico.getEmpresaFornecedora();
             mensagem+="Preco: " + servico.getPreco();
             mensagem+="Descricao: " + servico.getDescricao();

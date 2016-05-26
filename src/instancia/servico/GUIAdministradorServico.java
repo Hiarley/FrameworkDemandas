@@ -7,16 +7,18 @@ package instancia.servico;
 
 import GUI.GUIAdministrador;
 import control.GerenciadorClientes;
-import control.GerenciadorDemandas;
+import control.GerenciadorServicos;
 import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
-import control.GerenciadorProduto;
+import control.GerenciadorDemanda;
 import control.GerenciadorUsuarios;
 import domain.Pedido;
 import domain.Historico;
+import domain.Servico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
+import excecao.DemandaInvalidoException;
 import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,9 +36,9 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
-    private GerenciadorProduto gerenciadorProduto = new GerenciadorProduto();
+    private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
+    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
 
@@ -69,18 +71,23 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void cadastrarProdutos() {
-        System.out.println("Nome" );
+        System.out.println("Tipo Serviço:" );
         String nome = in.nextLine();
-        System.out.println("IdProduto: ");
-        long IdProduto = Long.parseLong(in.nextLine());
         System.out.println("Empresa Fornecedora: ");
         String empresaFornecedora = in.nextLine();
         System.out.println("Preco: ");
         double preco = Double.parseDouble(in.nextLine());
         System.out.println("Descricao: ");
         String descricao = in.nextLine();
-        System.out.println("Prazo: ");
+        System.out.println("Prazo de serviço: ");
         String prazo = in.nextLine();
+        
+        Servico servico = new Servico(empresaFornecedora, nome, preco, descricao, prazo);
+        try {
+            gerenciadorDemanda.cadastrarDemanda(servico);
+        } catch (DemandaInvalidoException ex) {
+            Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
         
     }
@@ -101,7 +108,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     public void removerProdutos() {
         System.out.println("Digite o id do Produto: ");
         long id = in.nextLong();
-        gerenciadorProduto.removerProduto(gerenciadorProduto.getProduto(id));
+        gerenciadorDemanda.removerDemanda(gerenciadorDemanda.getDemanda(id));
     }
 
     @Override
@@ -180,7 +187,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorDemanda.getDemanda(idDemanda);
+        Pedido demanda = gerenciadorServico.getDemanda(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
@@ -200,7 +207,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     @Override
     public void listarDemandas(){
         
-        List<Pedido> listDemandas = gerenciadorDemanda.listarDemandas();
+        List<Pedido> listDemandas = gerenciadorServico.listarDemandas();
         
         for(Pedido demanda : listDemandas){
     

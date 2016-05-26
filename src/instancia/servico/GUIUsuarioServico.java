@@ -7,7 +7,7 @@ package instancia.servico;
 
 import GUI.GUIUsuario;
 import control.GerenciadorClientes;
-import control.GerenciadorDemandas;
+import control.GerenciadorServicos;
 import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
 import domain.Pedido;
@@ -31,7 +31,7 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorDemandas gerenciadorDemandas = new GerenciadorDemandas();
+    private GerenciadorServicos gerenciadorDemandas = new GerenciadorServicos();
     private static AtomicInteger count = new AtomicInteger(0);
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();

@@ -6,10 +6,10 @@
 package instancia.servico;
 
 import GUI.GUICliente;
-import control.GerenciadorDemandas;
+import control.GerenciadorServicos;
 import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
-import control.GerenciadorProduto;
+import control.GerenciadorDemanda;
 import domain.CartaoDebito;
 import domain.Pedido;
 import domain.Pagamento;
@@ -29,8 +29,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GUIClienteServico implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
-    private GerenciadorProduto gerenciadorProduto = new GerenciadorProduto();
-    private GerenciadorDemandas gerenciadorDemanda = new GerenciadorDemandas();
+    private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
+    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
     private static AtomicInteger count = new AtomicInteger(0);
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
@@ -52,7 +52,7 @@ public class GUIClienteServico implements GUICliente {
                 listarProdutos();
                 System.out.println("Digite o IdServico do servico escolhido: ");
                 long id = in.nextLong();
-                listaProdutos.add(gerenciadorProduto.getProduto(id));
+                listaProdutos.add(gerenciadorDemanda.getDemanda(id));
             }
             System.out.println("Numero do Cartao");
             int numeroCartao= in.nextInt();
@@ -60,7 +60,7 @@ public class GUIClienteServico implements GUICliente {
             String Banco = in.nextLine();
             Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, idDemanda, "Cartao de Debito", 500);
             Pedido demanda = new Pedido(idCliente, idDemanda, date, idCliente, descricao, 'I',listaProdutos);
-            gerenciadorDemanda.cadastrarDemanda(demanda,pagamento, 1);
+            gerenciadorServico.cadastrarDemanda(demanda,pagamento, 1);
             
         } catch (Exception e) {
 
@@ -71,13 +71,13 @@ public class GUIClienteServico implements GUICliente {
     @Override
     public void listarProdutos() {
         try {
-            List<Demanda> listProdutos = gerenciadorProduto.listarProdutos();
+            List<Demanda> listProdutos = gerenciadorDemanda.listarDemandas();
 
             for (Demanda produto : listProdutos) {
 
                 Servico servico = (Servico) produto;
                 System.out.println("Nome" + servico.getNome());
-                System.out.println("IdProduto: " + servico.getIdProduto());
+                System.out.println("IdProduto: " + servico.getIdDemanda());
                 System.out.println("Empresa Fornecedora: " + servico.getEmpresaFornecedora());
                 System.out.println("Preco: " + servico.getPreco());
                 System.out.println("Descricao: " + servico.getDescricao());

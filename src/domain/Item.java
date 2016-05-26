@@ -19,8 +19,8 @@ public class Item extends Demanda{
     public Item() {
     }
 
-    public Item(int quantidadeEmEstoque, long idProduto, String nome, double preco, String descricao, String prazo) {
-        super(idProduto, nome, preco, descricao, prazo);
+    public Item(int quantidadeEmEstoque, String nome, double preco, String descricao, String prazo) {
+        super( nome, preco, descricao, prazo);
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
 

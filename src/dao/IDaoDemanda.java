@@ -5,17 +5,20 @@
  */
 package dao;
 
-import domain.Pedido;
+import domain.UsuarioCliente;
+import domain.Demanda;
 import java.util.ArrayList;
 
 /**
  *
- * @author hiarl
+ * @author Thiago
  */
 public interface IDaoDemanda {
-    public void adicionarDemanda(Pedido demanda);
-    public void removerDemanda(Pedido demanda);
-    public void atualizarDemanda(Pedido demanda);
-    public Pedido pegarDemanda(long id);
-    public ArrayList<Pedido> listarDemandas();
+    public void adicionarDemanda(Demanda demanda);
+    public void removerDemanda(Demanda demanda);
+    public void atualizarDemanda(Demanda demanda);
+    public Demanda pegarDemanda(long id);
+    public ArrayList<Demanda> listarDemandas();
+
+    
 }
