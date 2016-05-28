@@ -7,7 +7,7 @@ package instancia.servico;
 
 import GUI.GUIAdministrador;
 import control.GerenciadorClientes;
-import control.GerenciadorServicos;
+import control.GerenciadorPedidos;
 import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
 import control.GerenciadorDemanda;
@@ -18,7 +18,7 @@ import domain.Servico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
-import excecao.DemandaInvalidoException;
+import excecao.PedidoInvalidoException;
 import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,7 +38,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos();
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
 
@@ -85,7 +85,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
         Servico servico = new Servico(empresaFornecedora, nome, preco, descricao, prazo);
         try {
             gerenciadorDemanda.cadastrarDemanda(servico);
-        } catch (DemandaInvalidoException ex) {
+        } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
         }
             
@@ -187,7 +187,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorServico.getServico(idDemanda);
+        Pedido demanda = gerenciadorPedidos.getPedido(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
@@ -207,16 +207,16 @@ public class GUIAdministradorServico implements GUIAdministrador {
     @Override
     public void listarDemandas(){
         
-        List<Pedido> listDemandas = gerenciadorServico.listarServicos();
+        List<Pedido> listDemandas = gerenciadorPedidos.listarPedidos();
         
-        for(Pedido demanda : listDemandas){
+        for(Pedido pedido : listDemandas){
     
-            System.out.println("IdUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante());
-            System.out.println("IdDemanda: " + demanda.getIdServico());
-            System.out.println("Data: " + demanda.getDataAbertura());
-            System.out.println("IdUsuarioDemandando: " + demanda.getIdUsuarioDemandando());
-            System.out.println("Descricao: " + demanda.getDescricao());
-            System.out.println("Status: " + demanda.getStatus());
+            System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
+            System.out.println("IdDemanda: " + pedido.getIdServico());
+            System.out.println("Data: " + pedido.getDataAbertura());
+            System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
+            System.out.println("Descricao: " + pedido.getDescricao());
+            System.out.println("Status: " + pedido.getStatus());
         }
     }
 

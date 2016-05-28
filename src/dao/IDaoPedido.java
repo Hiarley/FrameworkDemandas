@@ -12,10 +12,10 @@ import java.util.ArrayList;
  *
  * @author hiarl
  */
-public interface IDaoServico {
-    public void adicionarServico(Pedido demanda);
-    public void removerServico(Pedido demanda);
-    public void atualizarServico(Pedido demanda);
-    public Pedido pegarServico(long id);
-    public ArrayList<Pedido> listarServicos();
+public interface IDaoPedido {
+    public void adicionarPedido(Pedido demanda);
+    public void removerPedido(Pedido demanda);
+    public void atualizarPedido(Pedido demanda);
+    public Pedido pegarPedido(long id);
+    public ArrayList<Pedido> listarPedidos();
 }

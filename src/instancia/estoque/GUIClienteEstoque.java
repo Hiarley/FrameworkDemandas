@@ -7,7 +7,7 @@ package instancia.estoque;
 
 import instancia.servico.*;
 import GUI.GUICliente;
-import control.GerenciadorServicos;
+import control.GerenciadorPedidos;
 import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
 import control.GerenciadorDemanda;
@@ -15,6 +15,7 @@ import domain.CartaoDebito;
 import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
+import domain.Item;
 import domain.Servico;
 import domain.Usuario;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class GUIClienteEstoque implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos();
     private static AtomicInteger count = new AtomicInteger(0);
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
@@ -46,12 +47,21 @@ public class GUIClienteEstoque implements GUICliente {
             String descricao = in.next();
             System.out.println("Quantos servicos deseja adicionar?");
             int servicos = in.nextInt();
-
+            Item item;
             for (; servicos > 0; servicos--) {
                 listarProdutos();
                 System.out.println("Digite o IdServico do servico escolhido: ");
-                long id = in.nextLong();
-                listaProdutos.add(gerenciadorDemanda.getDemanda(id));
+                long id = in.nextLong();    
+                System.out.println("Digite a quantidade: ");
+                int quantidade = in.nextInt();
+                item = (Item) gerenciadorDemanda.getDemanda(id);
+                if(item.getQuantidadeEmEstoque()<quantidade){
+                    System.out.println("Quantidade indisponivel");
+                }else{
+                    item.setQuantidadeEmEstoque(quantidade);
+                    listaProdutos.add(item);
+                }
+                
             }
             System.out.println("Numero do Cartao");
             int numeroCartao = in.nextInt();
@@ -61,7 +71,8 @@ public class GUIClienteEstoque implements GUICliente {
             Pedido pedido = new Pedido(idCliente, date, idCliente, descricao, 'I', listaProdutos);
             Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500);
 
-            gerenciadorServico.cadastrarServico(pedido, pagamento, 1);
+            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, 1);
+            
 
         } catch (Exception e) {
 

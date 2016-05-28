@@ -9,7 +9,7 @@ import dao.DaoDemanda;
 import dao.IDaoDemanda;
 import domain.Demanda;
 import domain.UsuarioPadrao;
-import excecao.DemandaInvalidoException;
+import excecao.PedidoInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +24,7 @@ public class GerenciadorDemanda {
         daoDemanda = DaoDemanda.getInstance();
     }
 
-    public void cadastrarDemanda(Demanda demanda) throws DemandaInvalidoException {
+    public void cadastrarDemanda(Demanda demanda) throws PedidoInvalidoException {
         if (validarDemanda(demanda)) {
             this.daoDemanda.adicionarDemanda(demanda);
         }
@@ -46,17 +46,17 @@ public class GerenciadorDemanda {
         return this.daoDemanda.pegarDemanda(id);
     }
     
-        private boolean validarDemanda(Demanda demanda) throws DemandaInvalidoException {
+        private boolean validarDemanda(Demanda demanda) throws PedidoInvalidoException {
         if(demanda.getDescricao().equals("")){
-            throw new DemandaInvalidoException("Descrição vazia.");
+            throw new PedidoInvalidoException("Descrição vazia.");
         }else if(demanda.getNome().equals("")){
-            throw new DemandaInvalidoException("Nome vazio.");
+            throw new PedidoInvalidoException("Nome vazio.");
             
         }else if(demanda.getPreco()<0){
-            throw new DemandaInvalidoException("Valor invalido");
+            throw new PedidoInvalidoException("Valor invalido");
             
         }else if(this.daoDemanda.pegarDemanda(demanda.getIdDemanda()) != null){
-            throw new DemandaInvalidoException("Demanda já cadastrado");
+            throw new PedidoInvalidoException("Demanda já cadastrado");
         }
         return true;
     }

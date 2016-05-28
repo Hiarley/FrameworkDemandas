@@ -15,32 +15,32 @@ import java.util.Set;
  *
  * @author hiarl
  */
-public class DaoServico implements IDaoServico{
+public class DaoPedido implements IDaoPedido{
     
-    static DaoServico daoServico = null;
-    private Set<Pedido> demandas;
+    static DaoPedido daoServico = null;
+    private Set<Pedido> pedidos;
 
-    public static DaoServico getInstance() {
+    public static DaoPedido getInstance() {
         if(daoServico == null){
-            daoServico = new DaoServico();
+            daoServico = new DaoPedido();
         }
         return daoServico;
     }
 
-    public DaoServico() {
-        demandas = new HashSet<>();
+    public DaoPedido() {
+        pedidos = new HashSet<>();
     }
     
     
     
     @Override
-    public void adicionarServico(Pedido demanda) {
-        demandas.add(demanda);
+    public void adicionarPedido(Pedido demanda) {
+        pedidos.add(demanda);
     }
 
     @Override
-    public void removerServico(Pedido demanda) {
-        Iterator<Pedido> it = demandas.iterator();
+    public void removerPedido(Pedido demanda) {
+        Iterator<Pedido> it = pedidos.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();
 			
@@ -53,8 +53,8 @@ public class DaoServico implements IDaoServico{
     }
 
     @Override
-    public void atualizarServico(Pedido demanda) {
-        Iterator<Pedido> it = demandas.iterator();
+    public void atualizarPedido(Pedido demanda) {
+        Iterator<Pedido> it = pedidos.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();
 			
@@ -67,8 +67,8 @@ public class DaoServico implements IDaoServico{
     }
 
     @Override
-    public Pedido pegarServico(long id) {
-        Iterator<Pedido> it = demandas.iterator();
+    public Pedido pegarPedido(long id) {
+        Iterator<Pedido> it = pedidos.iterator();
 		while(it.hasNext()) {
 			Pedido d = it.next();
 			
@@ -81,10 +81,10 @@ public class DaoServico implements IDaoServico{
     }
 
     @Override
-    public ArrayList<Pedido> listarServicos() {
+    public ArrayList<Pedido> listarPedidos() {
         ArrayList<Pedido> resultList = new ArrayList<>();
 		
-		Iterator<Pedido> it = demandas.iterator();
+		Iterator<Pedido> it = pedidos.iterator();
 		while(it.hasNext()) {
 			resultList.add(it.next());
 		}

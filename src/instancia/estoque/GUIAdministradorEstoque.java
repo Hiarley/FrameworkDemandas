@@ -5,21 +5,21 @@
  */
 package instancia.estoque;
 
-import instancia.servico.*;
 import GUI.GUIAdministrador;
 import control.GerenciadorClientes;
-import control.GerenciadorServicos;
+import control.GerenciadorPedidos;
 import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
 import control.GerenciadorDemanda;
 import control.GerenciadorUsuarios;
 import domain.Pedido;
 import domain.Historico;
+import domain.Item;
 import domain.Servico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
-import excecao.DemandaInvalidoException;
+import excecao.PedidoInvalidoException;
 import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,7 +39,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
+    private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos();
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
 
@@ -72,21 +72,21 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     @Override
     public void cadastrarProdutos() {
-        System.out.println("Tipo Serviço:" );
+        System.out.println("Nome do Produto: " );
         String nome = in.nextLine();
         System.out.println("Empresa Fornecedora: ");
-        String empresaFornecedora = in.nextLine();
+        int quantidadeEmEstoque = in.nextInt();
         System.out.println("Preco: ");
         double preco = Double.parseDouble(in.nextLine());
         System.out.println("Descricao: ");
         String descricao = in.nextLine();
-        System.out.println("Prazo de serviço: ");
+        System.out.println("Prazo de validade: ");
         String prazo = in.nextLine();
         
-        Servico servico = new Servico(empresaFornecedora, nome, preco, descricao, prazo);
+        Item item = new Item(quantidadeEmEstoque, nome, preco, descricao, prazo);
         try {
-            gerenciadorDemanda.cadastrarDemanda(servico);
-        } catch (DemandaInvalidoException ex) {
+            gerenciadorDemanda.cadastrarDemanda(item);
+        } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
             
@@ -188,7 +188,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorServico.getServico(idDemanda);
+        Pedido demanda = gerenciadorServico.getPedido(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
@@ -208,7 +208,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     @Override
     public void listarDemandas(){
         
-        List<Pedido> listDemandas = gerenciadorServico.listarServicos();
+        List<Pedido> listDemandas = gerenciadorServico.listarPedidos();
         
         for(Pedido demanda : listDemandas){
     

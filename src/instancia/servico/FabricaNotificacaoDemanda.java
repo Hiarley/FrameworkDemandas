@@ -6,7 +6,7 @@
 package instancia.servico;
 
 import control.GerenciadorClientes;
-import control.GerenciadorServicos;
+import control.GerenciadorPedidos;
 import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
@@ -26,24 +26,24 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos();
     
     @Override
-    public Notificacao NotificarInicioDemanda(Pedido demanda){
-        UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
+    public Notificacao NotificarInicioDemanda(Pedido pedido){
+        UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";
         mensagem+=usuariocliente.getTelefone();
         mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
-        mensagem+="idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n";
-        mensagem+="idDemanda: " + demanda.getIdServico() +"\n";
-        mensagem+="dataAbertura: " + demanda.getDataAbertura() + "\n";
-        mensagem+="idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n";
-        mensagem+="descricao: " + demanda.getDescricao()+"\n";
-        mensagem+="status: " + demanda.getStatus() + "\n";
+        mensagem+="idUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante() + "\n";
+        mensagem+="idDemanda: " + pedido.getIdServico() +"\n";
+        mensagem+="dataAbertura: " + pedido.getDataAbertura() + "\n";
+        mensagem+="idUsuarioDemandado: " + pedido.getIdUsuarioDemandando() + "\n";
+        mensagem+="descricao: " + pedido.getDescricao()+"\n";
+        mensagem+="status: " + pedido.getStatus() + "\n";
         mensagem+="Com o seguintes servicos: " + "\n";
         
-        List<Demanda> listProdutos = demanda.getListaProdutos();
+        List<Demanda> listProdutos = pedido.getListaProdutos();
         for(Demanda produto : listProdutos){
             
             Servico servico = (Servico) produto;
@@ -62,8 +62,8 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
 
     @Override
     public Notificacao NotificarAtualizacaoDemanda(Historico historico) {
-        Pedido demanda = gerenciadorServico.getServico(historico.getIdDemanda());
-        UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
+        Pedido pedido = gerenciadorPedidos.getPedido(historico.getIdDemanda());
+        UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";
         mensagem+=usuarioCliente.getTelefone();         

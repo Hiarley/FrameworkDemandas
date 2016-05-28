@@ -5,7 +5,7 @@
  */
 package domain;
 
-import excecao.DemandaInvalidoException;
+import excecao.PedidoInvalidoException;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -43,9 +43,9 @@ public abstract class Demanda {
     /**
      * @param idDemanda the idDemanda to set
      */
-    public void setIdDemanda(long idDemanda) throws DemandaInvalidoException {
+    public void setIdDemanda(long idDemanda) throws PedidoInvalidoException {
         if (idDemanda < 0) {
-            throw new DemandaInvalidoException("Id do demanda Invalido");
+            throw new PedidoInvalidoException("Id do demanda Invalido");
         }
         this.idDemanda = idDemanda;
     }
@@ -60,9 +60,9 @@ public abstract class Demanda {
     /**
      * @param nome the nome to set
      */
-    public void setNome(String nome) throws DemandaInvalidoException {
+    public void setNome(String nome) throws PedidoInvalidoException {
         if (!(nome instanceof String)) {
-            throw new DemandaInvalidoException("Nome invalido.");
+            throw new PedidoInvalidoException("Nome invalido.");
         }
         this.nome = nome;
     }
@@ -77,9 +77,9 @@ public abstract class Demanda {
     /**
      * @param preco the preco to set
      */
-    public void setPreco(double preco) throws DemandaInvalidoException {
+    public void setPreco(double preco) throws PedidoInvalidoException {
         if (preco < 0) {
-            throw new DemandaInvalidoException("Preço invalido.");
+            throw new PedidoInvalidoException("Preço invalido.");
         }
         this.preco = preco;
     }
@@ -94,9 +94,9 @@ public abstract class Demanda {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) throws DemandaInvalidoException {
+    public void setDescricao(String descricao) throws PedidoInvalidoException {
         if (!(descricao instanceof String)) {
-            throw new DemandaInvalidoException("Descrição invalida.");
+            throw new PedidoInvalidoException("Descrição invalida.");
         }
 
         this.descricao = descricao;
@@ -112,9 +112,9 @@ public abstract class Demanda {
     /**
      * @param prazo the prazo to set
      */
-    public void setPrazo(String prazo) throws DemandaInvalidoException {
+    public void setPrazo(String prazo) throws PedidoInvalidoException {
         if (!(prazo instanceof String)) {
-            throw new DemandaInvalidoException("Data invalida.");
+            throw new PedidoInvalidoException("Data invalida.");
         }
 
         this.prazo = prazo;

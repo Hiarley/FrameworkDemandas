@@ -7,7 +7,7 @@ package instancia.servico;
 
 import GUI.GUIUsuario;
 import control.GerenciadorClientes;
-import control.GerenciadorServicos;
+import control.GerenciadorPedidos;
 import control.GerenciadorHistoricos;
 import control.GerenciadorNotificao;
 import domain.Pedido;
@@ -31,7 +31,7 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorServicos gerenciadorDemandas = new GerenciadorServicos();
+    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos();
     private static AtomicInteger count = new AtomicInteger(0);
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
@@ -95,7 +95,7 @@ public class GUIUsuarioServico implements GUIUsuario {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido pedido = gerenciadorDemandas.getServico(idDemanda);
+        Pedido pedido = gerenciadorDemandas.getPedido(idDemanda);
         pedido.setIdUsuarioDemandando(usuario.getId());
 
         System.out.println("Descreva o historico: ");

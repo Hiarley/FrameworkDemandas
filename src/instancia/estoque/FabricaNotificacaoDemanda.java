@@ -7,7 +7,7 @@ package instancia.estoque;
 
 import instancia.servico.*;
 import control.GerenciadorClientes;
-import control.GerenciadorServicos;
+import control.GerenciadorPedidos;
 import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
@@ -27,7 +27,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorServicos gerenciadorServico = new GerenciadorServicos();
+    private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos();
     
     @Override
     public Notificacao NotificarInicioDemanda(Pedido demanda){
@@ -63,7 +63,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
 
     @Override
     public Notificacao NotificarAtualizacaoDemanda(Historico historico) {
-        Pedido demanda = gerenciadorServico.getServico(historico.getIdDemanda());
+        Pedido demanda = gerenciadorServico.getPedido(historico.getIdDemanda());
         UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";

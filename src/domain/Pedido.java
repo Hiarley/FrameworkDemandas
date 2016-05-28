@@ -5,7 +5,7 @@
  */
 package domain;
 
-import excecao.DemandaInvalidoException;
+import excecao.PedidoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -107,9 +107,9 @@ public class Pedido {
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao) throws DemandaInvalidoException {
+    public void setDescricao(String descricao) throws PedidoInvalidoException {
         if (!(descricao instanceof String)) {
-            throw new DemandaInvalidoException("Descrição inválida");
+            throw new PedidoInvalidoException("Descrição inválida");
         }
         this.descricao = descricao;
     }
@@ -125,9 +125,9 @@ public class Pedido {
     /**
      * @param status the status to set
      */
-    public void setStatus(char status) throws DemandaInvalidoException {
+    public void setStatus(char status) throws PedidoInvalidoException {
         if (Character.isDigit(status)) {
-            throw new DemandaInvalidoException("Status inválido");
+            throw new PedidoInvalidoException("Status inválido");
         }
         this.status = status;
     }
@@ -142,7 +142,7 @@ public class Pedido {
     /**
      * @param listaProdutos the listaProdutos to set
      */
-    public void setListaProdutos(ArrayList<Demanda> listaProdutos) throws DemandaInvalidoException {
+    public void setListaProdutos(ArrayList<Demanda> listaProdutos) throws PedidoInvalidoException {
 
         this.listaProdutos = listaProdutos;
     }
