@@ -35,6 +35,7 @@ public class GUIClienteServico implements GUICliente {
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
+    @Override
     public void cadastrarPedido(Usuario usuario) {
 
         try {

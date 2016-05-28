@@ -84,16 +84,16 @@ public class GUIClienteEstoque implements GUICliente {
     public void listarProdutos() {
         try {
             List<Demanda> listProdutos = gerenciadorDemanda.listarDemandas();
-
+            Item item;
             for (Demanda produto : listProdutos) {
 
-                Servico servico = (Servico) produto;
-                System.out.println("Nome" + servico.getNome());
-                System.out.println("IdProduto: " + servico.getIdDemanda());
-                System.out.println("Empresa Fornecedora: " + servico.getEmpresaFornecedora());
-                System.out.println("Preco: " + servico.getPreco());
-                System.out.println("Descricao: " + servico.getDescricao());
-                System.out.println("Prazo: " + servico.getPrazo());
+                item = (Item) produto;
+                System.out.println("Nome" + item.getNome());
+                System.out.println("IdProduto: " + item.getIdDemanda());
+                System.out.println("Quantidade: " + item.getQuantidadeEmEstoque());
+                System.out.println("Preco: " + item.getPreco());
+                System.out.println("Descricao: " + item.getDescricao());
+                System.out.println("Prazo: " + item.getPrazo());
             }
         } catch (Exception e) {
         }
