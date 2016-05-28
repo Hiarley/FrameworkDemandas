@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package instancia.servico;
+package instancia.estoque;
 
+import instancia.servico.*;
 import GUI.GUICliente;
 import control.GerenciadorServicos;
 import control.GerenciadorNotificao;
@@ -26,7 +27,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Thiago
  */
-public class GUIClienteServico implements GUICliente {
+public class GUIClienteEstoque implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
