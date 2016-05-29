@@ -17,7 +17,7 @@ public class Historico {
     private long idHistorico;
     private Date dataModificaco;
     private String descricao;
-    private Usuario usuarioSolicitante;
+    private Usuario usuarioDemandado;
 
     public Historico() {
     }
@@ -27,7 +27,7 @@ public class Historico {
         this.idHistorico = idHistorico;
         this.dataModificaco = dataModificaco;
         this.descricao = descricao;
-        this.usuarioSolicitante = usuarioSolicitante;
+        this.usuarioDemandado = usuarioSolicitante;
     }
 
     public long getIdDemanda() {
@@ -85,18 +85,18 @@ public class Historico {
     }
 
     /**
-     * @return the usuarioSolicitante
+     * @return the usuarioDemandado
      */
     public Usuario getUsuarioSolicitante() {
-        return usuarioSolicitante;
+        return usuarioDemandado;
     }
 
     /**
-     * @param usuarioSolicitante the usuarioSolicitante to set
+     * @param usuarioSolicitante the usuarioDemandado to set
      */
     public void setUsuarioSolicitante(Usuario usuarioSolicitante) throws HistoricoInvalidoException {
         if(!(usuarioSolicitante instanceof Usuario)) throw new HistoricoInvalidoException("Usuario invalido.");
-        this.usuarioSolicitante = usuarioSolicitante;
+        this.usuarioDemandado = usuarioSolicitante;
     }
     
 }

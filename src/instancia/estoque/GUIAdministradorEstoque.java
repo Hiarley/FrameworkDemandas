@@ -193,8 +193,8 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         
         
         try {
-            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
-            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
+            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
+            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
         } catch (HistoricoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -101,7 +101,7 @@ public class GUIUsuarioServico implements GUIUsuario {
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
 
-        Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
+        Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario);
 
         gerenciadorNotificacao.NotificarAtualizacao(historico);
 

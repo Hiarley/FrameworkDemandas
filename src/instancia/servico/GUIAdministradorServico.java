@@ -191,8 +191,8 @@ public class GUIAdministradorServico implements GUIAdministrador {
         String descricao = in.nextLine();
               
         try {
-            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
-            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
+            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
+            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
         } catch (HistoricoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
         }
