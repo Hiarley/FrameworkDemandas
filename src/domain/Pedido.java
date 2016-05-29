@@ -23,19 +23,18 @@ public class Pedido {
     private String descricao;
     private char status;
     private ArrayList<Demanda> listaProdutos;
-    private static AtomicInteger count = new AtomicInteger(0);
+    private static AtomicInteger count = new AtomicInteger();
 
     public Pedido() {
     }
 
     public Pedido(long idUsuarioSolicitante, Date dataAbertura,
-            long idUsuarioDemandando, String descricao, char status,
+             String descricao, char status,
             ArrayList<Demanda> listaProdutos) {
 
         this.idUsuarioSolicitante = idUsuarioSolicitante;
         this.idPedido = count.getAndIncrement();
         this.dataAbertura = dataAbertura;
-        this.idUsuarioDemandando = idUsuarioDemandando;
         this.descricao = descricao;
         this.status = status;
         this.listaProdutos = listaProdutos;

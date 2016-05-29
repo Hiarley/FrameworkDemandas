@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package instancia.estoque;
+package instancia.fastfood;
 
+import instancia.estoque.*;
 import instancia.servico.*;
 import control.GerenciadorClientes;
 import control.GerenciadorPedidos;
@@ -22,7 +23,7 @@ import java.util.List;
  *
  * @author hiarl
  */
-public class FabricaNotificacaoDemanda implements FabricaNotificacao{
+public class FabricaNotificacaoFastFood implements FabricaNotificacao{
     
     
     
@@ -30,20 +31,21 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
     private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos();
     
     @Override
-    public Notificacao NotificarInicioDemanda(Pedido pedido){
-        UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
+    public Notificacao NotificarInicioDemanda(Pedido demanda){
+        UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";
         mensagem+=usuariocliente.getTelefone();
         mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
-        mensagem+="idUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante() + "\n";
-        mensagem+="idDemanda: " + pedido.getIdServico() +"\n";
-        mensagem+="dataAbertura " + pedido.getDataAbertura() + "\n";
-        mensagem+="descricao: " + pedido.getDescricao()+"\n";
-        mensagem+="status: " + pedido.getStatus() + "\n";
+        mensagem+="idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n";
+        mensagem+="idDemanda: " + demanda.getIdServico() +"\n";
+        mensagem+="dataAbertura: " + demanda.getDataAbertura() + "\n";
+        mensagem+="idUsuarioDemandado: " + demanda.getIdUsuarioDemandando() + "\n";
+        mensagem+="descricao: " + demanda.getDescricao()+"\n";
+        mensagem+="status: " + demanda.getStatus() + "\n";
         mensagem+="Com o seguintes servicos: " + "\n";
         
-        List<Demanda> listProdutos = pedido.getListaProdutos();
+        List<Demanda> listProdutos = demanda.getListaProdutos();
         for(Demanda produto : listProdutos){
             
             Servico servico = (Servico) produto;

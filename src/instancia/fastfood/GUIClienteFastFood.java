@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package instancia.estoque;
+package instancia.fastfood;
 
+import instancia.estoque.*;
 import instancia.servico.*;
 import GUI.GUICliente;
 import control.GerenciadorPedidos;
@@ -28,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Thiago
  */
-public class GUIClienteEstoque implements GUICliente {
+public class GUIClienteFastFood implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
@@ -68,7 +69,7 @@ public class GUIClienteEstoque implements GUICliente {
             System.out.println("Banco");
             String Banco = in.nextLine();
 
-            Pedido pedido = new Pedido(idCliente, date, descricao, 'P', listaProdutos);
+            Pedido pedido = new Pedido(idCliente, date, idCliente, descricao, 'I', listaProdutos);
             Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500);
 
             gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, 1);
