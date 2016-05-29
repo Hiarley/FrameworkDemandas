@@ -3,24 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUILoginServico.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Servico.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIUsuarioServico.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorServicos.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/DaoServico.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIInicialServico.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIClienteServico.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/IDaoServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/FabricaNotificacaoFastFood.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/GUIAdministradorFastFood.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/GUIAdministradorEstoque.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/Main.java</file>
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Pedido.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Item.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Alimento.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/GUIClienteFastFood.java</file>
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorDemanda.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Demanda.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/FabricaNotificacaoDemanda.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Usuario.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/dao/DaoDemanda.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/Main.java</file>
-            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIAdministradorServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/FabricaNotificacaoDemanda.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/GUIInicialFastFood.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/GUIUsuarioEstoque.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/GUILoginFastFood.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/GUIUsuarioFastFood.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/GUIClienteEstoque.java</file>
         </group>
     </open-files>
 </project-private>

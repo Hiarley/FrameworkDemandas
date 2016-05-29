@@ -94,6 +94,7 @@ public class GUIUsuarioEstoque implements GUIUsuario {
 
     @Override
     public void analisarPedido(Usuario usuario) {
+        
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
         Pedido pedido = gerenciadorDemandas.getPedido(idDemanda);
