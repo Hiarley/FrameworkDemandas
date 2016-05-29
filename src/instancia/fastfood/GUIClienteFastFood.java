@@ -5,11 +5,8 @@
  */
 package instancia.fastfood;
 
-import instancia.estoque.*;
-import instancia.servico.*;
 import GUI.GUICliente;
 import control.GerenciadorPedidos;
-import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
 import control.GerenciadorDemanda;
 import domain.CartaoDebito;
@@ -17,7 +14,6 @@ import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
 import domain.Item;
-import domain.Servico;
 import domain.Usuario;
 import java.util.ArrayList;
 import java.util.Date;

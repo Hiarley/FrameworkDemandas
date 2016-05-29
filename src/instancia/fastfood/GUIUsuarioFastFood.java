@@ -54,8 +54,7 @@ public class GUIUsuarioFastFood implements GUIUsuario {
             System.out.print("Senha: ");
             String senha = in.nextLine();
 
-            UsuarioCliente usuarioCliente = new UsuarioCliente(nome, setor, telefone, login, senha);
-            gerenciadorCliente.cadastrarCliente(usuarioCliente);
+            gerenciadorCliente.cadastrarCliente(new UsuarioCliente(nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
         }
@@ -103,12 +102,11 @@ public class GUIUsuarioFastFood implements GUIUsuario {
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
 
-        Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
-
-        gerenciadorNotificacao.NotificarAtualizacao(historico);
+        
 
         try {
-            gerenciadorHistorico.adicionarHistorico(historico);
+            gerenciadorHistorico.adicionarHistorico(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
+            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
         } catch (HistoricoInvalidoException ex) {
             Logger.getLogger(GUIUsuarioFastFood.class.getName()).log(Level.SEVERE, null, ex);
         }

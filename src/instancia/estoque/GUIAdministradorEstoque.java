@@ -62,8 +62,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             System.out.print("Administrador: ");
             boolean administrador = in.nextBoolean();
             
-            UsuarioPadrao usuarioPadrao = new UsuarioPadrao(administrador, nome, setor, telefone, login, senha);
-            gerenciadorUsuarios.cadastrarUsuario(usuarioPadrao);
+            gerenciadorUsuarios.cadastrarUsuario(new UsuarioPadrao(administrador, nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
         }
@@ -83,9 +82,8 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         System.out.println("Prazo de validade: ");
         String prazo = in.nextLine();
         
-        Item item = new Item(quantidadeEmEstoque, nome, preco, descricao, prazo);
         try {
-            gerenciadorDemanda.cadastrarDemanda(item);
+            gerenciadorDemanda.cadastrarDemanda(new Item(quantidadeEmEstoque, nome, preco, descricao, prazo));
         } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -150,8 +148,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             System.out.println("Senha: ");
             String senha = in.next();
             
-            UsuarioCliente usuarioCliente = new UsuarioCliente( nome, setor, telefone, login, senha);
-            gerenciadorCliente.cadastrarCliente(usuarioCliente);
+            gerenciadorCliente.cadastrarCliente(new UsuarioCliente( nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
         }
@@ -194,23 +191,21 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
         
-        Historico historico = new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
-        
-        gerenciadorNotificacao.NotificarAtualizacao(historico);
         
         try {
-            gerenciadorHistoricos.adicionarHistorico(historico);
+            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
+            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
         } catch (HistoricoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     @Override
-    public void listarDemandas(){
+    public void listarPedidos(){
         
-        List<Pedido> listDemandas = gerenciadorServico.listarPedidos();
+        List<Pedido> listPedido = gerenciadorServico.listarPedidos();
         
-        for(Pedido demanda : listDemandas){
+        for(Pedido demanda : listPedido){
     
             System.out.println("IdUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante());
             System.out.println("IdDemanda: " + demanda.getIdServico());

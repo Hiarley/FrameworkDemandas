@@ -32,7 +32,7 @@ public class GUIUsuarioEstoque implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos();
+    private GerenciadorPedidos gerenciadorEstoques = new GerenciadorPedidos();
     private static AtomicInteger count = new AtomicInteger(0);
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
@@ -97,18 +97,17 @@ public class GUIUsuarioEstoque implements GUIUsuario {
         
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido pedido = gerenciadorDemandas.getPedido(idDemanda);
+        Pedido pedido = gerenciadorEstoques.getPedido(idDemanda);
         pedido.setIdUsuarioDemandando(usuario.getId());
 
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
 
-        Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente());
-
-        gerenciadorNotificacao.NotificarAtualizacao(historico);
+        
 
         try {
-            gerenciadorHistorico.adicionarHistorico(historico);
+            gerenciadorHistorico.adicionarHistorico(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
+            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, new UsuarioCliente()));
         } catch (HistoricoInvalidoException ex) {
             Logger.getLogger(GUIUsuarioEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }

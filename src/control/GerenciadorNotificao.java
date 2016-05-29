@@ -17,18 +17,17 @@ import domain.Notificacao;
 public class GerenciadorNotificao {
 
     private FabricaNotificacao fabricaNotificacao;
-    private Notificacao notificao;
 
     public GerenciadorNotificao() {
     }
     
     public void NotificarInicio(Pedido demanda){
-        fabricaNotificacao.NotificarInicioDemanda(demanda);
+        Notificacao notificao = fabricaNotificacao.NotificarInicioDemanda(demanda);
         notificao.enviar();
     }
     
     public void NotificarAtualizacao(Historico historico){
-        fabricaNotificacao.NotificarAtualizacaoDemanda(historico);
+        Notificacao notificao = fabricaNotificacao.NotificarAtualizacaoDemanda(historico);
         notificao.enviar();
     }
 }

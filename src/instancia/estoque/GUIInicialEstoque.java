@@ -196,7 +196,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiCliente.listarProdutos();
                     break;
                 case 4:
-                    guiAdministrador.listarDemandas();
+                    guiAdministrador.listarPedidos();
                     break;
                 default:
                     System.exit(0);
