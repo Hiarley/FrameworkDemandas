@@ -36,7 +36,7 @@ public class GUIClienteEstoque implements GUICliente {
     public void cadastrarPedido(Usuario usuario) {
 
         try {
-            Date date = new Date();
+     
             System.out.println("---------- Cadastrar Pedido----------");
             long idCliente = usuario.getId();
             System.out.println("Descrição: ");
@@ -45,7 +45,7 @@ public class GUIClienteEstoque implements GUICliente {
             int servicos = in.nextInt();
             Item item;
             for (; servicos > 0; servicos--) {
-                listarProdutos();
+                listarDemandas();
                 System.out.println("Digite o IdServico do servico escolhido: ");
                 long id = in.nextLong();    
                 System.out.println("Digite a quantidade: ");
@@ -60,7 +60,7 @@ public class GUIClienteEstoque implements GUICliente {
                 
             }
 
-            Pedido pedido = new Pedido(idCliente, date, descricao, 'P', listaProdutos);
+            Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'P', listaProdutos);
             Pagamento pagamento = new BoletoBancario(new Date(), pedido.getIdServico(), "Cartao de Debito", 500);
 
             gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, 1);
@@ -73,7 +73,7 @@ public class GUIClienteEstoque implements GUICliente {
     }
 
     @Override
-    public void listarProdutos() {
+    public void listarDemandas() {
         try {
             List<Demanda> listDemanda = gerenciadorDemanda.listarDemandas();
             Item item;
@@ -92,7 +92,17 @@ public class GUIClienteEstoque implements GUICliente {
     }
 
     @Override
-    public void listarDemandas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void listarPedidos(Usuario usuario) {
+        List<Pedido> listPedido = gerenciadorPedidos.getListarPedidoUsuario(usuario.getId());
+        
+        for(Pedido pedido : listPedido){
+    
+            System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
+            System.out.println("IdDemanda: " + pedido.getIdServico());
+            System.out.println("Data: " + pedido.getDataAbertura());
+            System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
+            System.out.println("Descricao: " + pedido.getDescricao());
+            System.out.println("Status: " + pedido.getStatus());
+        }
     }
 }

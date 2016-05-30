@@ -46,7 +46,7 @@ public class GUIClienteServico implements GUICliente {
             int servicos = in.nextInt();
 
             for (; servicos > 0; servicos--) {
-                listarProdutos();
+                listarDemandas();
                 System.out.println("Digite o IdServico do servico escolhido: ");
                 long id = in.nextLong();
                 listaProdutos.add(gerenciadorDemanda.getDemanda(id));
@@ -67,7 +67,7 @@ public class GUIClienteServico implements GUICliente {
     }
 
     @Override
-    public void listarProdutos() {
+    public void listarDemandas() {
         try {
             List<Demanda> listDemanda = gerenciadorDemanda.listarDemandas();
 
@@ -86,7 +86,17 @@ public class GUIClienteServico implements GUICliente {
     }
 
     @Override
-    public void listarDemandas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void listarPedidos(Usuario usuario) {
+        List<Pedido> listPedido = gerenciadorPedidos.getListarPedidoUsuario(usuario.getId());
+        
+        for(Pedido pedido : listPedido){
+    
+            System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
+            System.out.println("IdDemanda: " + pedido.getIdServico());
+            System.out.println("Data: " + pedido.getDataAbertura());
+            System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
+            System.out.println("Descricao: " + pedido.getDescricao());
+            System.out.println("Status: " + pedido.getStatus());
+        }
     }
 }

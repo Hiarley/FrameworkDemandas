@@ -17,5 +17,6 @@ public interface IDaoPedido {
     public void removerPedido(Pedido demanda);
     public void atualizarPedido(Pedido demanda);
     public Pedido pegarPedido(long id);
+    public ArrayList<Pedido> listarPedidosUsuario(long usuario);
     public ArrayList<Pedido> listarPedidos();
 }

@@ -79,6 +79,21 @@ public class DaoPedido implements IDaoPedido{
 		
 		return null;
     }
+    
+    @Override
+    public ArrayList<Pedido> listarPedidosUsuario(long usuario) {
+        ArrayList<Pedido> resultList = new ArrayList<>();
+		
+		Iterator<Pedido> it = pedidos.iterator();
+		while(it.hasNext()) {
+                        Pedido d = it.next();
+                        if(d.getIdUsuarioSolicitante()== (usuario))
+                            resultList.add(d);
+		}
+        
+		
+		return resultList;
+    }
 
     @Override
     public ArrayList<Pedido> listarPedidos() {

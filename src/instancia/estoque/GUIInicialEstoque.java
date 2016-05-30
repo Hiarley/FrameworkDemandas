@@ -163,7 +163,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiCliente.cadastrarPedido(usuario);
                     break;
                 case 2:
-                    guiCliente.listarDemandas();
+                    guiCliente.listarPedidos(usuario);
                     break;
                 default:
                     System.exit(0);
@@ -193,7 +193,7 @@ public class GUIInicialEstoque implements GUIInicial {
                     guiAdministrador.listarCliente();
                     break;
                 case 3:
-                    guiCliente.listarProdutos();
+                    guiCliente.listarDemandas();
                     break;
                 case 4:
                     guiAdministrador.listarPedidos();

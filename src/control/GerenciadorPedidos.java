@@ -67,6 +67,10 @@ public class GerenciadorPedidos {
     public Pedido getPedido(Long codigo) {
         return this.daoPedido.pegarPedido(codigo);
     }
+    
+    public ArrayList<Pedido> getListarPedidoUsuario(Long usuario){
+        return this.daoPedido.listarPedidosUsuario(usuario);
+    }
 
     private boolean validarPedido(Pedido pedido) throws PedidoInvalidoException {
         if (pedido.getIdUsuarioSolicitante() < 0) {

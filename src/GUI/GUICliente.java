@@ -14,6 +14,6 @@ import domain.Usuario;
  */
 public interface GUICliente {
     public void cadastrarPedido(Usuario usuario);
+    public void listarPedidos(Usuario usuario);
     public void listarDemandas();
-    public void listarProdutos();
 }
