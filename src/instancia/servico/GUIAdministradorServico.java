@@ -14,7 +14,6 @@ import control.GerenciadorDemanda;
 import control.GerenciadorUsuarios;
 import domain.Pedido;
 import domain.Historico;
-import domain.Servico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;

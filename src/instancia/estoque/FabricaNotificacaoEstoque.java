@@ -11,10 +11,10 @@ import control.GerenciadorPedidos;
 import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
-import domain.NotificaSMS;
+import instancia.servico.NotificaSMS;
 import domain.Notificacao;
 import domain.Demanda;
-import domain.Servico;
+import instancia.servico.Servico;
 import domain.UsuarioCliente;
 import java.util.List;
 
@@ -22,7 +22,7 @@ import java.util.List;
  *
  * @author hiarl
  */
-public class FabricaNotificacaoDemanda implements FabricaNotificacao{
+public class FabricaNotificacaoEstoque implements FabricaNotificacao{
     
     
     
@@ -43,19 +43,19 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
         mensagem+="status: " + pedido.getStatus() + "\n";
         mensagem+="Com o seguintes servicos: " + "\n";
         
-        List<Demanda> listProdutos = pedido.getListaProdutos();
-        for(Demanda produto : listProdutos){
+        List<Demanda> listDemanda = pedido.getListaProdutos();
+        for(Demanda produto : listDemanda){
             
-            Servico servico = (Servico) produto;
-            mensagem+="Nome" + servico.getNome();
-            mensagem+="IdProduto: " + servico.getIdDemanda();
-            mensagem+="Empresa Fornecedora: " + servico.getEmpresaFornecedora();
-            mensagem+="Preco: " + servico.getPreco();
-            mensagem+="Descricao: " + servico.getDescricao();
-            mensagem+="Prazo: " + servico.getPrazo();
+            Item item = (Item) produto;
+            mensagem+="Nome" + item.getNome();
+            mensagem+="IdProduto: " + item.getIdDemanda();
+            mensagem+="Quantidade: " + item.getQuantidadeEmEstoque();
+            mensagem+="Preco: " + item.getPreco();
+            mensagem+="Descricao: " + item.getDescricao();
+            mensagem+="Prazo: " + item.getPrazo();
         }
         
-        return new NotificaSMS(mensagem);
+        return new NotificaWhatsapp(mensagem);
 
             
         };
@@ -74,7 +74,7 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
         mensagem+=historico.getDescricao();
         
                   
-        return new NotificaSMS(mensagem);
+        return new NotificaWhatsapp(mensagem);
     }
         
     }

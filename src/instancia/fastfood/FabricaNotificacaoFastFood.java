@@ -12,10 +12,10 @@ import control.GerenciadorPedidos;
 import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
-import domain.NotificaSMS;
+import instancia.servico.NotificaSMS;
 import domain.Notificacao;
 import domain.Demanda;
-import domain.Servico;
+import instancia.servico.Servico;
 import domain.UsuarioCliente;
 import java.util.List;
 
@@ -45,16 +45,17 @@ public class FabricaNotificacaoFastFood implements FabricaNotificacao{
         mensagem+="status: " + demanda.getStatus() + "\n";
         mensagem+="Com o seguintes servicos: " + "\n";
         
-        List<Demanda> listProdutos = demanda.getListaProdutos();
-        for(Demanda produto : listProdutos){
+        List<Demanda> listDemanda = demanda.getListaProdutos();
+        for(Demanda produto : listDemanda){
             
-            Servico servico = (Servico) produto;
-            mensagem+="Nome" + servico.getNome();
-            mensagem+="IdProduto: " + servico.getIdDemanda();
-            mensagem+="Empresa Fornecedora: " + servico.getEmpresaFornecedora();
-            mensagem+="Preco: " + servico.getPreco();
-            mensagem+="Descricao: " + servico.getDescricao();
-            mensagem+="Prazo: " + servico.getPrazo();
+            Alimento alimento = (Alimento) produto;
+            mensagem+="Nome" + alimento.getNome();
+            mensagem+="IdProduto: " + alimento.getIdDemanda();
+            mensagem+="Tipo do Alimento: " + alimento.getTipoAlimento();
+            mensagem+="Preco: " + alimento.getPreco();
+            mensagem+="Descricao: " + alimento.getDescricao();
+            mensagem+="Prazo: " + alimento.getPrazo();
+            mensagem+="Fornecedor: " + alimento.getFornecedor();
         }
         
         return new NotificaSMS(mensagem);

@@ -9,11 +9,11 @@ import GUI.GUICliente;
 import control.GerenciadorPedidos;
 import control.GerenciadorPagamento;
 import control.GerenciadorDemanda;
-import domain.CartaoDebito;
+import instancia.servico.CartaoDebito;
 import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
-import domain.Item;
+import instancia.estoque.Item;
 import domain.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,38 +37,27 @@ public class GUIClienteFastFood implements GUICliente {
     public void cadastrarPedido(Usuario usuario) {
 
         try {
-            Date date = new Date();
             System.out.println("---------- Cadastrar Pedido----------");
             long idCliente = usuario.getId();
             System.out.println("Descrição: ");
             String descricao = in.next();
-            System.out.println("Quantos servicos deseja adicionar?");
+            System.out.println("Quantos alimentos deseja adicionar?");
             int servicos = in.nextInt();
-            Item item;
             for (; servicos > 0; servicos--) {
-                listarProdutos();
-                System.out.println("Digite o IdServico do servico escolhido: ");
-                long id = in.nextLong();    
-                System.out.println("Digite a quantidade: ");
-                int quantidade = in.nextInt();
-                item = (Item) gerenciadorDemanda.getDemanda(id);
-                if(item.getQuantidadeEmEstoque()<quantidade){
-                    System.out.println("Quantidade indisponivel");
-                }else{
-                    item.setQuantidadeEmEstoque(quantidade);
-                    listaProdutos.add(item);
-                }
                 
+                listarProdutos();
+                System.out.println("Digite o Id do alimento escolhido: ");
+                long id = in.nextLong();
+                listaProdutos.add(gerenciadorDemanda.getDemanda(id));    
             }
             System.out.println("Numero do Cartao");
             int numeroCartao = in.nextInt();
             System.out.println("Banco");
             String Banco = in.nextLine();
 
-            Pedido pedido = new Pedido(idCliente, date, idCliente, descricao, 'I', listaProdutos);
-            Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500);
+            Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
 
-            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, 1);
+            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), 1);
             
 
         } catch (Exception e) {
@@ -80,17 +69,18 @@ public class GUIClienteFastFood implements GUICliente {
     @Override
     public void listarProdutos() {
         try {
-            List<Demanda> listProdutos = gerenciadorDemanda.listarDemandas();
-            Item item;
-            for (Demanda produto : listProdutos) {
+            List<Demanda> listDemanda = gerenciadorDemanda.listarDemandas();
+            Alimento alimento;
+            for (Demanda produto : listDemanda) {
 
-                item = (Item) produto;
-                System.out.println("Nome" + item.getNome());
-                System.out.println("IdProduto: " + item.getIdDemanda());
-                System.out.println("Quantidade: " + item.getQuantidadeEmEstoque());
-                System.out.println("Preco: " + item.getPreco());
-                System.out.println("Descricao: " + item.getDescricao());
-                System.out.println("Prazo: " + item.getPrazo());
+                alimento = (Alimento) produto;
+                System.out.println("Nome" + alimento.getNome());
+                System.out.println("IdProduto: " + alimento.getIdDemanda());
+                System.out.println("Tipo do Alimento: " + alimento.getTipoAlimento());
+                System.out.println("Preco: " + alimento.getPreco());
+                System.out.println("Descricao: " + alimento.getDescricao());
+                System.out.println("Prazo: " + alimento.getPrazo());
+                System.out.println("Fornecedor: " + alimento.getFornecedor());
             }
         } catch (Exception e) {
         }

@@ -10,10 +10,8 @@ import control.GerenciadorPedidos;
 import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
-import domain.NotificaSMS;
 import domain.Notificacao;
 import domain.Demanda;
-import domain.Servico;
 import domain.UsuarioCliente;
 import java.util.List;
 
@@ -21,7 +19,7 @@ import java.util.List;
  *
  * @author hiarl
  */
-public class FabricaNotificacaoDemanda implements FabricaNotificacao{
+public class FabricaNotificacaoServico implements FabricaNotificacao{
     
     
     
@@ -43,8 +41,8 @@ public class FabricaNotificacaoDemanda implements FabricaNotificacao{
         mensagem+="status: " + pedido.getStatus() + "\n";
         mensagem+="Com o seguintes servicos: " + "\n";
         
-        List<Demanda> listProdutos = pedido.getListaProdutos();
-        for(Demanda produto : listProdutos){
+        List<Demanda> listDemanda = pedido.getListaProdutos();
+        for(Demanda produto : listDemanda){
             
             Servico servico = (Servico) produto;
             mensagem+="Nome" + servico.getNome();

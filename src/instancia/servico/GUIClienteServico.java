@@ -10,11 +10,9 @@ import control.GerenciadorPedidos;
 import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
 import control.GerenciadorDemanda;
-import domain.CartaoDebito;
 import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
-import domain.Servico;
 import domain.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,7 +37,7 @@ public class GUIClienteServico implements GUICliente {
     public void cadastrarPedido(Usuario usuario) {
 
         try {
-            Date date = new Date();
+            
             System.out.println("---------- Cadastrar Pedido----------");
             long idCliente = usuario.getId();
             System.out.println("Descrição: ");
@@ -58,10 +56,9 @@ public class GUIClienteServico implements GUICliente {
             System.out.println("Banco");
             String Banco = in.nextLine();
 
-            Pedido pedido = new Pedido(idCliente, date, idCliente, descricao, 'I', listaProdutos);
-            Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500);
-
-            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, 1);
+            
+            Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
+            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), 1);
 
         } catch (Exception e) {
 
@@ -72,9 +69,9 @@ public class GUIClienteServico implements GUICliente {
     @Override
     public void listarProdutos() {
         try {
-            List<Demanda> listProdutos = gerenciadorDemanda.listarDemandas();
+            List<Demanda> listDemanda = gerenciadorDemanda.listarDemandas();
 
-            for (Demanda produto : listProdutos) {
+            for (Demanda produto : listDemanda) {
 
                 Servico servico = (Servico) produto;
                 System.out.println("Nome" + servico.getNome());

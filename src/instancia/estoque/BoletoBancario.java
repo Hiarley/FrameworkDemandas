@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package instancia.estoque;
 
+import domain.Pagamento;
 import excecao.PagamentoInvalidoException;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -16,18 +18,20 @@ public class BoletoBancario extends Pagamento{
     private Date vencimentoBoleto;
     private int linhaDigitavel;
     private int codigoBanco;
-
+    Random rand = new Random();
+    Date date;
+    
     public BoletoBancario() {
     }
 
-    public BoletoBancario(Date vencimentoBoleto, int linhaDigitavel, int codigoBanco, long idPagamento, String nome, double valor) {
-        super(idPagamento, nome, valor);
-        this.vencimentoBoleto = vencimentoBoleto;
-        this.linhaDigitavel = linhaDigitavel;
-        this.codigoBanco = codigoBanco;
-    }
-
-    
+    public BoletoBancario(Date vencimentoBoleto, long idDemanda, String nome, double valor) {
+        super(idDemanda, nome, valor);
+        date = vencimentoBoleto;
+        date.setMonth(vencimentoBoleto.getMonth() + 1);
+        this.vencimentoBoleto = date;
+        this.linhaDigitavel = rand.nextInt() % 1000;
+        this.codigoBanco = rand.nextInt() % 50;
+    }  
 
     /**
      * @return the vencimentoBoleto

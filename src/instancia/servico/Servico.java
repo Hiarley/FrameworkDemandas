@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package instancia.servico;
 
+import domain.Demanda;
 import excecao.ProdutoInvalidoException;
 import java.util.Date;
 

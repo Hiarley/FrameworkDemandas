@@ -47,7 +47,7 @@ public class GUILoginServico implements GUI.GUILogin {
     @Override
     public void logar() {
         do {
-            System.out.println("---------- Login ----------");
+            System.out.println("---------- Login do Sistema de Servicos----------");
             System.out.println("Usuario:");
             String login = in.next();
             System.out.println("Senha:");

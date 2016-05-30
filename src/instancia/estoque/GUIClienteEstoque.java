@@ -5,18 +5,14 @@
  */
 package instancia.estoque;
 
-import instancia.servico.*;
 import GUI.GUICliente;
 import control.GerenciadorPedidos;
-import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
 import control.GerenciadorDemanda;
-import domain.CartaoDebito;
+import instancia.servico.CartaoDebito;
 import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
-import domain.Item;
-import domain.Servico;
 import domain.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,13 +59,9 @@ public class GUIClienteEstoque implements GUICliente {
                 }
                 
             }
-            System.out.println("Numero do Cartao");
-            int numeroCartao = in.nextInt();
-            System.out.println("Banco");
-            String Banco = in.nextLine();
 
             Pedido pedido = new Pedido(idCliente, date, descricao, 'P', listaProdutos);
-            Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500);
+            Pagamento pagamento = new BoletoBancario(new Date(), pedido.getIdServico(), "Cartao de Debito", 500);
 
             gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, 1);
             
@@ -83,9 +75,9 @@ public class GUIClienteEstoque implements GUICliente {
     @Override
     public void listarProdutos() {
         try {
-            List<Demanda> listProdutos = gerenciadorDemanda.listarDemandas();
+            List<Demanda> listDemanda = gerenciadorDemanda.listarDemandas();
             Item item;
-            for (Demanda produto : listProdutos) {
+            for (Demanda produto : listDemanda) {
 
                 item = (Item) produto;
                 System.out.println("Nome" + item.getNome());

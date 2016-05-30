@@ -44,7 +44,7 @@ public class DaoPagamento implements IDaoPagamento{
 			Pagamento d = it.next();
 			
 			//Remove o objeto armazenado se o codigo for igual
-			if(d.getIdPagamento() == pagamento.getIdPagamento()) {
+			if(d.getIdDemanda()== pagamento.getIdDemanda()) {
 				it.remove();
 				return;
 			}
@@ -58,7 +58,7 @@ public class DaoPagamento implements IDaoPagamento{
 			Pagamento p = it.next();
 			
 			//Atualiza objeto armazenado se o codigo for igual
-			if(p.getIdPagamento() == pagamento.getIdPagamento()) {
+			if(p.getIdDemanda()== pagamento.getIdDemanda()) {
 				p = pagamento;
 				return;
                     }    
@@ -71,7 +71,7 @@ public class DaoPagamento implements IDaoPagamento{
 		while(it.hasNext()) {
 			Pagamento p = it.next();
 			
-			if(p.getIdPagamento() == (id)) {
+			if(p.getIdDemanda()== (id)) {
 				return p;
 			}
 		}

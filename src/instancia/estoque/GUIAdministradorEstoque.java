@@ -14,8 +14,7 @@ import control.GerenciadorDemanda;
 import control.GerenciadorUsuarios;
 import domain.Pedido;
 import domain.Historico;
-import domain.Item;
-import domain.Servico;
+import instancia.servico.Servico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
@@ -73,7 +72,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     public void cadastrarProdutos() {
         System.out.println("Nome do Produto: " );
         String nome = in.nextLine();
-        System.out.println("Empresa Fornecedora: ");
+        System.out.println("Quantidade em Estoque: ");
         int quantidadeEmEstoque = in.nextInt();
         System.out.println("Preco: ");
         double preco = Double.parseDouble(in.nextLine());

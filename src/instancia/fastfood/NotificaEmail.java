@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package instancia.fastfood;
+
+import domain.Notificacao;
 
 /**
  *
  * @author hiarl
  */
-public class NotificaWhatsapp extends Notificacao{
-    
-    public NotificaWhatsapp(String mensagem) {
+public class NotificaEmail extends Notificacao{
+
+    public NotificaEmail(String mensagem) {
             super(mensagem);
     }
 
     public void enviar() {
-            System.out.println("Enviando notificacao por Whatsapp...");
+            System.out.println("Enviando notificacao por email...");
             System.out.println(getMensagem());
     }
 }

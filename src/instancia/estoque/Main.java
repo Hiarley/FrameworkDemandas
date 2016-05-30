@@ -22,7 +22,7 @@ import excecao.ClienteInvalidoException;
  */
 public class Main {
 
-    private static GUILogin guiLogin = new GUILoginServico();
+    private static GUILogin guiLogin = new GUILoginEstoque();
     private static GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
 
     public static void main(String[] args) throws ClienteInvalidoException {

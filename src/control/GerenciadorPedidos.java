@@ -8,7 +8,7 @@ package control;
 import dao.DaoPedido;
 import dao.IDaoPedido;
 import domain.Demanda;
-import domain.Item;
+import instancia.estoque.Item;
 import domain.Pedido;
 import domain.Pagamento;
 import excecao.PedidoInvalidoException;

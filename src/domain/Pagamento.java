@@ -17,24 +17,10 @@ public abstract class Pagamento {
     public Pagamento() {
     }
 
-    public Pagamento(long idPagamento, String nome, double valor) {
-        this.idDemanda = idPagamento;
+    public Pagamento(long idDemanda, String nome, double valor) {
+        this.idDemanda = idDemanda;
         this.nome = nome;
         this.valor = valor;
-    }
-
-    /**
-     * @return the idDemanda
-     */
-    public long getIdPagamento() {
-        return idDemanda;
-    }
-
-    /**
-     * @param idPagamento the idDemanda to set
-     */
-    public void setIdPagamento(long idPagamento) {
-        this.idDemanda = idPagamento;
     }
 
     /**
@@ -67,5 +53,19 @@ public abstract class Pagamento {
 
     public boolean validarPagamento() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @return the idDemanda
+     */
+    public long getIdDemanda() {
+        return idDemanda;
+    }
+
+    /**
+     * @param idDemanda the idDemanda to set
+     */
+    public void setIdDemanda(long idDemanda) {
+        this.idDemanda = idDemanda;
     }
 }

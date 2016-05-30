@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package instancia.servico;
+
+import domain.Notificacao;
 
 /**
  *
  * @author hiarl
  */
-public class NotificaEmail extends Notificacao{
-
-    public NotificaEmail(String mensagem) {
+public class NotificaSMS extends Notificacao{
+    public NotificaSMS(String mensagem) {
             super(mensagem);
     }
 
     public void enviar() {
-            System.out.println("Enviando notificacao por email...");
+            System.out.println("Enviando notificacao por SMS...");
             System.out.println(getMensagem());
     }
 }

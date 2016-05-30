@@ -49,7 +49,7 @@ public class GUILoginFastFood implements GUI.GUILogin {
     @Override
     public void logar() {
         do {
-            System.out.println("---------- Login ----------");
+            System.out.println("---------- Login do Sistema Fast Food----------");
             System.out.println("Usuario:");
             String login = in.next();
             System.out.println("Senha:");

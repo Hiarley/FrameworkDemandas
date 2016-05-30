@@ -48,7 +48,7 @@ public class GUILoginEstoque implements GUI.GUILogin {
     @Override
     public void logar() {
         do {
-            System.out.println("---------- Login ----------");
+            System.out.println("---------- Login do Sistema de Estoque----------");
             System.out.println("Usuario:");
             String login = in.next();
             System.out.println("Senha:");
