@@ -52,7 +52,7 @@ public class GUIClienteServico implements GUICliente {
                 listaProdutos.add(gerenciadorDemanda.getDemanda(id));
             }
             System.out.println("Numero do Cartao");
-            int numeroCartao = in.nextInt();
+            int numeroCartao = Integer.parseInt(in.nextLine());
             System.out.println("Banco");
             String Banco = in.nextLine();
 
