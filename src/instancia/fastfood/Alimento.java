@@ -58,6 +58,11 @@ public class Alimento extends Demanda{
     public void setTipoAlimento(String tipoAlimento) {
         this.tipoAlimento = tipoAlimento;
     }
+
+    @Override
+    public boolean validar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
