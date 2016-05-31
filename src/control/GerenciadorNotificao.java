@@ -18,11 +18,15 @@ public class GerenciadorNotificao {
 
     private FabricaNotificacao fabricaNotificacao;
 
-    public GerenciadorNotificao() {
+    public GerenciadorNotificao(FabricaNotificacao fabricaNotificacao) {
+       this.fabricaNotificacao = fabricaNotificacao;
     }
     
     public void NotificarInicio(Pedido demanda){
+               System.out.println(demanda.getDescricao()); 
+               
         Notificacao notificao = fabricaNotificacao.NotificarInicioDemanda(demanda);
+
         notificao.enviar();
     }
     

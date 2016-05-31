@@ -37,9 +37,9 @@ public class GUIAdministradorServico implements GUIAdministrador {
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos();
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoServico());
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
-    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
+    //private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
 
 
     @Override
@@ -191,7 +191,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
               
         try {
             gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
-            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
+            //gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
         } catch (HistoricoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -15,9 +15,7 @@ import java.util.ArrayList;
  * @author hiarl
  */
 public class GerenciadorPagamento {
-    public void adicionarPagamento(Pagamento pagamento) {
 
-    }
     private IDaoPagamento daoPagamento;
 
     public GerenciadorPagamento() {

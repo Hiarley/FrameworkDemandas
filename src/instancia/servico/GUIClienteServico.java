@@ -13,12 +13,17 @@ import control.GerenciadorDemanda;
 import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
+import domain.FabricaNotificacao;
 import domain.Usuario;
+import excecao.PedidoInvalidoException;
+import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,7 +33,7 @@ public class GUIClienteServico implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos();
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoServico());
     private static AtomicInteger count = new AtomicInteger(0);
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
@@ -36,7 +41,7 @@ public class GUIClienteServico implements GUICliente {
     @Override
     public void cadastrarPedido(Usuario usuario) {
 
-        try {
+     
             
             System.out.println("---------- Cadastrar Pedido----------");
             long idCliente = usuario.getId();
@@ -52,17 +57,22 @@ public class GUIClienteServico implements GUICliente {
                 listaProdutos.add(gerenciadorDemanda.getDemanda(id));
             }
             System.out.println("Numero do Cartao");
-            int numeroCartao = in.nextInt();
+            int numeroCartao = Integer.parseInt(in.next());
             System.out.println("Banco");
-            String Banco = in.nextLine();
+            String Banco = in.next();
 
             
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
-            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), 1);
-
-        } catch (Exception e) {
-
+            
+        try {
+            gerenciadorPedidos.cadastrarPedidos(pedido, null, 1);
+        } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ProdutoInvalidoException ex) {
+            Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        
 
     }
 

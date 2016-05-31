@@ -8,12 +8,15 @@ package control;
 import dao.DaoPedido;
 import dao.IDaoPedido;
 import domain.Demanda;
+import domain.FabricaNotificacao;
 import instancia.estoque.Item;
 import domain.Pedido;
 import domain.Pagamento;
 import excecao.PedidoInvalidoException;
 import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,26 +27,20 @@ public class GerenciadorPedidos {
     private IDaoPedido daoPedido;
     private GerenciadorPagamento gerenciadorPagamento;
     private GerenciadorDemanda gerenciadorDemandas;
-    private GerenciadorNotificao notificao = new GerenciadorNotificao();
+    private GerenciadorNotificao notificao;
 
-    public GerenciadorPedidos() {
+    public GerenciadorPedidos(FabricaNotificacao fabricaNotificacao) {
         daoPedido = DaoPedido.getInstance();
-
+        notificao = new GerenciadorNotificao(fabricaNotificacao);
     }
 
     public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, int opcao) throws PedidoInvalidoException, ProdutoInvalidoException {
-        if (validarPedido(pedidos)) {
-            this.daoPedido.adicionarPedido(pedidos);
-            switch (opcao) {
-                case 1:
-                    gerenciadorPagamento.adicionarPagamento(pagamento);
-                    notificao.NotificarInicio(pedidos);
-                    break;
-                default:
-                    break;
 
-            }
-        }
+        this.daoPedido.adicionarPedido(pedidos);
+                   // gerenciadorPagamento.cadastrarPagamento(pagamento);
+
+        notificao.NotificarInicio(pedidos);
+
         if (pedidos.getListaProdutos().get(0) instanceof Item && pedidos.getListaProdutos() != null) {
             Item item;
             Item itemBanco;
@@ -67,8 +64,8 @@ public class GerenciadorPedidos {
     public Pedido getPedido(Long codigo) {
         return this.daoPedido.pegarPedido(codigo);
     }
-    
-    public ArrayList<Pedido> getListarPedidoUsuario(Long usuario){
+
+    public ArrayList<Pedido> getListarPedidoUsuario(Long usuario) {
         return this.daoPedido.listarPedidosUsuario(usuario);
     }
 

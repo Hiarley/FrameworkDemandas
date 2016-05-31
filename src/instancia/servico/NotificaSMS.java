@@ -16,6 +16,7 @@ public class NotificaSMS extends Notificacao{
             super(mensagem);
     }
 
+    @Override
     public void enviar() {
             System.out.println("Enviando notificacao por SMS...");
             System.out.println(getMensagem());

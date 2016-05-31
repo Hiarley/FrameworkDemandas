@@ -31,10 +31,10 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos();
+    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos(new FabricaNotificacaoServico());
     private static AtomicInteger count = new AtomicInteger(0);
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
-    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
+    //private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
 
     @Override
     public void cadastrarCliente() {
@@ -103,7 +103,7 @@ public class GUIUsuarioServico implements GUIUsuario {
 
         Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario);
 
-        gerenciadorNotificacao.NotificarAtualizacao(historico);
+        //gerenciadorNotificacao.NotificarAtualizacao(historico);
 
         try {
             gerenciadorHistorico.adicionarHistorico(historico);
