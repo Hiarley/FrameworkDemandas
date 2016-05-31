@@ -27,7 +27,7 @@ public class FabricaNotificacaoEstoque implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos();
+    private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos(this);
     
     @Override
     public Notificacao NotificarInicioDemanda(Pedido pedido){

@@ -33,10 +33,9 @@ public class GUIUsuarioFastFood implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos();
-    private static AtomicInteger count = new AtomicInteger(0);
+    private GerenciadorPedidos gerenciadorPedido = new GerenciadorPedidos(new FabricaNotificacaoFastFood());
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
-    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
+    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoFastFood());
 
     @Override
     public void cadastrarCliente() {
@@ -96,7 +95,7 @@ public class GUIUsuarioFastFood implements GUIUsuario {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido pedido = gerenciadorDemandas.getPedido(idDemanda);
+        Pedido pedido = gerenciadorPedido.getPedido(idDemanda);
         pedido.setIdUsuarioDemandando(usuario.getId());
 
         System.out.println("Descreva o historico: ");

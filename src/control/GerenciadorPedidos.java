@@ -31,14 +31,16 @@ public class GerenciadorPedidos {
 
     public GerenciadorPedidos(FabricaNotificacao fabricaNotificacao) {
         daoPedido = DaoPedido.getInstance();
+        gerenciadorPagamento = new GerenciadorPagamento();
         notificao = new GerenciadorNotificao(fabricaNotificacao);
     }
 
     public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, int opcao) throws PedidoInvalidoException, ProdutoInvalidoException {
 
         this.daoPedido.adicionarPedido(pedidos);
-                   // gerenciadorPagamento.cadastrarPagamento(pagamento);
-
+        if(pagamento != null){
+        gerenciadorPagamento.cadastrarPagamento(pagamento);
+        }
         notificao.NotificarInicio(pedidos);
 
         if (pedidos.getListaProdutos().get(0) instanceof Item && pedidos.getListaProdutos() != null) {

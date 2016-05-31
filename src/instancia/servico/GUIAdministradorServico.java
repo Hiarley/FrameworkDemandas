@@ -39,7 +39,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoServico());
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
-    //private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
+    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoServico());
 
 
     @Override

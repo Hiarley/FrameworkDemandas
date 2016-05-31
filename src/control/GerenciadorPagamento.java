@@ -19,6 +19,7 @@ public class GerenciadorPagamento {
     private IDaoPagamento daoPagamento;
 
     public GerenciadorPagamento() {
+        
         daoPagamento = DaoPagamento.getInstance();
     }
 

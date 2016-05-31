@@ -32,10 +32,9 @@ public class GUIUsuarioEstoque implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorEstoques = new GerenciadorPedidos();
-    private static AtomicInteger count = new AtomicInteger(0);
+    private GerenciadorPedidos gerenciadorPedido = new GerenciadorPedidos(new FabricaNotificacaoEstoque());
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
-    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
+    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoEstoque());
 
     @Override
     public void cadastrarCliente() {
@@ -97,7 +96,7 @@ public class GUIUsuarioEstoque implements GUIUsuario {
         
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido pedido = gerenciadorEstoques.getPedido(idDemanda);
+        Pedido pedido = gerenciadorPedido.getPedido(idDemanda);
         pedido.setIdUsuarioDemandando(usuario.getId());
 
         System.out.println("Descreva o historico: ");

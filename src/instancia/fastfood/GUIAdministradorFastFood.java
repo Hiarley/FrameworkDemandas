@@ -40,9 +40,9 @@ public class GUIAdministradorFastFood implements GUIAdministrador {
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos();
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoFastFood());
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
-    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
+    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoFastFood());
 
 
     @Override
@@ -189,7 +189,7 @@ public class GUIAdministradorFastFood implements GUIAdministrador {
     public void analisarPedido(Usuario usuario) {
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorServico.getPedido(idDemanda);
+        Pedido demanda = gerenciadorPedidos.getPedido(idDemanda);
         demanda.setIdUsuarioDemandando(usuario.getId());
         
         System.out.println("Descreva o historico: ");
@@ -206,7 +206,7 @@ public class GUIAdministradorFastFood implements GUIAdministrador {
     @Override
     public void listarPedidos(){
         
-        List<Pedido> listPedido = gerenciadorServico.listarPedidos();
+        List<Pedido> listPedido = gerenciadorPedidos.listarPedidos();
         
         for(Pedido demanda : listPedido){
     

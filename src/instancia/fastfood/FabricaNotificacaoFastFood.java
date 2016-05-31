@@ -28,14 +28,14 @@ public class FabricaNotificacaoFastFood implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorServico = new GerenciadorPedidos();
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(this);
     
     @Override
     public Notificacao NotificarInicioDemanda(Pedido demanda){
         UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";
-        mensagem+=usuariocliente.getTelefone();
+        //mensagem+=usuariocliente.getTelefone();
         mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
         mensagem+="idUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante() + "\n";
         mensagem+="idDemanda: " + demanda.getIdServico() +"\n";
@@ -65,7 +65,7 @@ public class FabricaNotificacaoFastFood implements FabricaNotificacao{
 
     @Override
     public Notificacao NotificarAtualizacaoDemanda(Historico historico) {
-        Pedido demanda = gerenciadorServico.getPedido(historico.getIdDemanda());
+        Pedido demanda = gerenciadorPedidos.getPedido(historico.getIdDemanda());
         UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
         String mensagem = null;
         mensagem+="Olá, ";

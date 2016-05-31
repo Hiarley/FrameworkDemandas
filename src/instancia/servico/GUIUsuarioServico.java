@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,9 +31,8 @@ public class GUIUsuarioServico implements GUIUsuario {
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
     private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos(new FabricaNotificacaoServico());
-    private static AtomicInteger count = new AtomicInteger(0);
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
-    //private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao();
+    private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoServico());
 
     @Override
     public void cadastrarCliente() {
@@ -103,7 +101,7 @@ public class GUIUsuarioServico implements GUIUsuario {
 
         Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario);
 
-        //gerenciadorNotificacao.NotificarAtualizacao(historico);
+        gerenciadorNotificacao.NotificarAtualizacao(historico);
 
         try {
             gerenciadorHistorico.adicionarHistorico(historico);

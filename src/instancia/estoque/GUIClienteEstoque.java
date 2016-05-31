@@ -28,8 +28,7 @@ public class GUIClienteEstoque implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos();
-    private static AtomicInteger count = new AtomicInteger(0);
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque());
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
