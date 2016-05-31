@@ -80,6 +80,12 @@ public class BoletoBancario extends Pagamento{
         
         this.codigoBanco = codigoBanco;
     }
+
+    @Override
+    public boolean validar() {
+        System.out.println("Seu boleto bancário foi gerado com sucesso.");
+        return true;
+    }
     
     
 }

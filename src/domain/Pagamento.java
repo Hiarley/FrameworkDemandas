@@ -68,4 +68,6 @@ public abstract class Pagamento {
     public void setIdDemanda(long idDemanda) {
         this.idDemanda = idDemanda;
     }
+    
+    public abstract boolean validar();
 }

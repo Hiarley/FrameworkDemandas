@@ -119,5 +119,6 @@ public abstract class Demanda {
 
         this.prazo = prazo;
     }
-
+    
+    public abstract boolean validar();
 }
