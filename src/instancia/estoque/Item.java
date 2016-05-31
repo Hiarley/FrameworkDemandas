@@ -16,6 +16,7 @@ import java.util.Date;
 public class Item extends Demanda{
     
     private int quantidadeEmEstoque;
+    private boolean disponivel;
 
     public Item() {
     }
@@ -37,8 +38,32 @@ public class Item extends Demanda{
      */
     public void setQuantidadeEmEstoque(int quantidadeEmEstoque) throws ProdutoInvalidoException {
         if(quantidadeEmEstoque < 0) throw new ProdutoInvalidoException("Quantidade invalida.");
-        
+        else if(quantidadeEmEstoque == 0){
+            setDisponivel(false);
+        }
         this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
+
+    @Override
+    public boolean validar() {
+        if(!this.disponivel)
+            throw new UnsupportedOperationException("O item acabou em estoque.");
+        else
+            return true;
+    }
+
+    /**
+     * @return the disponivel
+     */
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    /**
+     * @param disponivel the disponivel to set
+     */
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
     }
     
     

@@ -7,7 +7,6 @@ package instancia.servico;
 
 import domain.Demanda;
 import excecao.ProdutoInvalidoException;
-import java.util.Date;
 
 /**
  * Será usado para fazer um builder.
@@ -38,6 +37,18 @@ public class Servico extends Demanda{
     public void setEmpresaFornecedora(String empresaFornecedora) throws ProdutoInvalidoException {
         if(!(empresaFornecedora instanceof String)) throw new ProdutoInvalidoException("Invalido!");
         this.empresaFornecedora = empresaFornecedora;
+    }
+
+    @Override
+    public boolean validar() {
+        if(this.empresaFornecedora == "America")
+            return true;
+        else if(this.empresaFornecedora == "Coca-Cola")
+            return true;
+        else if(this.empresaFornecedora == "America")
+            return true;
+        else
+            return false;
     }
     
     
