@@ -61,7 +61,14 @@ public class Alimento extends Demanda{
 
     @Override
     public boolean validar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if("Comida".equals(this.tipoAlimento))
+            return true;
+        else if("Bebida".equals(this.tipoAlimento))
+            return true;
+        else if("Sobremesa".equals(this.tipoAlimento))
+            return true;
+        else
+            return false;
     }
     
     

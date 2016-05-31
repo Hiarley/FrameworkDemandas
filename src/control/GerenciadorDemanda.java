@@ -25,7 +25,7 @@ public class GerenciadorDemanda {
     }
 
     public void cadastrarDemanda(Demanda demanda) throws PedidoInvalidoException {
-        if (validarDemanda(demanda)) {
+        if (validarDemanda(demanda) && demanda.validar()) {
             this.daoDemanda.adicionarDemanda(demanda);
         }
     }

@@ -61,7 +61,10 @@ public class CartaoDebito extends Pagamento{
 
     @Override
     public boolean validar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(((int) Math.log10(getNumeroCartao()) + 1) < 6)
+            return false;
+        else
+            return true;
     }
     
     

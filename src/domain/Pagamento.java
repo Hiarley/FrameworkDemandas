@@ -51,10 +51,6 @@ public abstract class Pagamento {
         this.valor = valor;
     }
 
-    public boolean validarPagamento() {
-        return true;
-    }
-
     /**
      * @return the idDemanda
      */

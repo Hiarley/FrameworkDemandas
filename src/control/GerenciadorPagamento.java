@@ -24,7 +24,7 @@ public class GerenciadorPagamento {
     }
 
     public void cadastrarPagamento(Pagamento pagamento) {
-        if (pagamento.validarPagamento()) {
+        if (pagamento.validar()) {
             this.daoPagamento.adicionarPagamento(pagamento);
         }
     }
