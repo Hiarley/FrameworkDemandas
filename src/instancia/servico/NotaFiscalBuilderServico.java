@@ -17,29 +17,36 @@ import java.util.List;
  */
 public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
 
+
+    private String nomeEmpresa;
+    private String nomeCliente;
+    private Long codigo;
+    private Date dataFaturamento;
+    private List<Demanda> demandas;
+
     @Override
     public void buildCliente(String nomeCliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.nomeCliente = nomeCliente;
     }
 
     @Override
     public void buildEmpresa(String nomeEmpresa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.nomeEmpresa = nomeEmpresa;
     }
 
     @Override
     public void buildCodigoPedido(Long codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.codigo = codigo;
     }
 
     @Override
     public void buildDataFaturamento(Date dataFaturamento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.dataFaturamento = dataFaturamento;
     }
 
     @Override
     public void buildDemandas(List<Demanda> demandas) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.demandas = demandas;
     }
 
     @Override
@@ -49,7 +56,6 @@ public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
 
     @Override
     public NotaFiscal getComprovante() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new NotaFiscalServico(nomeEmpresa, nomeCliente, codigo, dataFaturamento, demandas);
     }
-    
 }
