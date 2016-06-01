@@ -56,7 +56,7 @@ public class GUIClienteFastFood implements GUICliente {
 
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
 
-            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), usuario);
+            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), usuario, "Fast Food");
             
 
         } catch (Exception e) {

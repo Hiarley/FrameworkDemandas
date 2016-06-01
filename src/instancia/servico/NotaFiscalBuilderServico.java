@@ -23,6 +23,7 @@ public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
     private Long codigo;
     private Date dataFaturamento;
     private List<Demanda> demandas;
+    private int valorTotal;
 
     @Override
     public void buildCliente(String nomeCliente) {
@@ -51,7 +52,7 @@ public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
 
     @Override
     public void buildValorTotal() {
-        int valorTotal = 0;
+        
         for (Demanda produto : demandas) {
 
                 Servico servico = (Servico) produto;
@@ -62,6 +63,6 @@ public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
 
     @Override
     public NotaFiscal getComprovante() {
-        return new NotaFiscalServico(nomeEmpresa, nomeCliente, codigo, dataFaturamento, demandas);
+        return new NotaFiscalServico(nomeEmpresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
 }

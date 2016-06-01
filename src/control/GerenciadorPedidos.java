@@ -42,14 +42,14 @@ public class GerenciadorPedidos {
         gerarNotaFiscal = new GerarNotaFiscal(notaFiscalBuilder);
     }
 
-    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario) throws PedidoInvalidoException, ProdutoInvalidoException {
+    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario, String empresa) throws PedidoInvalidoException, ProdutoInvalidoException {
 
         this.daoPedido.adicionarPedido(pedidos);
         if(pagamento != null){
         gerenciadorPagamento.cadastrarPagamento(pagamento);
         }
         notificao.NotificarInicio(pedidos);
-        NotaFiscal notaFiscal = gerarNotaFiscal.gerarNotaFiscal(pedidos, (UsuarioCliente) usuario, "asd");
+        NotaFiscal notaFiscal = gerarNotaFiscal.gerarNotaFiscal(pedidos, (UsuarioCliente) usuario, empresa);
         notaFiscal.imprimir();
         
         

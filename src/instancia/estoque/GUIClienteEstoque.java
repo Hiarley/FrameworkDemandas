@@ -62,7 +62,7 @@ public class GUIClienteEstoque implements GUICliente {
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'P', listaProdutos);
             Pagamento pagamento = new BoletoBancario(new Date(), pedido.getIdServico(), "Cartao de Debito", 500);
 
-            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario);
+            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario, "Estoque");
             
 
         } catch (Exception e) {

@@ -65,7 +65,7 @@ public class GUIClienteServico implements GUICliente {
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
             
         try {
-            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), usuario.getNome(), 2000), usuario);
+            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), usuario.getNome(), 2000), usuario, "Servico");
         } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ProdutoInvalidoException ex) {

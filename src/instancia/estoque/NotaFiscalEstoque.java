@@ -16,9 +16,11 @@ import java.util.List;
  */
 public class NotaFiscalEstoque extends NotaFiscal{
 
-    public NotaFiscalEstoque(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, List<Demanda> demandas) {
-        super(empresa, nomeCliente, codigo, dataFaturamento, demandas);
+    public NotaFiscalEstoque(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, int valorTotal, List<Demanda> demandas) {
+        super(empresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
+
+    
 
     @Override
     public void imprimir() {
@@ -37,6 +39,9 @@ public class NotaFiscalEstoque extends NotaFiscal{
             nota += "IdProduto: " + item.getIdDemanda()+"-----";
             nota += "Nome" + item.getNome()+"-----";
             nota += "Preco: " + item.getPreco()+"\n";
-        }    }
+        }    
+        nota += "Valor Total: " + getValorTotal() + "\n";
+        System.out.println(nota);
+    }
     
 }

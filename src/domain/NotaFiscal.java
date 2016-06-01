@@ -19,15 +19,19 @@ public abstract class NotaFiscal {
     private String nomeCliente;
     private Long codigo;
     private Date dataFaturamento;
+    private int valorTotal;
     private List<Demanda> demandas;
 
-    public NotaFiscal(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, List<Demanda> demandas) {
+    public NotaFiscal(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, int valorTotal, List<Demanda> demandas) {
         this.empresa = empresa;
         this.nomeCliente = nomeCliente;
         this.codigo = codigo;
         this.dataFaturamento = dataFaturamento;
+        this.valorTotal = valorTotal;
         this.demandas = demandas;
     }
+
+    
 
     /**
      * @return the empresa
@@ -100,5 +104,19 @@ public abstract class NotaFiscal {
     }
 
     public abstract void imprimir();
+
+    /**
+     * @return the valorTotal
+     */
+    public int getValorTotal() {
+        return valorTotal;
+    }
+
+    /**
+     * @param valorTotal the valorTotal to set
+     */
+    public void setValorTotal(int valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 
 }

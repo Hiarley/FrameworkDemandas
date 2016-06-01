@@ -16,9 +16,11 @@ import java.util.List;
  */
 public class NotaFiscalFastFood extends NotaFiscal{
 
-    public NotaFiscalFastFood(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, List<Demanda> demandas) {
-        super(empresa, nomeCliente, codigo, dataFaturamento, demandas);
+    public NotaFiscalFastFood(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, int valorTotal, List<Demanda> demandas) {
+        super(empresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
+
+    
 
     @Override
     public void imprimir() {
@@ -37,6 +39,9 @@ public class NotaFiscalFastFood extends NotaFiscal{
             nota += "IdProduto: " + alimento.getIdDemanda()+"-----";
             nota += "Nome" + alimento.getNome()+"-----";
             nota += "Preco: " + alimento.getPreco()+"\n";
-        }    }
+        }
+        nota += "Valor Total: " + getValorTotal() + "\n";
+        System.out.println(nota);
+    }
     
 }

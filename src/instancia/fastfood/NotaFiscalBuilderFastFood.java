@@ -21,6 +21,7 @@ public class NotaFiscalBuilderFastFood implements NotaFiscalBuilder{
     private String nomeCliente;
     private Long codigo;
     private Date dataFaturamento;
+    private int valorTotal;
     private List<Demanda> demandas;
 
     @Override
@@ -50,12 +51,17 @@ public class NotaFiscalBuilderFastFood implements NotaFiscalBuilder{
 
     @Override
     public void buildValorTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (Demanda produto : demandas) {
+
+                Alimento alimento = (Alimento) produto;
+                valorTotal += alimento.getPreco();
+               
+        }
     }
 
     @Override
     public NotaFiscal getComprovante() {
-        return new NotaFiscalFastFood(nomeEmpresa, nomeCliente, codigo, dataFaturamento, demandas);
+        return new NotaFiscalFastFood(nomeEmpresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
     
 }
