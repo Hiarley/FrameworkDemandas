@@ -17,9 +17,11 @@ import domain.Historico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import excecao.HistoricoInvalidoException;
+import excecao.PedidoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
@@ -90,9 +92,23 @@ public class GUIUsuarioFastFood implements GUIUsuario {
 
     }
 
+    public void listarPedidos() {
+        List<Pedido> listPedido = gerenciadorPedido.listarPedidos();
+
+        for (Pedido pedido : listPedido) {
+            System.out.println("----------------------------------");
+            System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
+            System.out.println("IdDemanda: " + pedido.getIdServico());
+            System.out.println("Data: " + pedido.getDataAbertura());
+            System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
+            System.out.println("Descricao: " + pedido.getDescricao());
+            System.out.println("Status: " + pedido.getStatus());
+        }
+    }
 
     @Override
     public void analisarPedido(Usuario usuario) {
+        listarPedidos();
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
         Pedido pedido = gerenciadorPedido.getPedido(idDemanda);
@@ -100,8 +116,13 @@ public class GUIUsuarioFastFood implements GUIUsuario {
 
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
-
-        
+        System.out.println("Status: ");
+        char status = in.next().charAt(0);
+        try {
+            pedido.setStatus(status);
+        } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIUsuarioFastFood.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         try {
             gerenciadorHistorico.adicionarHistorico(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario));
