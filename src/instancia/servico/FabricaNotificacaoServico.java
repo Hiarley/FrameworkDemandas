@@ -62,7 +62,7 @@ public class FabricaNotificacaoServico implements FabricaNotificacao{
     @Override
     public Notificacao criarNotificacaoAtualizarDemanda(Historico historico) {
         Pedido pedido = gerenciadorPedidos.getPedido(historico.getIdDemanda());
-        UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
+        UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioSolicitante());
         String mensagem = "";
         mensagem+="Olá, ";
         mensagem+=usuarioCliente.getTelefone();         

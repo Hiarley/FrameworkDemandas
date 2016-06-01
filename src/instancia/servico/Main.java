@@ -8,9 +8,11 @@ package instancia.servico;
 import GUI.GUILogin;
 import control.GerenciadorClientes;
 import dao.DaoDemanda;
+import dao.DaoPedido;
 import dao.DaoUsuarioCliente;
 import dao.DaoUsuarioPadrao;
 import dao.IDaoDemanda;
+import dao.IDaoPedido;
 import dao.IDaoUsuarioCliente;
 import dao.IDaoUsuarioPadrao;
 import domain.Demanda;
@@ -39,6 +41,7 @@ public class Main {
         IDaoUsuarioCliente daoCliente = DaoUsuarioCliente.getInstance();
         IDaoUsuarioPadrao daoUsuarioPadrao = DaoUsuarioPadrao.getInstance();
         IDaoDemanda daoDemanda = DaoDemanda.getInstance();
+        IDaoPedido daoPedido = DaoPedido.getInstance();
         /*
         public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
          */
@@ -57,6 +60,6 @@ public class Main {
         ArrayList<Demanda> listaProdutos = new ArrayList();
         listaProdutos.add(servico);
         Pedido pedido = new Pedido(usuarioCliente.getId(), new Date(), "Problemas", 'I', listaProdutos);
-
+        daoPedido.adicionarPedido(pedido);
     }
 }
