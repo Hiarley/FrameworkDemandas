@@ -15,6 +15,7 @@ import domain.Pagamento;
 import domain.Demanda;
 import domain.FabricaNotificacao;
 import domain.Usuario;
+import excecao.PagamentoInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
@@ -60,12 +61,15 @@ public class GUIClienteServico implements GUICliente {
         String Banco = in.next();
 
         Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
-
+        Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), usuario.getNome());
+        pagamento.calcularPagamento(listaProdutos);
         try {
-            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), usuario.getNome(), 2000), usuario, "Servico");
+            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario, "Servico");
         } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ProdutoInvalidoException ex) {
+            Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PagamentoInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
         }
 

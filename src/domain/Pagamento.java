@@ -19,10 +19,10 @@ public abstract class Pagamento {
     public Pagamento() {
     }
 
-    public Pagamento(long idDemanda, String nome, double valor) {
+    public Pagamento(long idDemanda, String nome) {
         this.idDemanda = idDemanda;
         this.nome = nome;
-        this.valor = valor;
+        this.valor = 0;
     }
 
     /**
@@ -66,7 +66,10 @@ public abstract class Pagamento {
     public void setIdDemanda(long idDemanda) {
         this.idDemanda = idDemanda;
     }
-    public abstract double calcularPagamento(ArrayList<Demanda> listaProdutos);
+    public void somaValor(double valor){
+        this.valor += valor;
+    }
+    public abstract void calcularPagamento(ArrayList<Demanda> listaProdutos);
     
     public abstract boolean validar();
 }

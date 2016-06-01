@@ -8,6 +8,7 @@ package control;
 import dao.DaoPagamento;
 import dao.IDaoPagamento;
 import domain.Pagamento;
+import excecao.PagamentoInvalidoException;
 import java.util.ArrayList;
 
 /**
@@ -19,14 +20,16 @@ public class GerenciadorPagamento {
     private IDaoPagamento daoPagamento;
 
     public GerenciadorPagamento() {
-        
+
         daoPagamento = DaoPagamento.getInstance();
     }
 
-    public void cadastrarPagamento(Pagamento pagamento) {
-        if (pagamento.validar()) {
-            this.daoPagamento.adicionarPagamento(pagamento);
+    public void cadastrarPagamento(Pagamento pagamento) throws PagamentoInvalidoException {
+        if (!pagamento.validar()) {
+            throw new PagamentoInvalidoException("Pagamento não efetuado, verifique seus dados");
         }
+        this.daoPagamento.adicionarPagamento(pagamento);
+
     }
 
     public void removerPagamento(Pagamento pagamento) {

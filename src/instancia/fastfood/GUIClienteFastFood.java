@@ -11,17 +11,16 @@ import control.GerenciadorPagamento;
 import control.GerenciadorDemanda;
 import instancia.servico.CartaoDebito;
 import domain.Pedido;
-import domain.Pagamento;
 import domain.Demanda;
-import instancia.estoque.Item;
+import domain.Pagamento;
 import domain.Usuario;
+import excecao.PagamentoInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,18 +52,17 @@ public class GUIClienteFastFood implements GUICliente {
         in.nextLine();
         System.out.print("Observação: "+"\n");
         String observacao = in.nextLine();
-        System.out.println("Numero do Cartao");
+        System.out.println("Numero do Cartao (6 digitos)");
         long numeroCartao = in.nextLong();
         System.out.println("Banco");
-        String Banco = in.nextLine();
+        String Banco = in.next();
 
         Pedido pedido = new Pedido(idCliente, new Date(), observacao, 'I', listaProdutos);
-
+        Pagamento pagamento = new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito");
+        pagamento.calcularPagamento(listaProdutos);
         try {
-            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), usuario, "Fast Food");
-        } catch (PedidoInvalidoException ex) {
-            Logger.getLogger(GUIClienteFastFood.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ProdutoInvalidoException ex) {
+            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario, "Fast Food");
+        } catch (PedidoInvalidoException | ProdutoInvalidoException | PagamentoInvalidoException ex) {
             Logger.getLogger(GUIClienteFastFood.class.getName()).log(Level.SEVERE, null, ex);
         }
 

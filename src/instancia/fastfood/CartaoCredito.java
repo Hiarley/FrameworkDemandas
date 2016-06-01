@@ -14,26 +14,23 @@ import java.util.ArrayList;
  *
  * @author Thiago
  */
-public class CartaoCredito extends Pagamento{
+public class CartaoCredito extends Pagamento {
+
     private long numeroCartao;
     private int numeroParcelas;
-    private String  banco;
+    private String banco;
     private int codigoSeguranca;
-    
+
     public CartaoCredito() {
     }
 
-    public CartaoCredito(long numeroCartao, int numeroParcelas, String banco, int codigoSeguranca, long idDemanda, String nome, double valor) {
-        super(idDemanda, nome, valor);
+    public CartaoCredito(long numeroCartao, int numeroParcelas, String banco, int codigoSeguranca, long idDemanda, String nome) {
+        super(idDemanda, nome);
         this.numeroCartao = numeroCartao;
         this.numeroParcelas = numeroParcelas;
         this.banco = banco;
         this.codigoSeguranca = codigoSeguranca;
     }
-
-    
-
-    
 
     /**
      * @return the numeroCartao
@@ -46,7 +43,9 @@ public class CartaoCredito extends Pagamento{
      * @param numeroCartao the numeroCartao to set
      */
     public void setNumeroCartao(int numeroCartao) throws PagamentoInvalidoException {
-        if(numeroCartao < 0) throw new PagamentoInvalidoException("Numero invalido.");
+        if (numeroCartao < 0) {
+            throw new PagamentoInvalidoException("Numero invalido.");
+        }
 
         this.numeroCartao = numeroCartao;
     }
@@ -62,7 +61,9 @@ public class CartaoCredito extends Pagamento{
      * @param numeroParcelas the numeroParcelas to set
      */
     public void setNumeroParcelas(int numeroParcelas) throws PagamentoInvalidoException {
-        if(numeroParcelas < 0) throw new PagamentoInvalidoException("Numero invalido.");
+        if (numeroParcelas < 0) {
+            throw new PagamentoInvalidoException("Numero invalido.");
+        }
 
         this.numeroParcelas = numeroParcelas;
     }
@@ -78,17 +79,20 @@ public class CartaoCredito extends Pagamento{
      * @param Banco the Banco to set
      */
     public void setBanco(String banco) throws PagamentoInvalidoException {
-        if(!(banco instanceof String)) throw new PagamentoInvalidoException("Invalido!");
-        
+        if (!(banco instanceof String)) {
+            throw new PagamentoInvalidoException("Invalido!");
+        }
+
         this.banco = banco;
     }
 
     @Override
     public boolean validar() {
-        if((((int) Math.log10(getNumeroCartao()) + 1) < 6) || (((int) Math.log10(getCodigoSeguranca()) + 1) != 3))
+        if ((((int) Math.log10(getNumeroCartao()) + 1) == 6) || (((int) Math.log10(getCodigoSeguranca()) + 1) != 3)) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
 
     /**
@@ -106,11 +110,12 @@ public class CartaoCredito extends Pagamento{
     }
 
     @Override
-    public double calcularPagamento(ArrayList<Demanda> listaProdutos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void calcularPagamento(ArrayList<Demanda> listaProdutos) {
+        for (Demanda produto : listaProdutos) {
+
+            Alimento alimento = (Alimento) produto;
+            somaValor(alimento.getPreco());
+        }
     }
 
-    
-    
-    
 }

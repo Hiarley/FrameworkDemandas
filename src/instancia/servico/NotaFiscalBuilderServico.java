@@ -15,8 +15,7 @@ import java.util.List;
  *
  * @author Thiago
  */
-public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
-
+public class NotaFiscalBuilderServico implements NotaFiscalBuilder {
 
     private String nomeEmpresa;
     private String nomeCliente;
@@ -51,14 +50,9 @@ public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
     }
 
     @Override
-    public void buildValorTotal() {
-        
-        for (Demanda produto : demandas) {
+    public void buildValorTotal(double valor) {
+        this.valorTotal = valor;
 
-                Servico servico = (Servico) produto;
-                valorTotal += servico.getPreco();
-               
-        }
     }
 
     @Override

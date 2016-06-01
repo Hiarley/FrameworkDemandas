@@ -50,13 +50,8 @@ public class NotaFiscalBuilderEstoque implements NotaFiscalBuilder {
     }
 
     @Override
-    public void buildValorTotal() {
-        for (Demanda produto : demandas) {
-
-                Item item = (Item) produto;
-                valorTotal += item.getPreco();
-               
-        }
+    public void buildValorTotal(double valor) {
+        this.valorTotal = valor;
     }
 
     @Override

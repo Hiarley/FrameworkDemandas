@@ -25,7 +25,7 @@ public interface NotaFiscalBuilder {
 
     void buildDemandas(List<Demanda> demandas);
 
-    void buildValorTotal();
+    void buildValorTotal(double valor);
 
     NotaFiscal getComprovante();
 }

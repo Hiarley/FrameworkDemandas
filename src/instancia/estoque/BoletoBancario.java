@@ -5,8 +5,10 @@
  */
 package instancia.estoque;
 
+import domain.Demanda;
 import domain.Pagamento;
 import excecao.PagamentoInvalidoException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
@@ -24,8 +26,8 @@ public class BoletoBancario extends Pagamento{
     public BoletoBancario() {
     }
 
-    public BoletoBancario(Date vencimentoBoleto, long idDemanda, String nome, double valor) {
-        super(idDemanda, nome, valor);
+    public BoletoBancario(Date vencimentoBoleto, long idDemanda, String nome) {
+        super(idDemanda, nome);
         date = vencimentoBoleto;
         date.setMonth(vencimentoBoleto.getMonth() + 1);
         this.vencimentoBoleto = date;
@@ -86,6 +88,15 @@ public class BoletoBancario extends Pagamento{
         System.out.println("Seu boleto bancário foi gerado com sucesso.");
         return true;
     }
+
+    @Override
+    public void calcularPagamento(ArrayList<Demanda> listaProdutos) {
+        for (Demanda produto : listaProdutos) {
+
+                Item item = (Item) produto;
+                setValor(getValor()+ item.getPreco());
+               
+        }    }
     
     
 }

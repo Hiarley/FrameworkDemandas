@@ -17,6 +17,7 @@ import domain.Pedido;
 import domain.Pagamento;
 import domain.Usuario;
 import domain.UsuarioCliente;
+import excecao.PagamentoInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
@@ -42,14 +43,16 @@ public class GerenciadorPedidos {
         gerarNotaFiscal = new GerarNotaFiscal(notaFiscalBuilder);
     }
 
-    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario, String empresa) throws PedidoInvalidoException, ProdutoInvalidoException {
+    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario, String empresa) throws PedidoInvalidoException, ProdutoInvalidoException, PagamentoInvalidoException {
 
         this.daoPedido.adicionarPedido(pedidos);
         if(pagamento != null){
+        
         gerenciadorPagamento.cadastrarPagamento(pagamento);
+        
         }
         notificao.NotificarInicio(pedidos);
-        NotaFiscal notaFiscal = gerarNotaFiscal.gerarNotaFiscal(pedidos, (UsuarioCliente) usuario, empresa);
+        NotaFiscal notaFiscal = gerarNotaFiscal.gerarNotaFiscal(pedidos, (UsuarioCliente) usuario, empresa, pagamento);
         notaFiscal.imprimir();
         
         

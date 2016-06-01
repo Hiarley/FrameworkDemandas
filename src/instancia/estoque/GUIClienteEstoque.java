@@ -55,12 +55,14 @@ public class GUIClienteEstoque implements GUICliente {
                     item.setQuantidadeEmEstoque(quantidade);
                     listaProdutos.add(item);
                 }
-
+                
+                        
             }
             System.out.println("Descrição: ");
             String descricao = in.nextLine();
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'P', listaProdutos);
-            Pagamento pagamento = new BoletoBancario(new Date(), pedido.getIdServico(), "Cartao de Debito", 500);
+            Pagamento pagamento = new BoletoBancario(new Date(), pedido.getIdServico(), "Cartao de Debito");
+            pagamento.calcularPagamento(listaProdutos);
 
             gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario, "Estoque");
 

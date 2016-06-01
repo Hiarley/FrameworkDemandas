@@ -16,13 +16,13 @@ public class GerarNotaFiscal {
         this.notaFiscalBuilder = notaFiscalBuilder;
     }
     
-    public NotaFiscal gerarNotaFiscal(Pedido pedido, UsuarioCliente usuario, String empresa){
+    public NotaFiscal gerarNotaFiscal(Pedido pedido, UsuarioCliente usuario, String empresa, Pagamento pagamento){
         this.notaFiscalBuilder.buildCliente(usuario.getNome());
         this.notaFiscalBuilder.buildEmpresa(empresa);
         this.notaFiscalBuilder.buildCodigoPedido(pedido.getIdServico());
         this.notaFiscalBuilder.buildDataFaturamento(pedido.getDataAbertura());
         this.notaFiscalBuilder.buildDemandas(pedido.getListaProdutos());
-        this.notaFiscalBuilder.buildValorTotal();
+        this.notaFiscalBuilder.buildValorTotal(pagamento.getValor());
         
         NotaFiscal notaFiscal = this.notaFiscalBuilder.getComprovante();
         

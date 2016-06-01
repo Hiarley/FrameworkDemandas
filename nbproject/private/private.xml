@@ -2,6 +2,27 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/CartaoCredito.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/NotaFiscalBuilderEstoque.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/GUIClienteServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/excecao/HistoricoInvalidoException.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Pedido.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/NotaFiscalEstoque.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/NotaFiscalBuilderServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/NotaFiscalBuilder.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/control/GerenciadorPagamento.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Demanda.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/BoletoBancario.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Notificacao.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/NotaFiscal.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/GUILoginEstoque.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/NotificaEmail.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/NotaFiscalBuilderFastFood.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Pagamento.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/CartaoDebito.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/NotaFiscalServico.java</file>
+            <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/NotaFiscalFastFood.java</file>
+        </group>
     </open-files>
 </project-private>

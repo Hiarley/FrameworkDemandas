@@ -50,13 +50,8 @@ public class NotaFiscalBuilderFastFood implements NotaFiscalBuilder{
     }
 
     @Override
-    public void buildValorTotal() {
-        for (Demanda produto : demandas) {
-
-                Alimento alimento = (Alimento) produto;
-                valorTotal += alimento.getPreco();
-               
-        }
+    public void buildValorTotal(double valor) {
+        this.valorTotal = valor;
     }
 
     @Override
