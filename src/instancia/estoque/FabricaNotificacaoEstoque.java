@@ -30,7 +30,7 @@ public class FabricaNotificacaoEstoque implements FabricaNotificacao {
     @Override
     public Notificacao criarInicioNoticiarDemanda(Pedido pedido) {
         UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioSolicitante());
-        String mensagem = null;
+        String mensagem = "";
         mensagem += "Olá, ";
         mensagem += usuariocliente.getTelefone();
         mensagem += "!Um novo Pedido Realizado com o seu Id!!\n";
@@ -64,7 +64,7 @@ public class FabricaNotificacaoEstoque implements FabricaNotificacao {
     public Notificacao criarNotificacaoAtualizarDemanda(Historico historico) {
         Pedido demanda = gerenciadorServico.getPedido(historico.getIdDemanda());
         UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
-        String mensagem = null;
+        String mensagem = "";
         mensagem += "Olá, ";
         mensagem += usuarioCliente.getTelefone();
         mensagem += "!Uma nova atualização foi feita no seu Pedido:\n";
