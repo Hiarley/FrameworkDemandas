@@ -30,9 +30,10 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos(new FabricaNotificacaoServico(), new NotaFiscalBuilderServico());
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoServico(), new NotaFiscalBuilderServico());
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoServico());
+    
 
     @Override
     public void cadastrarCliente() {
@@ -91,9 +92,10 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     @Override
     public void analisarPedido(Usuario usuario) {
+        gerenciadorPedidos.listarPedidos();
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = in.nextLong();
-        Pedido pedido = gerenciadorDemandas.getPedido(idDemanda);
+        Pedido pedido = gerenciadorPedidos.getPedido(idDemanda);
         pedido.setIdUsuarioDemandando(usuario.getId());
 
         System.out.println("Descreva o historico: ");

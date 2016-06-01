@@ -14,9 +14,12 @@ import dao.IDaoDemanda;
 import dao.IDaoUsuarioCliente;
 import dao.IDaoUsuarioPadrao;
 import domain.Demanda;
+import domain.Pedido;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
 import excecao.ClienteInvalidoException;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -51,6 +54,9 @@ public class Main {
         daoCliente.adicionarCliente(usuarioCliente);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao1);
+        ArrayList<Demanda> listaProdutos = new ArrayList();
+        listaProdutos.add(servico);
+        Pedido pedido = new Pedido(usuarioCliente.getId(), new Date(), "Problemas", 'I', listaProdutos);
 
     }
 }

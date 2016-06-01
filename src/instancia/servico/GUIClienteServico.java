@@ -7,13 +7,11 @@ package instancia.servico;
 
 import GUI.GUICliente;
 import control.GerenciadorPedidos;
-import control.GerenciadorNotificao;
 import control.GerenciadorPagamento;
 import control.GerenciadorDemanda;
 import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
-import domain.FabricaNotificacao;
 import domain.Usuario;
 import excecao.PagamentoInvalidoException;
 import excecao.PedidoInvalidoException;
@@ -22,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
