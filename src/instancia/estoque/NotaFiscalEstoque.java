@@ -37,7 +37,7 @@ public class NotaFiscalEstoque extends NotaFiscal{
         for (Demanda produto : getDemandas()) {
             Item item = (Item) produto;
             nota += "IdProduto: " + item.getIdDemanda()+"-----";
-            nota += "Nome" + item.getNome()+"-----";
+            nota += "Nome: " + item.getNome()+"-----";
             nota += "Preco: " + item.getPreco()+"\n";
         }    
         nota += "Valor Total: " + getValorTotal() + "\n";

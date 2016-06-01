@@ -42,8 +42,12 @@ public class Main {
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "Teste", "123", "thiago", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "Teste", "123", "admin", "admin");
         UsuarioCliente usuarioCliente = new UsuarioCliente( "Joao", "Teste", "123", "joao", "admin");
-        Demanda servico = new Servico("ASD", "AJH", 200, "Treta", "5");
+        Demanda servico = new Servico("MicroInformatica LTDA", "Impressora", 200, "Conserto de Impressora/Troca de peças/Manutenção", "3");
+        Demanda servico1 = new Servico("MicroInformatica LTDA", "Computador", 100, "Manutenção/Limpesa/Formatação", "2");
+        Demanda servico2 = new Servico("MicroInformatica LTDA", "Roteadores", 50, "Instalação/Configuração/Consertos", "1");
         daoDemanda.adicionarDemanda(servico);
+        daoDemanda.adicionarDemanda(servico1);
+        daoDemanda.adicionarDemanda(servico2);
         daoCliente.adicionarCliente(usuarioCliente);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao);
         daoUsuarioPadrao.adicionarUsuario(usuarioPadrao1);
