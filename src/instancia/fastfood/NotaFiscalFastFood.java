@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class NotaFiscalFastFood extends NotaFiscal {
 
-    public NotaFiscalFastFood(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, int valorTotal, List<Demanda> demandas) {
+    public NotaFiscalFastFood(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, double valorTotal, List<Demanda> demandas) {
         super(empresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
 

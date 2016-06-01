@@ -5,6 +5,8 @@
  */
 package domain;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Thiago
@@ -64,6 +66,7 @@ public abstract class Pagamento {
     public void setIdDemanda(long idDemanda) {
         this.idDemanda = idDemanda;
     }
+    public abstract double calcularPagamento(ArrayList<Demanda> listaProdutos);
     
     public abstract boolean validar();
 }

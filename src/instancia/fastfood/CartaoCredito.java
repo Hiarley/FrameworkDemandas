@@ -5,8 +5,10 @@
  */
 package instancia.fastfood;
 
+import domain.Demanda;
 import domain.Pagamento;
 import excecao.PagamentoInvalidoException;
+import java.util.ArrayList;
 
 /**
  *
@@ -101,6 +103,11 @@ public class CartaoCredito extends Pagamento{
      */
     public void setCodigoSeguranca(int codigoSeguranca) {
         this.codigoSeguranca = codigoSeguranca;
+    }
+
+    @Override
+    public double calcularPagamento(ArrayList<Demanda> listaProdutos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

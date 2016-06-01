@@ -19,10 +19,10 @@ public abstract class NotaFiscal {
     private String nomeCliente;
     private Long codigo;
     private Date dataFaturamento;
-    private int valorTotal;
+    private double valorTotal;
     private List<Demanda> demandas;
 
-    public NotaFiscal(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, int valorTotal, List<Demanda> demandas) {
+    public NotaFiscal(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, double valorTotal, List<Demanda> demandas) {
         this.empresa = empresa;
         this.nomeCliente = nomeCliente;
         this.codigo = codigo;
@@ -108,7 +108,7 @@ public abstract class NotaFiscal {
     /**
      * @return the valorTotal
      */
-    public int getValorTotal() {
+    public double getValorTotal() {
         return valorTotal;
     }
 

@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class NotaFiscalEstoque extends NotaFiscal{
 
-    public NotaFiscalEstoque(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, int valorTotal, List<Demanda> demandas) {
+    public NotaFiscalEstoque(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, double valorTotal, List<Demanda> demandas) {
         super(empresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
 

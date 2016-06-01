@@ -23,7 +23,7 @@ public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
     private Long codigo;
     private Date dataFaturamento;
     private List<Demanda> demandas;
-    private int valorTotal;
+    private double valorTotal;
 
     @Override
     public void buildCliente(String nomeCliente) {

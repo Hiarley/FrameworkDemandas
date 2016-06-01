@@ -21,7 +21,7 @@ public class NotaFiscalBuilderEstoque implements NotaFiscalBuilder {
     private String nomeCliente;
     private Long codigo;
     private Date dataFaturamento;
-    private int valorTotal;
+    private double valorTotal;
     private List<Demanda> demandas;
 
     @Override
