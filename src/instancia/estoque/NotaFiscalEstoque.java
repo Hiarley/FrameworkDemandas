@@ -5,12 +5,24 @@
  */
 package instancia.estoque;
 
+import domain.Demanda;
 import domain.NotaFiscal;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Thiago
  */
 public class NotaFiscalEstoque extends NotaFiscal{
+
+    public NotaFiscalEstoque(String empresa, String nomeCliente, Long codigo, Date dataFaturamento, List<Demanda> demandas) {
+        super(empresa, nomeCliente, codigo, dataFaturamento, demandas);
+    }
+
+    @Override
+    public void imprimir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

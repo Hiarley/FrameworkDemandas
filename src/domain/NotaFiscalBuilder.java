@@ -5,10 +5,27 @@
  */
 package domain;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  *
  * @author Thiago
  */
 public interface NotaFiscalBuilder {
+
     //preencher com as partes que vão fazer parte do builder
+    void buildCliente(String nomeCliente);
+    
+    void buildEmpresa(String nomeEmpresa);
+
+    void buildCodigoPedido(Long codigo);
+
+    void buildDataFaturamento(Date dataFaturamento);
+
+    void buildDemandas(List<Demanda> demandas);
+
+    void buildValorTotal();
+
+    NotaFiscal getComprovante();
 }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/domain/Demanda.java</file>
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/estoque/BoletoBancario.java</file>
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/fastfood/Main.java</file>
@@ -15,39 +13,6 @@
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/Main.java</file>
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/CartaoDebito.java</file>
             <file>file:/C:/Users/hiarl/FrameworkDemandas/src/instancia/servico/FabricaNotificacaoServico.java</file>
-=======
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Pagamento.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/UsuarioCliente.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Usuario.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/FabricaNotificacao.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/GUI/GUIUsuario.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/fastfood/GUIInicialFastFood.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/estoque/GUIInicialEstoque.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoPedido.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorSetor.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorUsuarios.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/estoque/FabricaNotificacaoEstoque.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Notificacao.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorPedidos.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUIClienteServico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/estoque/BoletoBancario.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoUsuarioPadrao.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Relatorio.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/DaoPagamento.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/estoque/GUIClienteEstoque.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUIInicialServico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/servico/GUIAdministradorServico.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorDemanda.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/control/GerenciadorHistoricos.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/fastfood/GUILoginFastFood.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/fastfood/GUIUsuarioFastFood.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Demanda.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/fastfood/GUIAdministradorFastFood.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/GUI/GUICliente.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/domain/Pedido.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/instancia/fastfood/GUIClienteFastFood.java</file>
-            <file>file:/C:/Users/Thiago/Documents/GitHub/FrameworkDemandas/src/dao/IDaoPedido.java</file>
->>>>>>> 157d9227bd26578d8960d185c0caa787988d7f56
         </group>
     </open-files>
 </project-private>
