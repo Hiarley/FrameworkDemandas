@@ -31,7 +31,7 @@ public class FabricaNotificacaoServico implements FabricaNotificacao{
         UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
         String mensagem = "";
         mensagem+="Olá, ";
-       // mensagem+=usuariocliente.getTelefone();
+        mensagem+=usuariocliente.getTelefone();
         mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
         mensagem+="idUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante() + "\n";
         mensagem+="idDemanda: " + pedido.getIdServico() +"\n";
