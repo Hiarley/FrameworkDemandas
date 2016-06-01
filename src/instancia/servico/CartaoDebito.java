@@ -5,8 +5,10 @@
  */
 package instancia.servico;
 
+import domain.Demanda;
 import domain.Pagamento;
 import excecao.PagamentoInvalidoException;
+import java.util.ArrayList;
 
 /**
  *
@@ -65,6 +67,11 @@ public class CartaoDebito extends Pagamento{
             return false;
         else
             return true;
+    }
+
+    @Override
+    public double calcularPagamento(ArrayList<Demanda> listaProdutos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
