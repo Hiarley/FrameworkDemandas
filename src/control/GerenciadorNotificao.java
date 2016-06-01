@@ -19,19 +19,18 @@ public class GerenciadorNotificao {
     private FabricaNotificacao fabricaNotificacao;
 
     public GerenciadorNotificao(FabricaNotificacao fabricaNotificacao) {
-       this.fabricaNotificacao = fabricaNotificacao;
+        this.fabricaNotificacao = fabricaNotificacao;
     }
-    
-    public void NotificarInicio(Pedido demanda){
-               System.out.println(demanda.getDescricao()); 
-               
-        Notificacao notificao = fabricaNotificacao.NotificarInicioDemanda(demanda);
+
+    public void NotificarInicio(Pedido demanda) {
+
+        Notificacao notificao = fabricaNotificacao.criarInicioNoticiarDemanda(demanda);
 
         notificao.enviar();
     }
-    
-    public void NotificarAtualizacao(Historico historico){
-        Notificacao notificao = fabricaNotificacao.NotificarAtualizacaoDemanda(historico);
+
+    public void NotificarAtualizacao(Historico historico) {
+        Notificacao notificao = fabricaNotificacao.criarNotificacaoAtualizarDemanda(historico);
         notificao.enviar();
     }
 }

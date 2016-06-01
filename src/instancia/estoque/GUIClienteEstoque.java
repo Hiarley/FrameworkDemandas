@@ -35,35 +35,34 @@ public class GUIClienteEstoque implements GUICliente {
     public void cadastrarPedido(Usuario usuario) {
 
         try {
-     
+
             System.out.println("---------- Cadastrar Pedido----------");
             long idCliente = usuario.getId();
-            System.out.println("Descrição: ");
-            String descricao = in.next();
-            System.out.println("Quantos servicos deseja adicionar?");
+
+            System.out.println("Quantos Itens deseja adicionar?");
             int servicos = in.nextInt();
             Item item;
             for (; servicos > 0; servicos--) {
                 listarDemandas();
                 System.out.println("Digite o IdServico do servico escolhido: ");
-                long id = in.nextLong();    
+                long id = in.nextLong();
                 System.out.println("Digite a quantidade: ");
                 int quantidade = in.nextInt();
                 item = (Item) gerenciadorDemanda.getDemanda(id);
-                if(item.getQuantidadeEmEstoque()<quantidade){
+                if (item.getQuantidadeEmEstoque() < quantidade) {
                     System.out.println("Quantidade indisponivel");
-                }else{
+                } else {
                     item.setQuantidadeEmEstoque(quantidade);
                     listaProdutos.add(item);
                 }
-                
-            }
 
+            }
+            System.out.println("Descrição: ");
+            String descricao = in.nextLine();
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'P', listaProdutos);
             Pagamento pagamento = new BoletoBancario(new Date(), pedido.getIdServico(), "Cartao de Debito", 500);
 
             gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario, "Estoque");
-            
 
         } catch (Exception e) {
 
@@ -79,12 +78,14 @@ public class GUIClienteEstoque implements GUICliente {
             for (Demanda produto : listDemanda) {
 
                 item = (Item) produto;
-                System.out.println("Nome" + item.getNome());
-                System.out.println("IdProduto: " + item.getIdDemanda());
+                System.out.println("----------------------------------");
+                System.out.println("Nome:" + item.getNome());
+                System.out.println("ID do Produto: " + item.getIdDemanda());
                 System.out.println("Quantidade: " + item.getQuantidadeEmEstoque());
                 System.out.println("Preco: " + item.getPreco());
                 System.out.println("Descricao: " + item.getDescricao());
                 System.out.println("Prazo: " + item.getPrazo());
+                System.out.println("----------------------------------");
             }
         } catch (Exception e) {
         }
@@ -93,15 +94,18 @@ public class GUIClienteEstoque implements GUICliente {
     @Override
     public void listarPedidos(Usuario usuario) {
         List<Pedido> listPedido = gerenciadorPedidos.getListarPedidoUsuario(usuario.getId());
-        
-        for(Pedido pedido : listPedido){
-    
+
+        for (Pedido pedido : listPedido) {
+
+            System.out.println("----------------------------------");
             System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
             System.out.println("IdDemanda: " + pedido.getIdServico());
             System.out.println("Data: " + pedido.getDataAbertura());
             System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
             System.out.println("Descricao: " + pedido.getDescricao());
             System.out.println("Status: " + pedido.getStatus());
+
+            System.out.println("----------------------------------");
         }
     }
 }

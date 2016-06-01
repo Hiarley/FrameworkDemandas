@@ -40,9 +40,9 @@ public class Main {
         /*
         public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
          */
-        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "Teste", "123", "thiago", "admin");
-        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "Teste", "123", "admin", "admin");
-        UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Teste", "123", "joao", "admin");
+        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
+        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
+        UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
         Demanda item = new Item(200, "Clip's", 0.10, "Prender papel", "9999");
         Demanda item1 = new Item(5, "Toner de impressora", 37.5, "Tooner Compativel com TK-4054 TK-3453", "9999");
         Demanda item2 = new Item(15, "Caneta", 0.9, "Caneta ponta 1.0", "9999");

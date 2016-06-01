@@ -5,8 +5,6 @@
  */
 package instancia.fastfood;
 
-import instancia.estoque.*;
-import instancia.servico.*;
 import GUI.GUIInicial;
 import control.GerenciadorClientes;
 import control.GerenciadorUsuarios;
@@ -23,7 +21,7 @@ public class GUILoginFastFood implements GUI.GUILogin {
 
     GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    GUIInicial guiInicialServico = new GUIInicialServico();
+    GUIInicial guiInicialServico = new GUIInicialFastFood();
     Usuario usuario;
 
     @Override

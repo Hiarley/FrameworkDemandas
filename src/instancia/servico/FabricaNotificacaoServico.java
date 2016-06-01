@@ -27,11 +27,11 @@ public class FabricaNotificacaoServico implements FabricaNotificacao{
     private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(this, new NotaFiscalBuilderServico());
     
     @Override
-    public Notificacao NotificarInicioDemanda(Pedido pedido){
-        UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
+    public Notificacao criarInicioNoticiarDemanda(Pedido pedido){
+        UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioSolicitante());
         String mensagem = "";
         mensagem+="Olá, ";
-       // mensagem+=usuariocliente.getTelefone();
+        mensagem+=usuariocliente.getTelefone();
         mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
         mensagem+="idUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante() + "\n";
         mensagem+="idDemanda: " + pedido.getIdServico() +"\n";
@@ -45,12 +45,13 @@ public class FabricaNotificacaoServico implements FabricaNotificacao{
         for(Demanda produto : listDemanda){
             
             Servico servico = (Servico) produto;
-            mensagem+="Nome" + servico.getNome();
-            mensagem+="IdProduto: " + servico.getIdDemanda();
-            mensagem+="Empresa Fornecedora: " + servico.getEmpresaFornecedora();
-            mensagem+="Preco: " + servico.getPreco();
-            mensagem+="Descricao: " + servico.getDescricao();
-            mensagem+="Prazo: " + servico.getPrazo();
+            mensagem+="-------------------------------"+"\n";
+            mensagem+="Nome" + servico.getNome()+"\n";
+            mensagem+="IdProduto: " + servico.getIdDemanda()+"\n";
+            mensagem+="Empresa Fornecedora: " + servico.getEmpresaFornecedora()+"\n";
+            mensagem+="Preco: " + servico.getPreco()+"\n";
+            mensagem+="Descricao: " + servico.getDescricao()+"\n";
+            mensagem+="Prazo: " + servico.getPrazo()+"\n";
         }
         
         return new NotificaSMS(mensagem);
@@ -59,7 +60,7 @@ public class FabricaNotificacaoServico implements FabricaNotificacao{
         };
 
     @Override
-    public Notificacao NotificarAtualizacaoDemanda(Historico historico) {
+    public Notificacao criarNotificacaoAtualizarDemanda(Historico historico) {
         Pedido pedido = gerenciadorPedidos.getPedido(historico.getIdDemanda());
         UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
         String mensagem = "";

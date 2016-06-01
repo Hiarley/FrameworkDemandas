@@ -20,25 +20,24 @@ public class NotaFiscalServico extends NotaFiscal {
         super(empresa, nomeCliente, codigo, dataFaturamento, valorTotal, demandas);
     }
 
-    
-
     @Override
     public void imprimir() {
         String nota = "------Nota Fiscal------" + "\n";
         nota += getEmpresa() + "\n";
-        nota += "CNPJ: XX.XXX.XXX.XXXX-XX"+"\n";
+        nota += "CNPJ: XX.XXX.XXX.XXXX-XX" + "\n";
         nota += "---------------------------" + "\n";
         nota += "ID da Nota:" + getCodigo() + "\n";
         nota += "Nome do Cliente: " + getNomeCliente() + "\n";
         nota += "Data de Faturamento: " + getDataFaturamento() + "\n";
 
         nota += "Com o seguintes servicos: " + "\n";
-
+        nota += "IdProduto " + "-----" + " Nome"+ "-----" + " Preco "+"\n";
         for (Demanda produto : getDemandas()) {
             Servico servico = (Servico) produto;
-            nota += "IdProduto: " + servico.getIdDemanda()+"-----";
-            nota += "Nome" + servico.getNome()+"-----";
-            nota += "Preco: " + servico.getPreco()+"\n";
+
+            nota += servico.getIdDemanda() + "------------";
+            nota += servico.getNome() + "-----";
+            nota += servico.getPreco() + "\n";
         }
         nota += "Valor Total: " + getValorTotal() + "\n";
         System.out.println(nota);

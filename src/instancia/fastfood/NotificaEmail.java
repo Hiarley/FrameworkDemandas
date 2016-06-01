@@ -11,14 +11,16 @@ import domain.Notificacao;
  *
  * @author hiarl
  */
-public class NotificaEmail extends Notificacao{
+public class NotificaEmail extends Notificacao {
 
     public NotificaEmail(String mensagem) {
-            super(mensagem);
+        super(mensagem);
     }
 
+    @Override
     public void enviar() {
-            System.out.println("Enviando notificacao por email...");
-            System.out.println(getMensagem());
+        System.out.println("-----------------------------------------------");
+        System.out.println("Enviando notificacao por email...");
+        System.out.println(getMensagem());
     }
 }

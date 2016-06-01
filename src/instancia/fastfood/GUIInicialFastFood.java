@@ -23,9 +23,9 @@ public class GUIInicialFastFood implements GUIInicial {
 
     private Scanner in = new Scanner(System.in);
 
-    private GUIAdministrador guiAdministrador = new GUIAdministradorServico();
-    private GUIUsuario guiUsuario = new GUIUsuarioServico();
-    private GUICliente guiCliente = new GUIClienteServico();
+    private GUIAdministrador guiAdministrador = new GUIAdministradorFastFood();
+    private GUIUsuario guiUsuario = new GUIUsuarioFastFood();
+    private GUICliente guiCliente = new GUIClienteFastFood();
 
     public void acessarInterface(Usuario usuario) {
         

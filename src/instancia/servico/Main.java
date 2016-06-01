@@ -39,9 +39,9 @@ public class Main {
         /*
         public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
          */
-        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "Teste", "123", "thiago", "admin");
-        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "Teste", "123", "admin", "admin");
-        UsuarioCliente usuarioCliente = new UsuarioCliente( "Joao", "Teste", "123", "joao", "admin");
+        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
+        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
+        UsuarioCliente usuarioCliente = new UsuarioCliente( "Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
         Demanda servico = new Servico("MicroInformatica LTDA", "Impressora", 200, "Conserto de Impressora/Troca de peças/Manutenção", "3");
         Demanda servico1 = new Servico("MicroInformatica LTDA", "Computador", 100, "Manutenção/Limpesa/Formatação", "2");
         Demanda servico2 = new Servico("MicroInformatica LTDA", "Roteadores", 50, "Instalação/Configuração/Consertos", "1");

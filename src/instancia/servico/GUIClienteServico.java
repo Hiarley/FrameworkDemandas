@@ -40,30 +40,27 @@ public class GUIClienteServico implements GUICliente {
     @Override
     public void cadastrarPedido(Usuario usuario) {
 
-     
-            
-            System.out.println("---------- Cadastrar Pedido----------");
-            long idCliente = usuario.getId();
-            System.out.println("Descrição: ");
-            String descricao = in.next();
-            System.out.println("Quantos servicos deseja adicionar?");
-            int servicos = in.nextInt();
+        System.out.println("---------- Cadastrar Pedido----------");
+        long idCliente = usuario.getId();
+        System.out.println("Descrição: ");
+        String descricao = in.nextLine();
+        System.out.println("Quantos servicos deseja adicionar?");
+        int servicos = in.nextInt();
 
-            for (; servicos > 0; servicos--) {
-                listarDemandas();
-                System.out.println("Digite o IdServico do servico escolhido: ");
-                long id = in.nextLong();
-                listaProdutos.add(gerenciadorDemanda.getDemanda(id));
-            }
-            System.out.println("Numero do Cartao");
-            int numeroCartao = Integer.parseInt(in.next());
+        for (; servicos > 0; servicos--) {
+            listarDemandas();
+            System.out.println("Digite o IdServico do servico escolhido: ");
+            long id = in.nextLong();
+            listaProdutos.add(gerenciadorDemanda.getDemanda(id));
+        }
+        System.out.println("Numero do Cartao");
+        long numeroCartao = in.nextLong();
 
-            System.out.println("Banco");
-            String Banco = in.next();
+        System.out.println("Banco");
+        String Banco = in.next();
 
-            
-            Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
-            
+        Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
+
         try {
             gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), usuario.getNome(), 2000), usuario, "Servico");
         } catch (PedidoInvalidoException ex) {
@@ -71,8 +68,6 @@ public class GUIClienteServico implements GUICliente {
         } catch (ProdutoInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        
 
     }
 
@@ -84,12 +79,14 @@ public class GUIClienteServico implements GUICliente {
             for (Demanda produto : listDemanda) {
 
                 Servico servico = (Servico) produto;
-                System.out.println("Nome" + servico.getNome());
+                System.out.println("---------------------------------------");
+                System.out.println("Nome: " + servico.getNome());
                 System.out.println("IdProduto: " + servico.getIdDemanda());
                 System.out.println("Empresa Fornecedora: " + servico.getEmpresaFornecedora());
                 System.out.println("Preco: " + servico.getPreco());
                 System.out.println("Descricao: " + servico.getDescricao());
                 System.out.println("Prazo: " + servico.getPrazo());
+                System.out.println("---------------------------------------");
             }
         } catch (Exception e) {
         }
@@ -98,15 +95,17 @@ public class GUIClienteServico implements GUICliente {
     @Override
     public void listarPedidos(Usuario usuario) {
         List<Pedido> listPedido = gerenciadorPedidos.getListarPedidoUsuario(usuario.getId());
-        
-        for(Pedido pedido : listPedido){
-    
+
+        for (Pedido pedido : listPedido) {
+
+            System.out.println("---------------------------------------");
             System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
             System.out.println("IdDemanda: " + pedido.getIdServico());
             System.out.println("Data: " + pedido.getDataAbertura());
             System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
             System.out.println("Descricao: " + pedido.getDescricao());
             System.out.println("Status: " + pedido.getStatus());
+            System.out.println("---------------------------------------");
         }
     }
 }

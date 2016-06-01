@@ -33,12 +33,12 @@ public class NotaFiscalEstoque extends NotaFiscal{
         nota += "Data de Faturamento: " + getDataFaturamento() + "\n";
 
         nota += "Com o seguintes servicos: " + "\n";
-
+        nota += "IdProduto " + "-----" + " Nome" + "-----" + " Preco " + "\n";
         for (Demanda produto : getDemandas()) {
             Item item = (Item) produto;
-            nota += "IdProduto: " + item.getIdDemanda()+"-----";
-            nota += "Nome: " + item.getNome()+"-----";
-            nota += "Preco: " + item.getPreco()+"\n";
+            nota +=  item.getIdDemanda()+"-----";
+            nota +=  item.getNome()+"-----";
+            nota +=  item.getPreco()+"\n";
         }    
         nota += "Valor Total: " + getValorTotal() + "\n";
         System.out.println(nota);

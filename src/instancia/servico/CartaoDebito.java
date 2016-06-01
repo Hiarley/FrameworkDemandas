@@ -13,13 +13,13 @@ import excecao.PagamentoInvalidoException;
  * @author Thiago
  */
 public class CartaoDebito extends Pagamento{
-    private int numeroCartao;
+    private long numeroCartao;
     private String  banco;
 
     public CartaoDebito() {
     }
 
-    public CartaoDebito(int numeroCartao, String banco, long idPagamento, String nome, double valor) {
+    public CartaoDebito(long numeroCartao, String banco, long idPagamento, String nome, double valor) {
         super(idPagamento, nome, valor);
         this.numeroCartao = numeroCartao;
         this.banco = banco;
@@ -30,7 +30,7 @@ public class CartaoDebito extends Pagamento{
     /**
      * @return the numeroCartao
      */
-    public int getNumeroCartao() {
+    public long getNumeroCartao() {
         return numeroCartao;
     }
 

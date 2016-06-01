@@ -22,7 +22,7 @@ public class GUILoginEstoque implements GUI.GUILogin {
 
     GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    GUIInicial guiInicialServico = new GUIInicialServico();
+    GUIInicial guiInicialServico = new GUIInicialEstoque();
     Usuario usuario;
 
     @Override

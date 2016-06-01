@@ -22,9 +22,9 @@ public class GUIInicialEstoque implements GUIInicial {
 
     private Scanner in = new Scanner(System.in);
 
-    private GUIAdministrador guiAdministrador = new GUIAdministradorServico();
-    private GUIUsuario guiUsuario = new GUIUsuarioServico();
-    private GUICliente guiCliente = new GUIClienteServico();
+    private GUIAdministrador guiAdministrador = new GUIAdministradorEstoque();
+    private GUIUsuario guiUsuario = new GUIUsuarioEstoque();
+    private GUICliente guiCliente = new GUIClienteEstoque();
 
     public void acessarInterface(Usuario usuario) {
         

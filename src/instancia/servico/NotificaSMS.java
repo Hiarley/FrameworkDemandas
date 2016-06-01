@@ -11,14 +11,16 @@ import domain.Notificacao;
  *
  * @author hiarl
  */
-public class NotificaSMS extends Notificacao{
+public class NotificaSMS extends Notificacao {
+
     public NotificaSMS(String mensagem) {
-            super(mensagem);
+        super(mensagem);
     }
 
     @Override
     public void enviar() {
-            System.out.println("Enviando notificacao por SMS...");
-            System.out.println(getMensagem());
+        System.out.println("----------------------------------"+"\n");
+        System.out.println("Enviando notificacao por SMS...");
+        System.out.println(getMensagem());
     }
 }

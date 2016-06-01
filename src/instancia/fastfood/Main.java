@@ -42,9 +42,9 @@ public class Main {
         /*
         public UsuarioCliente(long id, String nome, String endereco, String telefone, String login, String senha)
          */
-        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "Teste", "123", "thiago", "admin");
-        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "Teste", "123", "admin", "admin");
-        UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Teste", "123", "joao", "admin");
+        UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
+        UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
+        UsuarioCliente usuarioCliente = new UsuarioCliente( "Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
         Demanda alimento = new Alimento("Subway", "Sandwich", "Baratissimo", 7, "Pão/carne/salada", "2");
         Demanda alimento1 = new Alimento("Habibs", "Salgado", "BIB'SFIHA DE CARNE", 0.69, "carne, com limão, tomate, tahine, cebola e o tempero ultrasecreto", "3");
         Demanda alimento2 = new Alimento("Chiquinhos", "Sorvete", "Milk Shake de Ovo Maltine", 9, "Sorvete, leite, ovomaltine", "1");

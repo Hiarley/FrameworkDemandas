@@ -15,11 +15,15 @@ import domain.Pagamento;
 import domain.Demanda;
 import instancia.estoque.Item;
 import domain.Usuario;
+import excecao.PedidoInvalidoException;
+import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,32 +39,33 @@ public class GUIClienteFastFood implements GUICliente {
 
     public void cadastrarPedido(Usuario usuario) {
 
+        System.out.println("---------- Cadastrar Pedido----------");
+        long idCliente = usuario.getId();
+        System.out.println("Quantos alimentos deseja adicionar?");
+        int servicos = in.nextInt();
+        for (; servicos > 0; servicos--) {
+
+            listarDemandas();
+            System.out.print("Digite o Id do alimento escolhido: "+"\n");
+            long id = Long.parseLong(in.next());
+            listaProdutos.add(gerenciadorDemanda.getDemanda(id));
+        }
+        in.nextLine();
+        System.out.print("Observação: "+"\n");
+        String observacao = in.nextLine();
+        System.out.println("Numero do Cartao");
+        long numeroCartao = in.nextLong();
+        System.out.println("Banco");
+        String Banco = in.nextLine();
+
+        Pedido pedido = new Pedido(idCliente, new Date(), observacao, 'I', listaProdutos);
+
         try {
-            System.out.println("---------- Cadastrar Pedido----------");
-            long idCliente = usuario.getId();
-            System.out.println("Descrição: ");
-            String descricao = in.next();
-            System.out.println("Quantos alimentos deseja adicionar?");
-            int servicos = in.nextInt();
-            for (; servicos > 0; servicos--) {
-                
-                listarDemandas();
-                System.out.println("Digite o Id do alimento escolhido: ");
-                long id = in.nextLong();
-                listaProdutos.add(gerenciadorDemanda.getDemanda(id));    
-            }
-            System.out.println("Numero do Cartao");
-            int numeroCartao = in.nextInt();
-            System.out.println("Banco");
-            String Banco = in.nextLine();
-
-            Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
-
             gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), usuario, "Fast Food");
-            
-
-        } catch (Exception e) {
-
+        } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIClienteFastFood.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ProdutoInvalidoException ex) {
+            Logger.getLogger(GUIClienteFastFood.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -73,7 +78,8 @@ public class GUIClienteFastFood implements GUICliente {
             for (Demanda produto : listDemanda) {
 
                 alimento = (Alimento) produto;
-                System.out.println("Nome" + alimento.getNome());
+                System.out.println("----------------------------------");
+                System.out.println("Nome: " + alimento.getNome());
                 System.out.println("IdProduto: " + alimento.getIdDemanda());
                 System.out.println("Tipo do Alimento: " + alimento.getTipoAlimento());
                 System.out.println("Preco: " + alimento.getPreco());
@@ -88,9 +94,9 @@ public class GUIClienteFastFood implements GUICliente {
     @Override
     public void listarPedidos(Usuario usuario) {
         List<Pedido> listPedido = gerenciadorPedidos.getListarPedidoUsuario(usuario.getId());
-        
-        for(Pedido pedido : listPedido){
-    
+
+        for (Pedido pedido : listPedido) {
+            System.out.println("----------------------------------");
             System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
             System.out.println("IdDemanda: " + pedido.getIdServico());
             System.out.println("Data: " + pedido.getDataAbertura());
