@@ -28,7 +28,7 @@ public class FabricaNotificacaoFastFood implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(this);
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(this, new NotaFiscalBuilderFastFood());
     
     @Override
     public Notificacao NotificarInicioDemanda(Pedido demanda){

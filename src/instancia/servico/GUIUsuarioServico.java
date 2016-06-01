@@ -30,7 +30,7 @@ public class GUIUsuarioServico implements GUIUsuario {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos(new FabricaNotificacaoServico());
+    private GerenciadorPedidos gerenciadorDemandas = new GerenciadorPedidos(new FabricaNotificacaoServico(), new NotaFiscalBuilderServico());
     private GerenciadorHistoricos gerenciadorHistorico = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoServico());
 

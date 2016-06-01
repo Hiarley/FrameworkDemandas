@@ -24,14 +24,14 @@ public class FabricaNotificacaoServico implements FabricaNotificacao{
     
     
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(this);
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(this, new NotaFiscalBuilderServico());
     
     @Override
     public Notificacao NotificarInicioDemanda(Pedido pedido){
         UsuarioCliente usuariocliente = gerenciadorCliente.getCliente(pedido.getIdUsuarioDemandando());
         String mensagem = "";
         mensagem+="Olá, ";
-        mensagem+=usuariocliente.getTelefone();
+       // mensagem+=usuariocliente.getTelefone();
         mensagem+="!Um novo Pedido Realizado com o seu Id!!\n";
         mensagem+="idUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante() + "\n";
         mensagem+="idDemanda: " + pedido.getIdServico() +"\n";

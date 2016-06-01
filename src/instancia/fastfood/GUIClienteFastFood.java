@@ -29,7 +29,7 @@ public class GUIClienteFastFood implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoFastFood());
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoFastFood(), new NotaFiscalBuilderFastFood());
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
@@ -56,7 +56,7 @@ public class GUIClienteFastFood implements GUICliente {
 
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
 
-            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), 1);
+            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), "Cartao de Debito", 500), usuario);
             
 
         } catch (Exception e) {

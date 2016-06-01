@@ -38,6 +38,7 @@ public class NotaFiscalServico extends NotaFiscal {
             nota += "Nome" + servico.getNome()+"-----";
             nota += "Preco: " + servico.getPreco()+"\n";
         }
+        System.out.println(nota);
     }
 
 }

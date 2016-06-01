@@ -33,7 +33,7 @@ public class GUIClienteServico implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoServico());
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoServico(), new NotaFiscalBuilderServico());
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
@@ -65,7 +65,7 @@ public class GUIClienteServico implements GUICliente {
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'I', listaProdutos);
             
         try {
-            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), usuario.getNome(), 2000), 1);
+            gerenciadorPedidos.cadastrarPedidos(pedido, new CartaoDebito(numeroCartao, Banco, pedido.getIdServico(), usuario.getNome(), 2000), usuario);
         } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ProdutoInvalidoException ex) {

@@ -28,7 +28,7 @@ public class GUIClienteEstoque implements GUICliente {
 
     private static Scanner in = new Scanner(System.in);
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque());
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
     ArrayList<Demanda> listaProdutos = new ArrayList<>();
     private GerenciadorPagamento gerenciadorPagamento = new GerenciadorPagamento();
 
@@ -62,7 +62,7 @@ public class GUIClienteEstoque implements GUICliente {
             Pedido pedido = new Pedido(idCliente, new Date(), descricao, 'P', listaProdutos);
             Pagamento pagamento = new BoletoBancario(new Date(), pedido.getIdServico(), "Cartao de Debito", 500);
 
-            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, 1);
+            gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario);
             
 
         } catch (Exception e) {

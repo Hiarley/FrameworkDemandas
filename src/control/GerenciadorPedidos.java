@@ -9,9 +9,14 @@ import dao.DaoPedido;
 import dao.IDaoPedido;
 import domain.Demanda;
 import domain.FabricaNotificacao;
+import domain.GerarNotaFiscal;
+import domain.NotaFiscal;
+import domain.NotaFiscalBuilder;
 import instancia.estoque.Item;
 import domain.Pedido;
 import domain.Pagamento;
+import domain.Usuario;
+import domain.UsuarioCliente;
 import excecao.PedidoInvalidoException;
 import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
@@ -28,21 +33,26 @@ public class GerenciadorPedidos {
     private GerenciadorPagamento gerenciadorPagamento;
     private GerenciadorDemanda gerenciadorDemandas;
     private GerenciadorNotificao notificao;
+    private GerarNotaFiscal gerarNotaFiscal;
 
-    public GerenciadorPedidos(FabricaNotificacao fabricaNotificacao) {
+    public GerenciadorPedidos(FabricaNotificacao fabricaNotificacao, NotaFiscalBuilder notaFiscalBuilder) {
         daoPedido = DaoPedido.getInstance();
         gerenciadorPagamento = new GerenciadorPagamento();
         notificao = new GerenciadorNotificao(fabricaNotificacao);
+        gerarNotaFiscal = new GerarNotaFiscal(notaFiscalBuilder);
     }
 
-    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, int opcao) throws PedidoInvalidoException, ProdutoInvalidoException {
+    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario) throws PedidoInvalidoException, ProdutoInvalidoException {
 
         this.daoPedido.adicionarPedido(pedidos);
         if(pagamento != null){
         gerenciadorPagamento.cadastrarPagamento(pagamento);
         }
         notificao.NotificarInicio(pedidos);
-
+        NotaFiscal notaFiscal = gerarNotaFiscal.gerarNotaFiscal(pedidos, (UsuarioCliente) usuario, "asd");
+        notaFiscal.imprimir();
+        
+        
         if (pedidos.getListaProdutos().get(0) instanceof Item && pedidos.getListaProdutos() != null) {
             Item item;
             Item itemBanco;

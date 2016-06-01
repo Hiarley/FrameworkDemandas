@@ -38,7 +38,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque());
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoEstoque(), new NotaFiscalBuilderEstoque());
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoEstoque());
 

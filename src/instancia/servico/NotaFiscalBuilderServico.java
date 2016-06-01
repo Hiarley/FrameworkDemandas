@@ -51,7 +51,13 @@ public class NotaFiscalBuilderServico implements NotaFiscalBuilder{
 
     @Override
     public void buildValorTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int valorTotal = 0;
+        for (Demanda produto : demandas) {
+
+                Servico servico = (Servico) produto;
+                valorTotal += servico.getPreco();
+               
+        }
     }
 
     @Override

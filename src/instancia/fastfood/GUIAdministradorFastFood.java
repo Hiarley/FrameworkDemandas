@@ -40,7 +40,7 @@ public class GUIAdministradorFastFood implements GUIAdministrador {
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
     private GerenciadorDemanda gerenciadorDemanda = new GerenciadorDemanda();
     private GerenciadorClientes gerenciadorCliente = new GerenciadorClientes();
-    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoFastFood());
+    private GerenciadorPedidos gerenciadorPedidos = new GerenciadorPedidos(new FabricaNotificacaoFastFood(), new NotaFiscalBuilderFastFood());
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoFastFood());
 
