@@ -65,7 +65,7 @@ public class FabricaNotificacaoFastFood implements FabricaNotificacao {
     @Override
     public Notificacao criarNotificacaoAtualizarDemanda(Historico historico) {
         Pedido demanda = gerenciadorPedidos.getPedido(historico.getIdDemanda());
-        UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioDemandando());
+        UsuarioCliente usuarioCliente = gerenciadorCliente.getCliente(demanda.getIdUsuarioSolicitante());
         String mensagem = "";
         mensagem += "Olá, ";
         mensagem += usuarioCliente.getTelefone();

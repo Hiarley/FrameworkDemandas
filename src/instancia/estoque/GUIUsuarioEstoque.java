@@ -5,7 +5,6 @@
  */
 package instancia.estoque;
 
-import instancia.servico.*;
 import GUI.GUIUsuario;
 import control.GerenciadorClientes;
 import control.GerenciadorPedidos;
@@ -16,11 +15,13 @@ import domain.Historico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import excecao.HistoricoInvalidoException;
+import excecao.PedidoInvalidoException;
+import instancia.fastfood.GUIUsuarioFastFood;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -90,19 +91,41 @@ public class GUIUsuarioEstoque implements GUIUsuario {
 
     }
 
+    public void listarPedidos() {
+        List<Pedido> listPedido = gerenciadorPedido.listarPedidos();
+
+        for (Pedido pedido : listPedido) {
+
+            System.out.println("----------------------------------");
+            System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
+            System.out.println("Id Pedido: " + pedido.getIdServico());
+            System.out.println("Data: " + pedido.getDataAbertura());
+            System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
+            System.out.println("Descricao: " + pedido.getDescricao());
+            System.out.println("Status: " + pedido.getStatus());
+
+            System.out.println("----------------------------------");
+        }
+    }
 
     @Override
     public void analisarPedido(Usuario usuario) {
-        
-        System.out.println("Digite o IdDemanda: ");
-        long idDemanda = in.nextLong();
+        listarPedidos();
+        System.out.println("Digite o Id do Pedido: ");
+        long idDemanda = Long.parseLong(in.next());
         Pedido pedido = gerenciadorPedido.getPedido(idDemanda);
         pedido.setIdUsuarioDemandando(usuario.getId());
+        in.nextLine();
 
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
-
-        
+        System.out.println("Status: ");
+        char status = in.next().charAt(0);
+        try {
+            pedido.setStatus(status);
+        } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIUsuarioFastFood.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         try {
             gerenciadorHistorico.adicionarHistorico(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario));

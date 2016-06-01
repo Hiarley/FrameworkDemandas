@@ -98,7 +98,7 @@ public class GUIUsuarioFastFood implements GUIUsuario {
         for (Pedido pedido : listPedido) {
             System.out.println("----------------------------------");
             System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
-            System.out.println("IdDemanda: " + pedido.getIdServico());
+            System.out.println("Id Produto: " + pedido.getIdServico());
             System.out.println("Data: " + pedido.getDataAbertura());
             System.out.println("IdUsuarioDemandando: " + pedido.getIdUsuarioDemandando());
             System.out.println("Descricao: " + pedido.getDescricao());
@@ -109,10 +109,11 @@ public class GUIUsuarioFastFood implements GUIUsuario {
     @Override
     public void analisarPedido(Usuario usuario) {
         listarPedidos();
-        System.out.println("Digite o IdDemanda: ");
-        long idDemanda = in.nextLong();
+        System.out.println("Digite o Id do Pedido: ");
+        long idDemanda = Long.parseLong(in.next());
         Pedido pedido = gerenciadorPedido.getPedido(idDemanda);
         pedido.setIdUsuarioDemandando(usuario.getId());
+        in.nextLine();
 
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
