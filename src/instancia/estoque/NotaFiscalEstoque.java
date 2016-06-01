@@ -22,7 +22,21 @@ public class NotaFiscalEstoque extends NotaFiscal{
 
     @Override
     public void imprimir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        String nota = "------Nota Fiscal------" + "\n";
+        nota += getEmpresa() + "\n";
+        nota += "CNPJ: XX.XXX.XXX.XXXX-XX"+"\n";
+        nota += "---------------------------" + "\n";
+        nota += "ID da Nota:" + getCodigo() + "\n";
+        nota += "Nome do Cliente: " + getNomeCliente() + "\n";
+        nota += "Data de Faturamento: " + getDataFaturamento() + "\n";
+
+        nota += "Com o seguintes servicos: " + "\n";
+
+        for (Demanda produto : getDemandas()) {
+            Item item = (Item) produto;
+            nota += "IdProduto: " + item.getIdDemanda()+"-----";
+            nota += "Nome" + item.getNome()+"-----";
+            nota += "Preco: " + item.getPreco()+"\n";
+        }    }
     
 }

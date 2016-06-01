@@ -22,9 +22,10 @@ public class NotaFiscalServico extends NotaFiscal {
 
     @Override
     public void imprimir() {
-        String nota = "------Nota Fiscal------"+"\n";
-        nota += getEmpresa()+"\n";
-        nota += "---------------------------";
+        String nota = "------Nota Fiscal------" + "\n";
+        nota += getEmpresa() + "\n";
+        nota += "CNPJ: XX.XXX.XXX.XXXX-XX"+"\n";
+        nota += "---------------------------" + "\n";
         nota += "ID da Nota:" + getCodigo() + "\n";
         nota += "Nome do Cliente: " + getNomeCliente() + "\n";
         nota += "Data de Faturamento: " + getDataFaturamento() + "\n";
@@ -33,11 +34,9 @@ public class NotaFiscalServico extends NotaFiscal {
 
         for (Demanda produto : getDemandas()) {
             Servico servico = (Servico) produto;
-            nota += "Nome" + servico.getNome();
-            nota += "IdProduto: " + servico.getIdDemanda();
-            nota += "Preco: " + servico.getPreco();
-            nota += "Descricao: " + servico.getDescricao();
-            nota += "Prazo: " + servico.getPrazo();
+            nota += "IdProduto: " + servico.getIdDemanda()+"-----";
+            nota += "Nome" + servico.getNome()+"-----";
+            nota += "Preco: " + servico.getPreco()+"\n";
         }
     }
 
