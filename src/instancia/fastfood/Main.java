@@ -49,9 +49,9 @@ public class Main {
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
         UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
-        Demanda alimento = new Alimento("Subway", "Comida", "Baratissimo", 7, "Pão/carne/salada", "2");
-        Demanda alimento1 = new Alimento("Refrigerante", "Bebida", "Guaraná", 0.69, "Refrigerante de 500ml", "3");
-        Demanda alimento2 = new Alimento("Chiquinhos", "Sobremesa", "Milk Shake de Ovo Maltine", 9, "Sorvete, leite, ovomaltine", "1");
+        Demanda alimento = new Alimento("Subway", "Comida", "Baratissimo", 7, "Pão/carne/salada", new Date());
+        Demanda alimento1 = new Alimento("Refrigerante", "Bebida", "Guaraná", 0.69, "Refrigerante de 500ml", new Date());
+        Demanda alimento2 = new Alimento("Chiquinhos", "Sobremesa", "Milk Shake de Ovo Maltine", 9, "Sorvete, leite, ovomaltine", new Date());
         ArrayList<Demanda> listaProduto = new ArrayList<>();
         listaProduto.add(alimento);
         listaProduto.add(alimento2);

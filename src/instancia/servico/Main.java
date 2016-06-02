@@ -48,9 +48,9 @@ public class Main {
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
         UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
-        Demanda servico = new Servico("MicroInformatica LTDA", "Impressora", 200, "Conserto de Impressora/Troca de peças/Manutenção", "3");
-        Demanda servico1 = new Servico("MicroInformatica LTDA", "Computador", 100, "Manutenção/Limpesa/Formatação", "2");
-        Demanda servico2 = new Servico("MicroInformatica LTDA", "Roteadores", 50, "Instalação/Configuração/Consertos", "1");
+        Demanda servico = new Servico("MicroInformatica LTDA", "Impressora", 200, "Conserto de Impressora/Troca de peças/Manutenção", new Date());
+        Demanda servico1 = new Servico("MicroInformatica LTDA", "Computador", 100, "Manutenção/Limpesa/Formatação", new Date());
+        Demanda servico2 = new Servico("MicroInformatica LTDA", "Roteadores", 50, "Instalação/Configuração/Consertos", new Date());
         daoDemanda.adicionarDemanda(servico);
         daoDemanda.adicionarDemanda(servico1);
         daoDemanda.adicionarDemanda(servico2);

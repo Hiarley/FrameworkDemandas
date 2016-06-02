@@ -7,6 +7,7 @@ package instancia.fastfood;
 
 import domain.Demanda;
 import excecao.DemandaInvalidoException;
+import java.util.Date;
 
 /**
  * Será usado para fazer um builder.
@@ -20,8 +21,8 @@ public class Alimento extends Demanda{
     public Alimento() {
     }
 
-    public Alimento(String fornecedor, String tipoAlimento, String nome, double preco, String descricao, String prazo) {
-        super(nome, preco, descricao, prazo);
+    public Alimento(String fornecedor, String tipoAlimento, String nome, double preco, String descricao, Date date) {
+        super(nome, preco, descricao, date);
         this.fornecedor = fornecedor;
         this.tipoAlimento = tipoAlimento;
     }

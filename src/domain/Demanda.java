@@ -6,6 +6,7 @@
 package domain;
 
 import excecao.PedidoInvalidoException;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -14,22 +15,37 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public abstract class Demanda {
 
+    /**
+     * @return the count
+     */
+    public static AtomicInteger getCount() {
+        return count;
+    }
+
+    /**
+     * @param aCount the count to set
+     */
+    public static void setCount(AtomicInteger aCount) {
+        count = aCount;
+    }
+
     private long idDemanda;
     private String nome;
     private double preco;
     private String descricao;
-    private String prazo;
+    private Date prazo;
     private static AtomicInteger count = new AtomicInteger(0);
 
     public Demanda() {
     }
 
-    public Demanda(String nome, double preco, String descricao, String prazo) {
+    public Demanda(String nome, double preco, String descricao, Date date) {
         this.idDemanda = count.getAndIncrement();
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
-        this.prazo = prazo;
+        date.setMonth(date.getMonth() + 2);
+        this.prazo = date;
     }
 
     /**
@@ -101,23 +117,21 @@ public abstract class Demanda {
         this.descricao = descricao;
     }
 
+    
+    
+    public abstract boolean validar();
+
     /**
      * @return the prazo
      */
-    public String getPrazo() {
+    public Date getPrazo() {
         return prazo;
     }
 
     /**
      * @param prazo the prazo to set
      */
-    public void setPrazo(String prazo) throws PedidoInvalidoException {
-        if (!(prazo instanceof String)) {
-            throw new PedidoInvalidoException("Data invalida.");
-        }
-
+    public void setPrazo(Date prazo) {
         this.prazo = prazo;
     }
-    
-    public abstract boolean validar();
 }

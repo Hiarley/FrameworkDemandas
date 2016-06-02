@@ -79,11 +79,9 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         double preco = Double.parseDouble(in.nextLine());
         System.out.println("Descricao: ");
         String descricao = in.nextLine();
-        System.out.println("Prazo de validade: ");
-        String prazo = in.nextLine();
         
         try {
-            gerenciadorDemanda.cadastrarDemanda(new Item(quantidadeEmEstoque, nome, preco, descricao, prazo));
+            gerenciadorDemanda.cadastrarDemanda(new Item(quantidadeEmEstoque, nome, preco, descricao, new Date()));
         } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DemandaInvalidoException ex) {

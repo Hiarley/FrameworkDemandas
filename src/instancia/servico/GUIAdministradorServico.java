@@ -78,11 +78,10 @@ public class GUIAdministradorServico implements GUIAdministrador {
         double preco = Double.parseDouble(in.nextLine());
         System.out.println("Descricao: ");
         String descricao = in.nextLine();
-        System.out.println("Prazo de serviço: ");
-        String prazo = in.nextLine();
+
 
         try {
-            gerenciadorDemanda.cadastrarDemanda(new Servico(empresaFornecedora, nome, preco, descricao, prazo));
+            gerenciadorDemanda.cadastrarDemanda(new Servico(empresaFornecedora, nome, preco, descricao, new Date()));
         } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DemandaInvalidoException ex) {

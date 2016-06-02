@@ -7,6 +7,7 @@ package instancia.estoque;
 
 import domain.Demanda;
 import excecao.DemandaInvalidoException;
+import java.util.Date;
 
 /**
  * Será usado para fazer um builder.
@@ -20,8 +21,8 @@ public class Item extends Demanda{
     public Item() {
     }
 
-    public Item(int quantidadeEmEstoque, String nome, double preco, String descricao, String prazo) {
-        super( nome, preco, descricao, prazo);
+    public Item(int quantidadeEmEstoque, String nome, double preco, String descricao, Date date) {
+        super( nome, preco, descricao, date);
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
 

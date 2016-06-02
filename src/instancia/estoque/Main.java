@@ -48,9 +48,9 @@ public class Main {
         UsuarioPadrao usuarioPadrao1 = new UsuarioPadrao(false, "Thiago", "R. dos Lascados", "84 9 5254-6586", "thiago", "admin");
         UsuarioPadrao usuarioPadrao = new UsuarioPadrao(true, "Hiarley", "R. dos Lascados", "84 9 5236-5656", "admin", "admin");
         UsuarioCliente usuarioCliente = new UsuarioCliente("Joao", "Av. Professor não me reprova pelo amor de Deus", "84 9 9858-5256", "joao", "admin");
-        Demanda item = new Item(200, "Clip's", 0.10, "Prender papel", "9999");
-        Demanda item1 = new Item(5, "Toner de impressora", 37.5, "Tooner Compativel com TK-4054 TK-3453", "9999");
-        Demanda item2 = new Item(15, "Caneta", 0.9, "Caneta ponta 1.0", "9999");
+        Demanda item = new Item(200, "Clip's", 0.10, "Prender papel", new Date());
+        Demanda item1 = new Item(5, "Toner de impressora", 37.5, "Tooner Compativel com TK-4054 TK-3453", new Date());
+        Demanda item2 = new Item(15, "Caneta", 0.9, "Caneta ponta 1.0", new Date());
         daoDemanda.adicionarDemanda(item);
         daoDemanda.adicionarDemanda(item1);
         daoDemanda.adicionarDemanda(item2);
