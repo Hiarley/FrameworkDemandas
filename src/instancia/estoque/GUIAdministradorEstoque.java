@@ -20,6 +20,7 @@ import domain.UsuarioPadrao;
 import excecao.DemandaInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.HistoricoInvalidoException;
+import instancia.fastfood.GUIUsuarioFastFood;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -184,20 +185,28 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     @Override
     public void analisarPedido(Usuario usuario) {
-        System.out.println("Digite o IdDemanda: ");
-        long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorPedidos.getPedido(idDemanda);
-        demanda.setIdUsuarioDemandando(usuario.getId());
-        
+        listarPedidos();
+        System.out.println("Digite o Id do Pedido: ");
+        long idDemanda = Long.parseLong(in.next());
+        Pedido pedido = gerenciadorPedidos.getPedido(idDemanda);
+        pedido.setIdUsuarioDemandando(usuario.getId());
+        in.nextLine();
+
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
-        
-        
+        System.out.println("Status: ");
+        char status = in.next().charAt(0);
         try {
-            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
-            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
+            pedido.setStatus(status);
+        } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIUsuarioFastFood.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario));
+            gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario));
         } catch (HistoricoInvalidoException ex) {
-            Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIUsuarioEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

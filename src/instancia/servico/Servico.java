@@ -41,11 +41,11 @@ public class Servico extends Demanda{
 
     @Override
     public boolean validar() {
-        if(this.empresaFornecedora == "America")
+        if("America".equals(this.empresaFornecedora))
             return true;
-        else if(this.empresaFornecedora == "Coca-Cola")
+        else if("Coca-Cola".equals(this.empresaFornecedora))
             return true;
-        else if(this.empresaFornecedora == "MicroInformatica LTDA")
+        else if("MicroInformatica LTDA".equals(this.empresaFornecedora))
             return true;
         else
             return false;

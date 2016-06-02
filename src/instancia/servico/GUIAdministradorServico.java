@@ -119,7 +119,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
         
         while(it.hasNext()){
             UsuarioPadrao usuarioPadrao = it.next();
-            System.out.println("Administrador" + usuarioPadrao.isAdministrador());
+            System.out.println("Administrador: " + usuarioPadrao.isAdministrador());
             System.out.println("Id: " + usuarioPadrao.getId());
             System.out.println("Nome: " + usuarioPadrao.getNome());
             System.out.println("Endereço: " + usuarioPadrao.getEndereco());
@@ -184,19 +184,31 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void analisarPedido(Usuario usuario) {
-        System.out.println("Digite o IdDemanda: ");
-        long idDemanda = in.nextLong();
-        Pedido demanda = gerenciadorPedidos.getPedido(idDemanda);
-        demanda.setIdUsuarioDemandando(usuario.getId());
+        listarPedidos();
         
+        System.out.println("Digite o IdDemanda: ");
+        long idDemanda = Long.parseLong(in.next());
+        Pedido pedido = gerenciadorPedidos.getPedido(idDemanda);
+        pedido.setIdUsuarioDemandando(usuario.getId());
+        in.nextLine();
         System.out.println("Descreva o historico: ");
         String descricao = in.nextLine();
-              
+        System.out.println("Status: ");
+        char status = in.next().charAt(0);
         try {
-            gerenciadorHistoricos.adicionarHistorico(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
-            //gerenciadorNotificacao.NotificarAtualizacao(new Historico(idDemanda, demanda.getIdUsuarioDemandando(), new Date(), descricao, usuario));
+            pedido.setStatus(status);
+        } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIUsuarioServico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Historico historico = new Historico(idDemanda, pedido.getIdUsuarioDemandando(), new Date(), descricao, usuario);
+
+        gerenciadorNotificacao.NotificarAtualizacao(historico);
+
+        try {
+            gerenciadorHistoricos.adicionarHistorico(historico);
         } catch (HistoricoInvalidoException ex) {
-            Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIUsuarioServico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
