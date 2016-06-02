@@ -6,8 +6,7 @@
 package instancia.estoque;
 
 import domain.Demanda;
-import excecao.ProdutoInvalidoException;
-import java.util.Date;
+import excecao.DemandaInvalidoException;
 
 /**
  * Será usado para fazer um builder.
@@ -36,8 +35,8 @@ public class Item extends Demanda{
     /**
      * @param quantidadeEmEstoque the quantidadeEmEstoque to set
      */
-    public void setQuantidadeEmEstoque(int quantidadeEmEstoque) throws ProdutoInvalidoException {
-        if(quantidadeEmEstoque < 0) throw new ProdutoInvalidoException("Quantidade invalida.");
+    public void setQuantidadeEmEstoque(int quantidadeEmEstoque) throws DemandaInvalidoException {
+        if(quantidadeEmEstoque < 0) throw new DemandaInvalidoException("Quantidade invalida.");
         else if(quantidadeEmEstoque == 0){
             setDisponivel(false);
         }

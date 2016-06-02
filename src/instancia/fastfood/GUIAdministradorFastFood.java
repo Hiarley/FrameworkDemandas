@@ -5,7 +5,6 @@
  */
 package instancia.fastfood;
 
-import instancia.estoque.*;
 import GUI.GUIAdministrador;
 import control.GerenciadorClientes;
 import control.GerenciadorPedidos;
@@ -15,11 +14,10 @@ import control.GerenciadorDemanda;
 import control.GerenciadorUsuarios;
 import domain.Pedido;
 import domain.Historico;
-import instancia.estoque.Item;
-import instancia.servico.Servico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
+import excecao.DemandaInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
@@ -89,6 +87,8 @@ public class GUIAdministradorFastFood implements GUIAdministrador {
         try {
             gerenciadorDemanda.cadastrarDemanda(new Alimento(fornecedor, tipoAlimento, nome, preco, descricao, prazo));
         } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIAdministradorFastFood.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DemandaInvalidoException ex) {
             Logger.getLogger(GUIAdministradorFastFood.class.getName()).log(Level.SEVERE, null, ex);
         }
             

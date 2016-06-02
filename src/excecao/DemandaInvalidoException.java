@@ -9,11 +9,11 @@ package excecao;
  *
  * @author hiarl
  */
-public class ProdutoInvalidoException extends Exception{
+public class DemandaInvalidoException extends Exception{
     
     private static final long serialVersionUID = 1L;
 
-    public ProdutoInvalidoException(String message) {
+    public DemandaInvalidoException(String message) {
         super(message);
     }
 }

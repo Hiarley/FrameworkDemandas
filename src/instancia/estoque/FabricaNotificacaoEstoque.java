@@ -5,16 +5,13 @@
  */
 package instancia.estoque;
 
-import instancia.servico.*;
 import control.GerenciadorClientes;
 import control.GerenciadorPedidos;
 import domain.Pedido;
 import domain.FabricaNotificacao;
 import domain.Historico;
-import instancia.servico.NotificaSMS;
 import domain.Notificacao;
 import domain.Demanda;
-import instancia.servico.Servico;
 import domain.UsuarioCliente;
 import java.util.List;
 

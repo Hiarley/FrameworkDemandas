@@ -6,7 +6,6 @@
 package dao;
 
 import domain.UsuarioCliente;
-import domain.UsuarioCliente;
 import java.util.ArrayList;
 
 /**

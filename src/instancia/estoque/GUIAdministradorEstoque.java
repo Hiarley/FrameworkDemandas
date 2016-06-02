@@ -14,10 +14,10 @@ import control.GerenciadorDemanda;
 import control.GerenciadorUsuarios;
 import domain.Pedido;
 import domain.Historico;
-import instancia.servico.Servico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
+import excecao.DemandaInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
@@ -84,6 +84,8 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         try {
             gerenciadorDemanda.cadastrarDemanda(new Item(quantidadeEmEstoque, nome, preco, descricao, prazo));
         } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DemandaInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
             

@@ -6,7 +6,7 @@
 package instancia.servico;
 
 import domain.Demanda;
-import excecao.ProdutoInvalidoException;
+import excecao.DemandaInvalidoException;
 
 /**
  * Será usado para fazer um builder.
@@ -34,8 +34,8 @@ public class Servico extends Demanda{
     /**
      * @param empresaFornecedora the empresaFornecedora to set
      */
-    public void setEmpresaFornecedora(String empresaFornecedora) throws ProdutoInvalidoException {
-        if(!(empresaFornecedora instanceof String)) throw new ProdutoInvalidoException("Invalido!");
+    public void setEmpresaFornecedora(String empresaFornecedora) throws DemandaInvalidoException {
+        if(!(empresaFornecedora instanceof String)) throw new DemandaInvalidoException("Invalido!");
         this.empresaFornecedora = empresaFornecedora;
     }
 
@@ -45,7 +45,7 @@ public class Servico extends Demanda{
             return true;
         else if(this.empresaFornecedora == "Coca-Cola")
             return true;
-        else if(this.empresaFornecedora == "America")
+        else if(this.empresaFornecedora == "MicroInformatica LTDA")
             return true;
         else
             return false;

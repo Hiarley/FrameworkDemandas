@@ -17,12 +17,10 @@ import domain.Pedido;
 import domain.Pagamento;
 import domain.Usuario;
 import domain.UsuarioCliente;
+import excecao.DemandaInvalidoException;
 import excecao.PagamentoInvalidoException;
 import excecao.PedidoInvalidoException;
-import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
-import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +41,7 @@ public class GerenciadorPedidos {
         gerarNotaFiscal = new GerarNotaFiscal(notaFiscalBuilder);
     }
 
-    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario, String empresa) throws PedidoInvalidoException, ProdutoInvalidoException, PagamentoInvalidoException {
+    public void cadastrarPedidos(Pedido pedidos, Pagamento pagamento, Usuario usuario, String empresa) throws PedidoInvalidoException, DemandaInvalidoException, PagamentoInvalidoException {
 
         this.daoPedido.adicionarPedido(pedidos);
         if(pagamento != null){

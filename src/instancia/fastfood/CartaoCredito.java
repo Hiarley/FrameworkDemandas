@@ -88,7 +88,7 @@ public class CartaoCredito extends Pagamento {
 
     @Override
     public boolean validar() {
-        if ((((int) Math.log10(getNumeroCartao()) + 1) == 6) || (((int) Math.log10(getCodigoSeguranca()) + 1) != 3)) {
+        if (((int) Math.log10(getNumeroCartao()) + 1) == 6) {
             return false;
         } else {
             return true;

@@ -8,9 +8,7 @@ package control;
 import dao.DaoUsuarioCliente;
 import dao.IDaoUsuarioCliente;
 import domain.UsuarioCliente;
-import domain.UsuarioPadrao;
 import excecao.ClienteInvalidoException;
-import excecao.UsuarioInvalidoException;
 import java.util.ArrayList;
 
 /**

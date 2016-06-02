@@ -17,6 +17,7 @@ import domain.Historico;
 import domain.Usuario;
 import domain.UsuarioCliente;
 import domain.UsuarioPadrao;
+import excecao.DemandaInvalidoException;
 import excecao.PedidoInvalidoException;
 import excecao.HistoricoInvalidoException;
 import java.util.ArrayList;
@@ -83,6 +84,8 @@ public class GUIAdministradorServico implements GUIAdministrador {
         try {
             gerenciadorDemanda.cadastrarDemanda(new Servico(empresaFornecedora, nome, preco, descricao, prazo));
         } catch (PedidoInvalidoException ex) {
+            Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DemandaInvalidoException ex) {
             Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
         }
             

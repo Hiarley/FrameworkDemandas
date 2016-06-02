@@ -5,7 +5,6 @@
  */
 package instancia.estoque;
 
-import instancia.servico.*;
 import GUI.GUIAdministrador;
 import GUI.GUICliente;
 import GUI.GUIInicial;

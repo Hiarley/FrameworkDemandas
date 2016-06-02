@@ -5,7 +5,6 @@
  */
 package dao;
 
-import domain.UsuarioCliente;
 import domain.Demanda;
 import java.util.ArrayList;
 import java.util.HashSet;

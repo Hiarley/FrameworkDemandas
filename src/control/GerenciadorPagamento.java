@@ -26,9 +26,11 @@ public class GerenciadorPagamento {
 
     public void cadastrarPagamento(Pagamento pagamento) throws PagamentoInvalidoException {
         if (!pagamento.validar()) {
-            throw new PagamentoInvalidoException("Pagamento não efetuado, verifique seus dados");
+            this.daoPagamento.adicionarPagamento(pagamento);
         }
-        this.daoPagamento.adicionarPagamento(pagamento);
+        else
+            throw new PagamentoInvalidoException("Pagamento não efetuado, verifique seus dados");
+        
 
     }
 

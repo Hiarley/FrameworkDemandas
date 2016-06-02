@@ -6,7 +6,6 @@
 package domain;
 
 import excecao.ClienteInvalidoException;
-import java.util.ArrayList;
 
 /**
  *

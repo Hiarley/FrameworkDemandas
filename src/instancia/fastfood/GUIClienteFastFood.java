@@ -14,9 +14,9 @@ import domain.Pedido;
 import domain.Demanda;
 import domain.Pagamento;
 import domain.Usuario;
+import excecao.DemandaInvalidoException;
 import excecao.PagamentoInvalidoException;
 import excecao.PedidoInvalidoException;
-import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +62,7 @@ public class GUIClienteFastFood implements GUICliente {
         pagamento.calcularPagamento(listaProdutos);
         try {
             gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario, "Fast Food");
-        } catch (PedidoInvalidoException | ProdutoInvalidoException | PagamentoInvalidoException ex) {
+        } catch (PedidoInvalidoException | DemandaInvalidoException | PagamentoInvalidoException ex) {
             Logger.getLogger(GUIClienteFastFood.class.getName()).log(Level.SEVERE, null, ex);
         }
 

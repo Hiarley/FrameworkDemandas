@@ -13,9 +13,9 @@ import domain.Pedido;
 import domain.Pagamento;
 import domain.Demanda;
 import domain.Usuario;
+import excecao.DemandaInvalidoException;
 import excecao.PagamentoInvalidoException;
 import excecao.PedidoInvalidoException;
-import excecao.ProdutoInvalidoException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -51,7 +51,7 @@ public class GUIClienteServico implements GUICliente {
             long id = in.nextLong();
             listaProdutos.add(gerenciadorDemanda.getDemanda(id));
         }
-        System.out.println("Numero do Cartao");
+        System.out.println("Numero do Cartao(6 digitos): ");
         long numeroCartao = in.nextLong();
 
         System.out.println("Banco");
@@ -64,7 +64,7 @@ public class GUIClienteServico implements GUICliente {
             gerenciadorPedidos.cadastrarPedidos(pedido, pagamento, usuario, "Servico");
         } catch (PedidoInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ProdutoInvalidoException ex) {
+        } catch (DemandaInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);
         } catch (PagamentoInvalidoException ex) {
             Logger.getLogger(GUIClienteServico.class.getName()).log(Level.SEVERE, null, ex);

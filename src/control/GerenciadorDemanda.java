@@ -8,7 +8,7 @@ package control;
 import dao.DaoDemanda;
 import dao.IDaoDemanda;
 import domain.Demanda;
-import domain.UsuarioPadrao;
+import excecao.DemandaInvalidoException;
 import excecao.PedidoInvalidoException;
 import java.util.ArrayList;
 
@@ -24,10 +24,12 @@ public class GerenciadorDemanda {
         daoDemanda = DaoDemanda.getInstance();
     }
 
-    public void cadastrarDemanda(Demanda demanda) throws PedidoInvalidoException {
+    public void cadastrarDemanda(Demanda demanda) throws PedidoInvalidoException, DemandaInvalidoException {
         if (validarDemanda(demanda) && demanda.validar()) {
             this.daoDemanda.adicionarDemanda(demanda);
         }
+        else
+            throw new DemandaInvalidoException("Demanda não cadastrada, verifique seus dados");
     }
 
     public void removerDemanda(Demanda demanda) {

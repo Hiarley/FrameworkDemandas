@@ -66,7 +66,7 @@ public class CartaoDebito extends Pagamento {
 
     @Override
     public boolean validar() {
-        if (((int) Math.log10(getNumeroCartao()) + 1) < 6) {
+        if (((int) Math.log10(getNumeroCartao()) + 1) == 6) {
             return false;
         } else {
             return true;
