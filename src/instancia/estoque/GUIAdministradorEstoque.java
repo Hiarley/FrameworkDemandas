@@ -43,11 +43,10 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoEstoque());
 
-
     @Override
     public void cadastrarUsuario() {
         try {
-           
+
             System.out.println("---------- Cadastrar Usuario----------");
             System.out.print("Nome: ");
             String nome = in.next();
@@ -61,7 +60,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             String senha = in.next();
             System.out.print("Administrador: ");
             boolean administrador = in.nextBoolean();
-            
+
             gerenciadorUsuarios.cadastrarUsuario(new UsuarioPadrao(administrador, nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
@@ -71,7 +70,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
 
     @Override
     public void cadastrarProdutos() {
-        System.out.println("Nome do Produto: " );
+        System.out.println("Nome do Produto: ");
         String nome = in.nextLine();
         System.out.println("Quantidade em Estoque: ");
         int quantidadeEmEstoque = in.nextInt();
@@ -79,7 +78,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         double preco = Double.parseDouble(in.nextLine());
         System.out.println("Descricao: ");
         String descricao = in.nextLine();
-        
+
         try {
             gerenciadorDemanda.cadastrarDemanda(new Item(quantidadeEmEstoque, nome, preco, descricao, new Date()));
         } catch (PedidoInvalidoException ex) {
@@ -87,8 +86,7 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         } catch (DemandaInvalidoException ex) {
             Logger.getLogger(GUIAdministradorEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-        
+
     }
 
     @Override
@@ -115,27 +113,28 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
         try {
             ArrayList<UsuarioPadrao> listUsuario = gerenciadorUsuarios.listarUsuarios();
             Iterator<UsuarioPadrao> it = listUsuario.iterator();
-        
-        while(it.hasNext()){
-            UsuarioPadrao usuarioPadrao = it.next();
-            System.out.println("Administrador" + usuarioPadrao.isAdministrador());
-            System.out.println("Id: " + usuarioPadrao.getId());
-            System.out.println("Nome: " + usuarioPadrao.getNome());
-            System.out.println("Endereço: " + usuarioPadrao.getEndereco());
-            System.out.println("Telefone: " + usuarioPadrao.getTelefone());
-            System.out.println("Login: " + usuarioPadrao.getLogin());
-            System.out.println("Senha: " + usuarioPadrao.getSenha());
-        }
+
+            while (it.hasNext()) {
+                UsuarioPadrao usuarioPadrao = it.next();
+                System.out.println("---------------------------------------");
+
+                System.out.println("Administrador" + usuarioPadrao.isAdministrador());
+                System.out.println("Id: " + usuarioPadrao.getId());
+                System.out.println("Nome: " + usuarioPadrao.getNome());
+                System.out.println("Endereço: " + usuarioPadrao.getEndereco());
+                System.out.println("Telefone: " + usuarioPadrao.getTelefone());
+                System.out.println("Login: " + usuarioPadrao.getLogin());
+                System.out.println("Senha: " + usuarioPadrao.getSenha());
+            }
         } catch (Exception e) {
         }
-    
-    }
 
+    }
 
     @Override
     public void cadastrarCliente() {
         try {
-           
+
             System.out.println("---------- Cadastrar Cliente----------");
             System.out.println("Nome: ");
             String nome = in.next();
@@ -147,8 +146,8 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             String login = in.next();
             System.out.println("Senha: ");
             String senha = in.next();
-            
-            gerenciadorCliente.cadastrarCliente(new UsuarioCliente( nome, setor, telefone, login, senha));
+
+            gerenciadorCliente.cadastrarCliente(new UsuarioCliente(nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
         }
@@ -170,9 +169,11 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
     public void listarCliente() {
         ArrayList<UsuarioCliente> listUsuario = gerenciadorCliente.listarClientes();
         Iterator<UsuarioCliente> it = listUsuario.iterator();
-        
-        while(it.hasNext()){
+
+        while (it.hasNext()) {
             UsuarioCliente usuarioCliente = it.next();
+            System.out.println("---------------------------------------");
+            System.out.println("ID:" + usuarioCliente.getId());
             System.out.println("Nome: " + usuarioCliente.getNome());
             System.out.println("Endereço: " + usuarioCliente.getEndereco());
             System.out.println("Telefone: " + usuarioCliente.getTelefone());
@@ -207,14 +208,15 @@ public class GUIAdministradorEstoque implements GUIAdministrador {
             Logger.getLogger(GUIUsuarioEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
-    public void listarPedidos(){
-        
+    public void listarPedidos() {
+
         List<Pedido> listPedido = gerenciadorPedidos.listarPedidos();
-        
-        for(Pedido demanda : listPedido){
-    
+
+        for (Pedido demanda : listPedido) {
+            System.out.println("---------------------------------------");
+
             System.out.println("IdUsuarioSolicitante: " + demanda.getIdUsuarioSolicitante());
             System.out.println("IdDemanda: " + demanda.getIdServico());
             System.out.println("Data: " + demanda.getDataAbertura());

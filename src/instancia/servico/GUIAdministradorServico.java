@@ -42,11 +42,10 @@ public class GUIAdministradorServico implements GUIAdministrador {
     private GerenciadorHistoricos gerenciadorHistoricos = new GerenciadorHistoricos();
     private GerenciadorNotificao gerenciadorNotificacao = new GerenciadorNotificao(new FabricaNotificacaoServico());
 
-
     @Override
     public void cadastrarUsuario() {
         try {
-           
+
             System.out.println("---------- Cadastrar Usuario----------");
             System.out.print("Nome: ");
             String nome = in.next();
@@ -60,7 +59,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
             String senha = in.next();
             System.out.print("Administrador: ");
             boolean administrador = in.nextBoolean();
-           
+
             gerenciadorUsuarios.cadastrarUsuario(new UsuarioPadrao(administrador, nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
@@ -70,7 +69,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
 
     @Override
     public void cadastrarProdutos() {
-        System.out.println("Tipo Serviço:" );
+        System.out.println("Tipo Serviço:");
         String nome = in.nextLine();
         System.out.println("Empresa Fornecedora: ");
         String empresaFornecedora = in.nextLine();
@@ -79,7 +78,6 @@ public class GUIAdministradorServico implements GUIAdministrador {
         System.out.println("Descricao: ");
         String descricao = in.nextLine();
 
-
         try {
             gerenciadorDemanda.cadastrarDemanda(new Servico(empresaFornecedora, nome, preco, descricao, new Date()));
         } catch (PedidoInvalidoException ex) {
@@ -87,8 +85,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
         } catch (DemandaInvalidoException ex) {
             Logger.getLogger(GUIAdministradorServico.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-        
+
     }
 
     @Override
@@ -115,27 +112,27 @@ public class GUIAdministradorServico implements GUIAdministrador {
         try {
             ArrayList<UsuarioPadrao> listUsuario = gerenciadorUsuarios.listarUsuarios();
             Iterator<UsuarioPadrao> it = listUsuario.iterator();
-        
-        while(it.hasNext()){
-            UsuarioPadrao usuarioPadrao = it.next();
-            System.out.println("Administrador: " + usuarioPadrao.isAdministrador());
-            System.out.println("Id: " + usuarioPadrao.getId());
-            System.out.println("Nome: " + usuarioPadrao.getNome());
-            System.out.println("Endereço: " + usuarioPadrao.getEndereco());
-            System.out.println("Telefone: " + usuarioPadrao.getTelefone());
-            System.out.println("Login: " + usuarioPadrao.getLogin());
-            System.out.println("Senha: " + usuarioPadrao.getSenha());
-        }
+
+            while (it.hasNext()) {
+                UsuarioPadrao usuarioPadrao = it.next();
+                System.out.println("---------------------------------------");
+                System.out.println("Administrador: " + usuarioPadrao.isAdministrador());
+                System.out.println("Id: " + usuarioPadrao.getId());
+                System.out.println("Nome: " + usuarioPadrao.getNome());
+                System.out.println("Endereço: " + usuarioPadrao.getEndereco());
+                System.out.println("Telefone: " + usuarioPadrao.getTelefone());
+                System.out.println("Login: " + usuarioPadrao.getLogin());
+                System.out.println("Senha: " + usuarioPadrao.getSenha());
+            }
         } catch (Exception e) {
         }
-    
-    }
 
+    }
 
     @Override
     public void cadastrarCliente() {
         try {
-           
+
             System.out.println("---------- Cadastrar Cliente----------");
             System.out.println("Nome: ");
             String nome = in.next();
@@ -147,8 +144,8 @@ public class GUIAdministradorServico implements GUIAdministrador {
             String login = in.next();
             System.out.println("Senha: ");
             String senha = in.next();
-            
-            gerenciadorCliente.cadastrarCliente(new UsuarioCliente( nome, setor, telefone, login, senha));
+
+            gerenciadorCliente.cadastrarCliente(new UsuarioCliente(nome, setor, telefone, login, senha));
         } catch (Exception e) {
 
         }
@@ -170,9 +167,11 @@ public class GUIAdministradorServico implements GUIAdministrador {
     public void listarCliente() {
         ArrayList<UsuarioCliente> listUsuario = gerenciadorCliente.listarClientes();
         Iterator<UsuarioCliente> it = listUsuario.iterator();
-        
-        while(it.hasNext()){
+
+        while (it.hasNext()) {
             UsuarioCliente usuarioCliente = it.next();
+            System.out.println("---------------------------------------");
+            System.out.println("ID: " + usuarioCliente.getId());
             System.out.println("Nome: " + usuarioCliente.getNome());
             System.out.println("Endereço: " + usuarioCliente.getEndereco());
             System.out.println("Telefone: " + usuarioCliente.getTelefone());
@@ -184,7 +183,7 @@ public class GUIAdministradorServico implements GUIAdministrador {
     @Override
     public void analisarPedido(Usuario usuario) {
         listarPedidos();
-        
+
         System.out.println("Digite o IdDemanda: ");
         long idDemanda = Long.parseLong(in.next());
         Pedido pedido = gerenciadorPedidos.getPedido(idDemanda);
@@ -210,14 +209,14 @@ public class GUIAdministradorServico implements GUIAdministrador {
             Logger.getLogger(GUIUsuarioServico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
-    public void listarPedidos(){
-        
+    public void listarPedidos() {
+
         List<Pedido> listPedido = gerenciadorPedidos.listarPedidos();
-        
-        for(Pedido pedido : listPedido){
-    
+
+        for (Pedido pedido : listPedido) {
+            System.out.println("---------------------------------------");
             System.out.println("IdUsuarioSolicitante: " + pedido.getIdUsuarioSolicitante());
             System.out.println("IdDemanda: " + pedido.getIdServico());
             System.out.println("Data: " + pedido.getDataAbertura());
